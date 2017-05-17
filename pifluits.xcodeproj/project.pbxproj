@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */; };
+		DEB790DB1EC7F12F004FE1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB790DA1EC7F12F004FE1DA /* AppDelegate.swift */; };
+		DEB790DD1EC7F12F004FE1DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB790DC1EC7F12F004FE1DA /* ViewController.swift */; };
+		DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB790DE1EC7F12F004FE1DA /* Main.storyboard */; };
+		DEB790E31EC7F12F004FE1DA /* pifluits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */; };
+		DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB790E41EC7F12F004FE1DA /* Assets.xcassets */; };
+		DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */; };
+		DEB790F21EC80FC4004FE1DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEB790F11EC80FC4004FE1DA /* GoogleService-Info.plist */; };
+		DEB790F41EC851FC004FE1DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB790F31EC851FB004FE1DA /* LoginViewController.swift */; };
+		DED9AFDD1ECAD2EF00601606 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFDC1ECAD2EF00601606 /* RegisterViewController.swift */; };
+		DED9AFDF1ECAFFC700601606 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFDE1ECAFFC700601606 /* HomeViewController.swift */; };
+		DED9AFE11ECAFFF600601606 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE01ECAFFF600601606 /* ChatViewController.swift */; };
+		DED9AFE31ECB000600601606 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE21ECB000600601606 /* GraphViewController.swift */; };
+		DED9AFE51ECB002800601606 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE41ECB002800601606 /* CameraViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		003A963B03621A266672C7E7 /* Pods-pifluits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.debug.xcconfig"; sourceTree = "<group>"; };
+		A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pifluits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72E6FF53CF18378169418E5 /* Pods-pifluits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.release.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.release.xcconfig"; sourceTree = "<group>"; };
+		DEB790D71EC7F12F004FE1DA /* pifluits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pifluits.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB790DA1EC7F12F004FE1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DEB790DC1EC7F12F004FE1DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DEB790DF1EC7F12F004FE1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DEB790E21EC7F12F004FE1DA /* pifluits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pifluits.xcdatamodel; sourceTree = "<group>"; };
+		DEB790E41EC7F12F004FE1DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DEB790E71EC7F12F004FE1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DEB790E91EC7F12F004FE1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEB790F11EC80FC4004FE1DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DEB790F31EC851FB004FE1DA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DED9AFDC1ECAD2EF00601606 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DED9AFDE1ECAFFC700601606 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DED9AFE01ECAFFF600601606 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		DED9AFE21ECB000600601606 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		DED9AFE41ECB002800601606 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DEB790D41EC7F12F004FE1DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02DC3752818033299DCB9EF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB70CCBFF333DB1CA33172C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				003A963B03621A266672C7E7 /* Pods-pifluits.debug.xcconfig */,
+				C72E6FF53CF18378169418E5 /* Pods-pifluits.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DEB790CE1EC7F12E004FE1DA = {
+			isa = PBXGroup;
+			children = (
+				DEB790D91EC7F12F004FE1DA /* pifluits */,
+				DEB790D81EC7F12F004FE1DA /* Products */,
+				CB70CCBFF333DB1CA33172C1 /* Pods */,
+				02DC3752818033299DCB9EF6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DEB790D81EC7F12F004FE1DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEB790D71EC7F12F004FE1DA /* pifluits.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEB790D91EC7F12F004FE1DA /* pifluits */ = {
+			isa = PBXGroup;
+			children = (
+				DEB790DA1EC7F12F004FE1DA /* AppDelegate.swift */,
+				DEB790DC1EC7F12F004FE1DA /* ViewController.swift */,
+				DEB790F31EC851FB004FE1DA /* LoginViewController.swift */,
+				DED9AFDC1ECAD2EF00601606 /* RegisterViewController.swift */,
+				DED9AFDE1ECAFFC700601606 /* HomeViewController.swift */,
+				DED9AFE01ECAFFF600601606 /* ChatViewController.swift */,
+				DED9AFE21ECB000600601606 /* GraphViewController.swift */,
+				DED9AFE41ECB002800601606 /* CameraViewController.swift */,
+				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
+				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
+				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
+				DEB790F11EC80FC4004FE1DA /* GoogleService-Info.plist */,
+				DEB790E91EC7F12F004FE1DA /* Info.plist */,
+				DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */,
+			);
+			path = pifluits;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DEB790D61EC7F12F004FE1DA /* pifluits */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEB790EC1EC7F12F004FE1DA /* Build configuration list for PBXNativeTarget "pifluits" */;
+			buildPhases = (
+				F4D83CCDDAE83F105CC91E5F /* [CP] Check Pods Manifest.lock */,
+				DEB790D31EC7F12F004FE1DA /* Sources */,
+				DEB790D41EC7F12F004FE1DA /* Frameworks */,
+				DEB790D51EC7F12F004FE1DA /* Resources */,
+				9A04A5514FB546D984E99A75 /* [CP] Embed Pods Frameworks */,
+				59120912D99A6A77E0C73F0F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pifluits;
+			productName = pifluits;
+			productReference = DEB790D71EC7F12F004FE1DA /* pifluits.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DEB790CF1EC7F12F004FE1DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = yumiH;
+				TargetAttributes = {
+					DEB790D61EC7F12F004FE1DA = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = V4HHTE5HWR;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DEB790D21EC7F12F004FE1DA /* Build configuration list for PBXProject "pifluits" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DEB790CE1EC7F12E004FE1DA;
+			productRefGroup = DEB790D81EC7F12F004FE1DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DEB790D61EC7F12F004FE1DA /* pifluits */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DEB790D51EC7F12F004FE1DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */,
+				DEB790F21EC80FC4004FE1DA /* GoogleService-Info.plist in Resources */,
+				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
+				DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59120912D99A6A77E0C73F0F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pifluits/Pods-pifluits-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A04A5514FB546D984E99A75 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pifluits/Pods-pifluits-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4D83CCDDAE83F105CC91E5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DEB790D31EC7F12F004FE1DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEB790F41EC851FC004FE1DA /* LoginViewController.swift in Sources */,
+				DED9AFDD1ECAD2EF00601606 /* RegisterViewController.swift in Sources */,
+				DEB790E31EC7F12F004FE1DA /* pifluits.xcdatamodeld in Sources */,
+				DED9AFE11ECAFFF600601606 /* ChatViewController.swift in Sources */,
+				DEB790DD1EC7F12F004FE1DA /* ViewController.swift in Sources */,
+				DED9AFE31ECB000600601606 /* GraphViewController.swift in Sources */,
+				DEB790DB1EC7F12F004FE1DA /* AppDelegate.swift in Sources */,
+				DED9AFDF1ECAFFC700601606 /* HomeViewController.swift in Sources */,
+				DED9AFE51ECB002800601606 /* CameraViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DEB790DE1EC7F12F004FE1DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEB790DF1EC7F12F004FE1DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEB790E71EC7F12F004FE1DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DEB790EA1EC7F12F004FE1DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DEB790EB1EC7F12F004FE1DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DEB790ED1EC7F12F004FE1DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 003A963B03621A266672C7E7 /* Pods-pifluits.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V4HHTE5HWR;
+				INFOPLIST_FILE = pifluits/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yumiH.edu.pifluits;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DEB790EE1EC7F12F004FE1DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C72E6FF53CF18378169418E5 /* Pods-pifluits.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = V4HHTE5HWR;
+				INFOPLIST_FILE = pifluits/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yumiH.edu.pifluits;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DEB790D21EC7F12F004FE1DA /* Build configuration list for PBXProject "pifluits" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEB790EA1EC7F12F004FE1DA /* Debug */,
+				DEB790EB1EC7F12F004FE1DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEB790EC1EC7F12F004FE1DA /* Build configuration list for PBXNativeTarget "pifluits" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEB790ED1EC7F12F004FE1DA /* Debug */,
+				DEB790EE1EC7F12F004FE1DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DEB790E21EC7F12F004FE1DA /* pifluits.xcdatamodel */,
+			);
+			currentVersion = DEB790E21EC7F12F004FE1DA /* pifluits.xcdatamodel */;
+			path = pifluits.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DEB790CF1EC7F12F004FE1DA /* Project object */;
+}

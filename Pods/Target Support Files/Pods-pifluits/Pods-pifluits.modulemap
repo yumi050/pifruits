@@ -1,0 +1,6 @@
+framework module Pods_pifluits {
+  umbrella header "Pods-pifluits-umbrella.h"
+
+  export *
+  module * { export * }
+}
