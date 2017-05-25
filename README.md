@@ -13,10 +13,10 @@
 ## Features(実現したいアプリ機能)
 
 1. センサの値を取得し、アプリ画面上にグラフ表示する
-- temperature
-- humidity
-- Soil Moisture (土壌水分)
-- UV light
+    - temperature
+    - humidity
+    - Soil Moisture (土壌水分)
+    - UV light
 
 
 2. センサの値が基準を逸脱した場合、チャット機能で通知が送られる
