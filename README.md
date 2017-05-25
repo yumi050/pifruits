@@ -1,7 +1,7 @@
 # (仮アプリ名) pifruits
 
 
-## Description(アプリの詳細)
+## Description (アプリの詳細)
 
 **IOT機器（raspberry pi/Arduino）と連携した植物管理アプリ（iOS)**
 
@@ -10,7 +10,7 @@
 
 
 
-## Features(実現したいアプリ機能)
+## Features (実現したいアプリ機能)
 
 1. センサの値を取得し、アプリ画面上にグラフ表示する
     - temperature
