@@ -15,7 +15,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
   
 
  
-  @IBOutlet var idTextField: UITextField!
+
+  @IBOutlet var userTextField: UITextField!
   
   @IBOutlet var emailTextField: UITextField!
   
@@ -27,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    idTextField.delegate = self //デリゲートをセット
+    userTextField.delegate = self //デリゲートをセット
     emailTextField.delegate = self //デリゲートをセット
     passwordTextField.delegate = self //デリゲートをセット
     passwordTextField.isSecureTextEntry = true // 文字を非表示に
@@ -51,7 +52,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
   }
 
   //ログイン画面への遷移ボタン
- 
   @IBAction func loginButton(_ sender: Any) {
     transitionToLogin()
   }
@@ -82,7 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //FIRAuth.auth()?.createUserWithEmailでサインアップ
     //第一引数にEmail、第二引数にパスワード
-    FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+    Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
       //エラーなしなら、認証完了
       if error == nil {
         //メールのバリデーションを行う
