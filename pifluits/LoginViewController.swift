@@ -12,11 +12,10 @@ import Firebase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
   
+  @IBOutlet var emailTextField: UITextField!
   
-    @IBOutlet var emailTextField: UITextField!
+  @IBOutlet var passwordTextField: UITextField!
   
-  
-    @IBOutlet var passwordTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +64,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
       
       //signInWithEmailでログイン
       //第一引数にEmail、第二引数にパスワード
-      FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+      Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
         //エラーなしなら、認証完了
         if error == nil {
           
@@ -73,7 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             // バリデーションが完了しているか確認 -> 完了ならログイン
             if self.checkUserValidate(user: loginUser) {
               //完了済みなら、Homerに遷移
-              print(FIRAuth.auth()?.currentUser)
+              print(Auth.auth().currentUser)
               self.transitionToHome()
               
             }else{
@@ -92,7 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
   
     // ログインした際に、バリデーションが完了しているか返す
-    func checkUserValidate(user: FIRUser) -> Bool {
+    func checkUserValidate(user: User) -> Bool {
     
       return user.isEmailVerified
     
