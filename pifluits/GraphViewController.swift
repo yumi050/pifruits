@@ -22,7 +22,8 @@ class GraphViewController: UIViewController {
     //Data
     let numberOfDataItems = 29
   
-    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
+//    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
+    var data: [Double] = []
     lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
   
   
@@ -33,11 +34,14 @@ class GraphViewController: UIViewController {
       graphView = ScrollableGraphView(frame: self.view.frame)
       graphView = createDarkGraph(self.view.frame)
       
-      graphView.set(data: data, withLabels: labels)
-      self.view.addSubview(graphView)
-      
-      setupConstraints()
-      addLabel(withText: "Temperature (TAP HERE)")
+        let firebaseManager = FirebaseManager()
+        firebaseManager.getUVIndexData(completion: {
+            uvIndexes in self.data = uvIndexes
+            self.graphView.set(data: self.data, withLabels: self.labels)
+            self.view.addSubview(self.graphView)
+            self.setupConstraints()
+            self.addLabel(withText: "Temperature (TAP HERE)")
+        })
 
     }
   
