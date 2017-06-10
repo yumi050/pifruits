@@ -107,6 +107,8 @@
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="loginButton:" destination="ZsR-aa-Xm4" eventType="touchUpInside" id="B1d-XJ-grZ"/>
+                                    <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5l0-Ik-0a0"/>
+                                    <segue destination="ggs-p9-RM3" kind="show" id="IYp-wK-7RK"/>
                                 </connections>
                             </button>
                         </subviews>

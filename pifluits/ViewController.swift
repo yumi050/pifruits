@@ -45,12 +45,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // Dispose of any resources that can be recreated.
   }
   
+  
   //サインアップボタン
-  @IBAction func signupButton(_ sender: Any) {
+  @IBAction func signUpButton(_ sender: Any) {
     //サインアップのための関数
     signup()
   }
-
+  
+  
   //ログイン画面への遷移ボタン
   @IBAction func loginButton(_ sender: Any) {
     transitionToLogin()
