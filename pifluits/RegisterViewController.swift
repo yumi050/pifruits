@@ -37,20 +37,44 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
   
   //カメラで写真を撮影するボタン
   @IBAction func takePictureButton(_ sender: Any) {
-    let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
-    //カメラが利用可能かチェック
-    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-      //インスタンスの作成
-      let cameraPicker = UIImagePickerController()
-      cameraPicker.sourceType = sourceType
-      cameraPicker.delegate = self
-      self.present(cameraPicker, animated: true, completion: nil)
-      
-    }else{
-      print("error")
-      //アラートでエラーを通知
-      showAlert()
+
+    let alertController = UIAlertController(title: "pifruit", message: "画像を選んでね", preferredStyle: .actionSheet)
+    //OKボタンの実装
+    let cameraAction = UIAlertAction(title: "カメラで撮る", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+        self.takePicture()
+        print("Camera")
     }
+    
+    let albumAction = UIAlertAction(title: "アルバム", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+        self.album()
+        print("Album")
+    }
+
+    //キャンセルボタンの実装
+    let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+    
+    alertController.addAction(cameraAction)
+    alertController.addAction(albumAction)
+    alertController.addAction(cancelButton)
+    
+    //アラートの表示
+    present(alertController, animated: true, completion: nil)
+
+    
+    //    let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
+//    //カメラが利用可能かチェック
+//    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+//      //インスタンスの作成
+//      let cameraPicker = UIImagePickerController()
+//      cameraPicker.sourceType = sourceType
+//      cameraPicker.delegate = self
+//      self.present(cameraPicker, animated: true, completion: nil)
+//      
+//    }else{
+//      print("error")
+//      //アラートでエラーを通知
+//      showAlert()
+//    }
   }
   
   
@@ -75,18 +99,18 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
   
   //フォトライブラリから選択するボタン
   @IBAction func albumButton(_ sender: Any) {
-    let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
-    //フォトライブラリ利用可能かチェック
-    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
-      //インスタンスの作成
-      let cameraPicker = UIImagePickerController()
-      cameraPicker.sourceType = sourceType
-      cameraPicker.delegate = self
-      self.present(cameraPicker, animated: true, completion: nil)
-      
-    }else{
-      print("Photolibrary not available")
-    }
+//    let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
+//    //フォトライブラリ利用可能かチェック
+//    if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+//      //インスタンスの作成
+//      let cameraPicker = UIImagePickerController()
+//      cameraPicker.sourceType = sourceType
+//      cameraPicker.delegate = self
+//      self.present(cameraPicker, animated: true, completion: nil)
+//      
+//    }else{
+//      print("Photolibrary not available")
+//    }
   }
   
   
@@ -167,10 +191,38 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
   }
   
   
-
-  
-
-  
+    
+    
+    private func takePicture() {
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.camera
+        //カメラが利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            //インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }else{
+            print("error")
+            //アラートでエラーを通知
+            showAlert()
+        }
+    }
+    private func album() {
+        let sourceType:UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.photoLibrary
+        //フォトライブラリ利用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            //インスタンスの作成
+            let cameraPicker = UIImagePickerController()
+            cameraPicker.sourceType = sourceType
+            cameraPicker.delegate = self
+            self.present(cameraPicker, animated: true, completion: nil)
+            
+        }else{
+            print("Photolibrary not available")
+        }
+    }
 
     /*
     // MARK: - Navigation
