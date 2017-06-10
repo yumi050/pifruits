@@ -63,36 +63,46 @@ class FirebaseViewController: UIViewController {
     }
   
   //土壌水分量の値を取得し、ラベルに表示する
-  func getSoilMoistureData() {
-    //Set the firebase reference
-    ref = Database.database().reference()
-    databaseHandle = ref?.child("soil_moisture").observe(.childAdded, with: { (snapshot) in
-      //取得した値を格納する配列
-      var soilMoistures: [Double] = []
-      var times: [String] = []
-      
-      for childSnap in  snapshot.children.allObjects {
-        let snap = childSnap as! DataSnapshot //型キャスト
-        if let snapshotValue = snapshot.value as? NSDictionary {
-          //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
-          if snap.key == "soil_moisture" {
-            let snapVal = snapshotValue[snap.key]
-            soilMoistures.append(snapVal as! Double)
-            
-            self.soilMoistureLabel.text = String(describing: soilMoistures.last!) + " %"
-//            print(soilMoistures)
-          //計測時間をtimesの配列にappend
-          }else if snap.key == "time"{
-            let snapVal = snapshotValue[snap.key]
-            times.append(snapVal as! String)
-            
-//            self.uvLabel.text = times.last!
-//            print(times)
-            
-          }
-        }
-      }
-    })
+    func getSoilMoistureData() {
+        
+        let firebaseManager = FirebaseManager()
+        firebaseManager.getSoilMoistureData(completion: {
+            text in
+            self.soilMoistureLabel.text = text
+        })
+    
+    
+    
+    
+//    //Set the firebase reference
+//    ref = Database.database().reference()
+//    databaseHandle = ref?.child("soil_moisture").observe(.childAdded, with: { (snapshot) in
+//      //取得した値を格納する配列
+//      var soilMoistures: [Double] = []
+//      var times: [String] = []
+//      
+//      for childSnap in  snapshot.children.allObjects {
+//        let snap = childSnap as! DataSnapshot //型キャスト
+//        if let snapshotValue = snapshot.value as? NSDictionary {
+//          //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
+//          if snap.key == "soil_moisture" {
+//            let snapVal = snapshotValue[snap.key]
+//            soilMoistures.append(snapVal as! Double)
+//            
+//            self.soilMoistureLabel.text = String(describing: soilMoistures.last!) + " %"
+////            print(soilMoistures)
+//          //計測時間をtimesの配列にappend
+//          }else if snap.key == "time"{
+//            let snapVal = snapshotValue[snap.key]
+//            times.append(snapVal as! String)
+//            
+////            self.uvLabel.text = times.last!
+////            print(times)
+//            
+//          }
+//        }
+//      }
+//    })
   }
   
   

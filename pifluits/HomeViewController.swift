@@ -47,7 +47,8 @@ class HomeViewController: UIViewController {
         statusLabel.numberOfLines = 0 //表示可能最大行数=0
         statusLabel.sizeToFit() //contentsのサイズに合わせてobujectのサイズを変える
         //可愛いフォントを使用
-      
+        
+        getSoilMoistureData()
 
     }
   
@@ -64,23 +65,36 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func getSoilMoistureData() {
+        
+        let firebaseManager = FirebaseManager()
+        firebaseManager.getSoilMoistureData(completion: {
+            text in
+            self.soilMoistureLabel.text = text
+        })
+    }
   
   
   //植物名をUserDefaultsから読み出す関数
   func readSavedData() -> String {
     // Keyを"plantName"として指定して読み込み
-    let PlantName: String = userDefaults.object(forKey: "plantName") as! String
+    let plantName: String = userDefaults.string(forKey: "plantName") ?? "clover"
     
-    return PlantName
+//    let PlantName: String = userDefaults.object(forKey: "plantName") as! String
+    
+    return plantName
   }
   
   
   //UserDefaultsに登録した画像を呼び出す関数
   func readSavedPictureData() -> UIImage {
-    let imageData:Data = userDefaults.object(forKey:"plantIcon") as! Data
-    let image = UIImage(data:imageData)
-    
-    return image!
+    let imageData:Data? = userDefaults.object(forKey:"plantIcon") as? Data
+    if let imageData = imageData {
+        return UIImage(data:imageData)!
+    } else {
+        return UIImage(named: "ok.png")!
+    }
   }
   
   
@@ -136,9 +150,6 @@ class HomeViewController: UIViewController {
     return status
     
   }
-  
-  
-  
   
   
   

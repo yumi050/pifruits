@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */; };
+		183727981EEBD47B00F3CF58 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183727971EEBD47B00F3CF58 /* FirebaseManager.swift */; };
 		A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
@@ -21,7 +23,6 @@
 		DEB790E31EC7F12F004FE1DA /* pifluits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */; };
 		DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEB790E41EC7F12F004FE1DA /* Assets.xcassets */; };
 		DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */; };
-		DEB790F21EC80FC4004FE1DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEB790F11EC80FC4004FE1DA /* GoogleService-Info.plist */; };
 		DEB790F41EC851FC004FE1DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB790F31EC851FB004FE1DA /* LoginViewController.swift */; };
 		DED9AFDD1ECAD2EF00601606 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFDC1ECAD2EF00601606 /* RegisterViewController.swift */; };
 		DED9AFDF1ECAFFC700601606 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFDE1ECAFFC700601606 /* HomeViewController.swift */; };
@@ -32,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		003A963B03621A266672C7E7 /* Pods-pifluits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.debug.xcconfig"; sourceTree = "<group>"; };
+		183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		183727971EEBD47B00F3CF58 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pifluits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72E6FF53CF18378169418E5 /* Pods-pifluits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.release.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.release.xcconfig"; sourceTree = "<group>"; };
 		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
@@ -49,7 +52,6 @@
 		DEB790E41EC7F12F004FE1DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEB790E71EC7F12F004FE1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEB790E91EC7F12F004FE1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DEB790F11EC80FC4004FE1DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DEB790F31EC851FB004FE1DA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DED9AFDC1ECAD2EF00601606 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DED9AFDE1ECAFFC700601606 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -120,11 +122,12 @@
 				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
 				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
 				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
-				DEB790F11EC80FC4004FE1DA /* GoogleService-Info.plist */,
+				183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */,
 				DEB790E91EC7F12F004FE1DA /* Info.plist */,
 				DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */,
 				DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */,
 				DE99ADA61EDC0E1D00B60AC3 /* FirebaseViewController.swift */,
+				183727971EEBD47B00F3CF58 /* FirebaseManager.swift */,
 				DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */,
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
@@ -198,9 +201,9 @@
 			files = (
 				DE952B6B1EEA8299005A6B9E /* ok.png in Resources */,
 				DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */,
-				DEB790F21EC80FC4004FE1DA /* GoogleService-Info.plist in Resources */,
 				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
 				DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */,
+				183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +274,7 @@
 				DED9AFE31ECB000600601606 /* GraphViewController.swift in Sources */,
 				DEB790DB1EC7F12F004FE1DA /* AppDelegate.swift in Sources */,
 				DED9AFDF1ECAFFC700601606 /* HomeViewController.swift in Sources */,
+				183727981EEBD47B00F3CF58 /* FirebaseManager.swift in Sources */,
 				DE3D6D581EE407F800D11F3C /* UserDefaultViewController.swift in Sources */,
 				DED9AFE51ECB002800601606 /* CameraViewController.swift in Sources */,
 				DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */,
