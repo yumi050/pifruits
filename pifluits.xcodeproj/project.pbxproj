@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */; };
+		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
+		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
+		DE3D6D561EE263E900D11F3C /* RealDataGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */; };
+		DE3D6D581EE407F800D11F3C /* UserDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */; };
+		DE3D6D5A1EE7F19400D11F3C /* UserDefaults2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */; };
+		DE952B6B1EEA8299005A6B9E /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = DE952B6A1EEA8299005A6B9E /* ok.png */; };
+		DE99ADA71EDC0E1D00B60AC3 /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99ADA61EDC0E1D00B60AC3 /* FirebaseViewController.swift */; };
 		DEB790DB1EC7F12F004FE1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB790DA1EC7F12F004FE1DA /* AppDelegate.swift */; };
 		DEB790DD1EC7F12F004FE1DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB790DC1EC7F12F004FE1DA /* ViewController.swift */; };
 		DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEB790DE1EC7F12F004FE1DA /* Main.storyboard */; };
@@ -27,6 +34,13 @@
 		003A963B03621A266672C7E7 /* Pods-pifluits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.debug.xcconfig"; sourceTree = "<group>"; };
 		A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pifluits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72E6FF53CF18378169418E5 /* Pods-pifluits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.release.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.release.xcconfig"; sourceTree = "<group>"; };
+		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
+		DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealDataGraphViewController.swift; sourceTree = "<group>"; };
+		DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultViewController.swift; sourceTree = "<group>"; };
+		DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults2ViewController.swift; sourceTree = "<group>"; };
+		DE952B6A1EEA8299005A6B9E /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
+		DE99ADA61EDC0E1D00B60AC3 /* FirebaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
 		DEB790D71EC7F12F004FE1DA /* pifluits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pifluits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEB790DA1EC7F12F004FE1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEB790DC1EC7F12F004FE1DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,12 +116,19 @@
 				DED9AFE01ECAFFF600601606 /* ChatViewController.swift */,
 				DED9AFE21ECB000600601606 /* GraphViewController.swift */,
 				DED9AFE41ECB002800601606 /* CameraViewController.swift */,
+				DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */,
 				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
 				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
 				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
 				DEB790F11EC80FC4004FE1DA /* GoogleService-Info.plist */,
 				DEB790E91EC7F12F004FE1DA /* Info.plist */,
 				DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */,
+				DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */,
+				DE99ADA61EDC0E1D00B60AC3 /* FirebaseViewController.swift */,
+				DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */,
+				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
+				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
+				DE952B6A1EEA8299005A6B9E /* ok.png */,
 			);
 			path = pifluits;
 			sourceTree = "<group>";
@@ -175,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE952B6B1EEA8299005A6B9E /* ok.png in Resources */,
 				DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */,
 				DEB790F21EC80FC4004FE1DA /* GoogleService-Info.plist in Resources */,
 				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
@@ -237,15 +259,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */,
+				DE3D6D5A1EE7F19400D11F3C /* UserDefaults2ViewController.swift in Sources */,
 				DEB790F41EC851FC004FE1DA /* LoginViewController.swift in Sources */,
 				DED9AFDD1ECAD2EF00601606 /* RegisterViewController.swift in Sources */,
+				DE99ADA71EDC0E1D00B60AC3 /* FirebaseViewController.swift in Sources */,
+				DE3D6D561EE263E900D11F3C /* RealDataGraphViewController.swift in Sources */,
 				DEB790E31EC7F12F004FE1DA /* pifluits.xcdatamodeld in Sources */,
 				DED9AFE11ECAFFF600601606 /* ChatViewController.swift in Sources */,
 				DEB790DD1EC7F12F004FE1DA /* ViewController.swift in Sources */,
 				DED9AFE31ECB000600601606 /* GraphViewController.swift in Sources */,
 				DEB790DB1EC7F12F004FE1DA /* AppDelegate.swift in Sources */,
 				DED9AFDF1ECAFFC700601606 /* HomeViewController.swift in Sources */,
+				DE3D6D581EE407F800D11F3C /* UserDefaultViewController.swift in Sources */,
 				DED9AFE51ECB002800601606 /* CameraViewController.swift in Sources */,
+				DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +397,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V4HHTE5HWR;
 				INFOPLIST_FILE = pifluits/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yumiH.edu.pifluits;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -383,6 +412,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V4HHTE5HWR;
 				INFOPLIST_FILE = pifluits/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yumiH.edu.pifluits;
 				PRODUCT_NAME = "$(TARGET_NAME)";

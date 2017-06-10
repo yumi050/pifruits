@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
   
+  //植物名を表示するラベル（UserDefaultsに登録した"plantName"）
+  @IBOutlet weak var plantNameLabel: UILabel!
   //今日の日付を表示するラベル
   @IBOutlet var dateLabel: UILabel!
   //今日の天気を表示するラベル
@@ -18,6 +21,20 @@ class HomeViewController: UIViewController {
   @IBOutlet var iconLabel: UIImageView!
   //植物の状態を表示するラベル
   @IBOutlet var statusLabel: UILabel!
+  
+  
+  //土壌水分量を表示するラベル
+  @IBOutlet weak var soilMoistureLabel: UILabel!
+  //UV指数を表示するラベル
+  @IBOutlet weak var uvLabel: UILabel!
+  //温度を表示するラベル
+  @IBOutlet weak var temperatureLabel: UILabel!
+  //湿度を表示するラベル
+  @IBOutlet weak var moistureLabel: UILabel!
+  
+  
+  //UserDefaultsのインスタンス生成
+  let userDefaults: UserDefaults = UserDefaults.standard
   
   
 
@@ -33,11 +50,39 @@ class HomeViewController: UIViewController {
       
 
     }
+  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //植物名をラベルに表示させる
+        plantNameLabel.text = readSavedData()
+        //imageViewにUserDefaultsに登録した画像を表示する
+        iconLabel.image = readSavedPictureData()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  
+  //植物名をUserDefaultsから読み出す関数
+  func readSavedData() -> String {
+    // Keyを"plantName"として指定して読み込み
+    let PlantName: String = userDefaults.object(forKey: "plantName") as! String
+    
+    return PlantName
+  }
+  
+  
+  //UserDefaultsに登録した画像を呼び出す関数
+  func readSavedPictureData() -> UIImage {
+    let imageData:Data = userDefaults.object(forKey:"plantIcon") as! Data
+    let image = UIImage(data:imageData)
+    
+    return image!
+  }
+  
   
   //今日の日付を表示させる関数
   func getNowClockString() -> String {
@@ -48,6 +93,12 @@ class HomeViewController: UIViewController {
     return formatter.string(from:now)
     
   }
+  
+  
+  //東京の天気を表示させる関数
+  
+  
+  
   
   //植物の状態を表示させる関数
   func getStatus () -> String {
@@ -85,6 +136,10 @@ class HomeViewController: UIViewController {
     return status
     
   }
+  
+  
+  
+  
   
   
   

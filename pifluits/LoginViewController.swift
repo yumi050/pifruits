@@ -43,7 +43,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     }
   
-    //Returnキーを押すと、キーボードを隠す
+    //Returnキーを押すと、キーボードを閉じる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
       textField.resignFirstResponder()
       return true

@@ -8,17 +8,24 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
   
   //カメラで撮影した画像が表示される
   @IBOutlet weak var pictureImageView: UIImageView!
+  //植物の名前を入力するtextField
+  @IBOutlet weak var plantNameTextField: UITextField!
   
+  //UserDefaultsのインスタンス生成
+  let userDefaults: UserDefaults = UserDefaults.standard
+
   
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      
+        //textFiel の情報を受け取るための delegate を設定
+        plantNameTextField.delegate = self
+        //UserDefaultsのデフォルト値
+        userDefaults.register(defaults: ["DataStore": "default"])
     }
   
 
@@ -83,14 +90,48 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
   }
   
   
-  //登録ボタン、写真を保存する
+  //plantNameTextFieldに入力した値をUserDefaultsに登録する
+  func registerPlantName() {
+    //textfieldに入力された植物名をplantNameに入れる
+    let plantName = self.plantNameTextField.text
+    userDefaults.set(plantName, forKey:"plantName")
+    userDefaults.synchronize()
+  }
+  
+  
+  //UserDefaultsに登録した値を呼び出す
+  func readSavedData() -> String {
+    // Keyを"plantName"として指定して読み込み
+    let PlantName: String = userDefaults.string(forKey: "plantName")!
+    //    print(PlantName)
+    return PlantName
+  }
+  
+  
+  //Returnキーを押すと、キーボードを閉じる
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+  }
+
+  
+  //登録ボタンが押されると：写真をフォトアルバムに保存し、UserDefaultsに植物名が登録される　ー＞　その後、遷移先のHomeViewControllerに写真と植物名が表示される
   @IBAction func registerButton(_ sender: Any) {
     let image:UIImage! = pictureImageView.image
     if image != nil {
+      //フォトアルバムにimageを保存する
       UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+      //写真をUserDefaultsに保存する
+      let imageData = UIImagePNGRepresentation(image)
+      //UserDefaultsに保存
+      userDefaults.set(imageData, forKey:"plantIcon")
+      userDefaults.synchronize()
+      
     }else{
       print("Image Failed to Save")
     }
+    //UserDefaultsに登録
+    registerPlantName()
   }
   
   
@@ -112,8 +153,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     //OKボタンの実装
     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){(action: UIAlertAction) in
       //okがクリックされた時の処理
-      //後で変更する！！！
-      print("Hello")
+      print("OK")
     }
     
     //キャンセルボタンの実装
@@ -125,6 +165,11 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     //アラートの表示
     present(alertController, animated: true, completion: nil)
   }
+  
+  
+
+  
+
   
 
     /*
