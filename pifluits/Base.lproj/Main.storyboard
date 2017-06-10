@@ -108,7 +108,6 @@
                                 <connections>
                                     <action selector="loginButton:" destination="ZsR-aa-Xm4" eventType="touchUpInside" id="B1d-XJ-grZ"/>
                                     <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5l0-Ik-0a0"/>
-                                    <segue destination="ggs-p9-RM3" kind="show" id="IYp-wK-7RK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -132,6 +131,7 @@
                         <outlet property="emailTextField" destination="ndR-CX-hwH" id="1Zc-uX-55f"/>
                         <outlet property="passwordTextField" destination="KPf-kP-KkI" id="dZU-64-ZlY"/>
                         <outlet property="userTextField" destination="RPB-74-xwa" id="e7i-CR-wYE"/>
+                        <segue destination="ggs-p9-RM3" kind="show" identifier="toMyGarden" id="08X-PY-DbT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

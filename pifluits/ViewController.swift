@@ -79,8 +79,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
   //Signupのためのメソッド
   func signup() {
     //emailTextFieldとpasswordTextFieldに文字がなければ、その後の処理をしない
-    guard let email = emailTextField.text else { return }
-    guard let password = passwordTextField.text else { return }
+    guard let email = emailTextField.text, email != "" else {
+        showValidationError(message: "Eメールを入力してください。")
+        return
+    }
+    guard let password = passwordTextField.text, password != "" else {
+        showValidationError(message: "パスワードを入力してください。")
+        return
+    }
     
     //FIRAuth.auth()?.createUserWithEmailでサインアップ
     //第一引数にEmail、第二引数にパスワード
@@ -95,12 +101,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
           }else{
             print("\(error?.localizedDescription)")
-          }
+            self.showErrorAlert()
+            }
         })
-      }
+      } else {
+        self.showErrorAlert()        }
     })
   }
-
-
+    
+    private func showErrorAlert() {
+        let alert = UIAlertController(title: "pifruit",
+                                      message: "エラーが発生しました。",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showValidationError(message: String) {
+        let alert = UIAlertController(title: "pifruit",
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
