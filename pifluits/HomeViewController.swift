@@ -47,8 +47,17 @@ class HomeViewController: UIViewController {
         statusLabel.numberOfLines = 0 //表示可能最大行数=0
         statusLabel.sizeToFit() //contentsのサイズに合わせてobujectのサイズを変える
         //可愛いフォントを使用
-        
+      
+        //土壌水分量:最新の値を取得し、ラベルに表示する
         getSoilMoistureData()
+        //UVIndex:最新の値を取得し、ラベルに表示する
+        getUVIndexData()
+        //Temperature:最新の値を取得し、ラベルに表示する
+        getTemperatureData()
+        //Humidity:最新の値を取得し、ラベルに表示する
+        getHumidityData()
+      
+      
 
     }
   
@@ -58,21 +67,13 @@ class HomeViewController: UIViewController {
         plantNameLabel.text = readSavedData()
         //imageViewにUserDefaultsに登録した画像を表示する
         iconLabel.image = readSavedPictureData()
+      
     }
     
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func getSoilMoistureData() {
-        
-        let firebaseManager = FirebaseManager()
-        firebaseManager.getSoilMoistureData(completion: {
-            text in
-            self.soilMoistureLabel.text = text
-        })
     }
   
   
@@ -151,10 +152,58 @@ class HomeViewController: UIViewController {
     
   }
   
+  //土壌水分量:最新の値を取得し、ラベルに表示する関数
+  func getSoilMoistureData() {
+    
+    let firebaseManager = FirebaseManager()
+    firebaseManager.getSoilMoistureData(completion: {
+      text in
+      self.soilMoistureLabel.text = text
+    })
+  }
   
   
+  //UVIndex:最新の値を取得し、ラベルに表示する関数
+  func getUVIndexData() {
+    
+    let firebaseManager = FirebaseManager()
+    firebaseManager.getUVIndexData(completion: {
+      text in
+      self.uvLabel.text = text
+    })
+  }
   
   
+  //Temperature:最新の値を取得し、ラベルに表示する関数
+  func getTemperatureData() {
+    
+    let firebaseManager = FirebaseManager()
+    firebaseManager.getTemperatureData(completion: {
+      text in
+      self.temperatureLabel.text = text
+    })
+  }
+  
+  
+  //Humidity:最新の値を取得し、ラベルに表示する関数
+  func getHumidityData() {
+    
+    let firebaseManager = FirebaseManager()
+    firebaseManager.getHumidityData(completion: {
+      text in
+      self.moistureLabel.text = text
+    })
+  }
+  
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    
+    let firebaseManager = FirebaseManager()
+    //画面が消えたときに、Firebaseのデータ読み取りのObserverを削除しておく
+    firebaseManager.removeAllObservers()
+    
+  }
     /*
     // MARK: - Navigation
 
