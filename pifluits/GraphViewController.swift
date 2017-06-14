@@ -100,16 +100,17 @@ class GraphViewController: UIViewController {
       graphView.dataPointFillColor = UIColor.white
     
       graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
-      graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
+      graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
       graphView.referenceLineLabelColor = UIColor.white
-      graphView.numberOfIntermediateReferenceLines = 5
-      graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
+      graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
+      graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.2)
     
       graphView.shouldAnimateOnStartup = true
-      graphView.shouldAdaptRange = true
+//      graphView.shouldAdaptRange = true //Y軸を自動調整
       graphView.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
       graphView.animationDuration = 1.5
-      graphView.rangeMax = 50
+      graphView.rangeMin = 20 //Y軸最小値
+      graphView.rangeMax = 38 //Y軸最大値
       graphView.shouldRangeAlwaysStartAtZero = true
     
       return graphView
@@ -120,7 +121,7 @@ class GraphViewController: UIViewController {
     
       let graphView = ScrollableGraphView(frame: frame)
       
-      graphView.bottomMargin = 55
+      graphView.bottomMargin = 300
       graphView.topMargin = 10
       
       graphView.dataPointType = ScrollableGraphViewDataPointType.circle
@@ -137,15 +138,16 @@ class GraphViewController: UIViewController {
       graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
       graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
       graphView.referenceLineLabelColor = UIColor.white
-      graphView.numberOfIntermediateReferenceLines = 5
+      graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
       graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
       
       graphView.shouldAnimateOnStartup = true
       graphView.shouldAdaptRange = true
       graphView.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
       graphView.animationDuration = 1.5
-      graphView.rangeMax = 50
-      graphView.shouldRangeAlwaysStartAtZero = true
+      graphView.rangeMin = 25 //Y軸最小値
+      graphView.rangeMax = 70 //Y軸最小値
+      graphView.shouldRangeAlwaysStartAtZero = true //0から始まる
     
       return graphView
     }
@@ -155,7 +157,7 @@ class GraphViewController: UIViewController {
       
       let graphView = ScrollableGraphView(frame: frame)
       
-      graphView.bottomMargin = 55
+      graphView.bottomMargin = 300
       graphView.topMargin = 10
       
       graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#ADD6FF") //#00BFFF:水色、#B2D8FF:パステル水色
@@ -172,9 +174,9 @@ class GraphViewController: UIViewController {
       graphView.referenceLineLabelColor = UIColor.white
       graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.both
       
-      graphView.numberOfIntermediateReferenceLines = 9
-      
-      graphView.rangeMax = 50
+      graphView.numberOfIntermediateReferenceLines = 9 //上下を除いた中間線の数
+      graphView.rangeMin = 0 //Y軸最小値
+      graphView.rangeMax = 100 //Y軸最大値
       
       return graphView
     }
@@ -198,7 +200,7 @@ class GraphViewController: UIViewController {
       graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10)
       graphView.dataPointLabelColor = UIColor.white
       
-      graphView.dataPointLabelsSparsity = 3
+      graphView.dataPointLabelsSparsity = 1 //3
       
       graphView.referenceLineThickness = 1
       graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 10)
@@ -206,11 +208,11 @@ class GraphViewController: UIViewController {
       graphView.referenceLineLabelColor = UIColor.white
       graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.both
       
-      graphView.numberOfIntermediateReferenceLines = 1
+      graphView.numberOfIntermediateReferenceLines = 1 //上下を除いた中間線の数
       
       graphView.shouldAdaptRange = true
-      
-      graphView.rangeMax = 50
+      graphView.rangeMin = 0 //Y軸最小値
+      graphView.rangeMax = 5 //Y軸最大値
       
       return graphView
     }
@@ -284,6 +286,7 @@ class GraphViewController: UIViewController {
       
     }
   
+    //不使用
     //Data Generation
     private func generateRandomeData(_ numberOfItems: Int, max: Double) -> [Double] {
     
@@ -306,7 +309,7 @@ class GraphViewController: UIViewController {
       
       var labels = [String]()
       for i in 0 ..< numberOfItems {
-        labels.append("\(text) \(i+1)")
+        labels.append("\(text) \(i+15)")
       }
       
       return labels

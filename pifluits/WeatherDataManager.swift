@@ -14,8 +14,6 @@ import SwiftyJSON
 class WeatherDataManager: NSObject {
   
   
-  
-  
   // レスポンスデータをパースするモデルクラスのインスタンスを格納すプロパティ
   var weatherData: WeatherDataModel?
   
@@ -51,7 +49,7 @@ class WeatherDataManager: NSObject {
     }
     
   }
-  
+  //あっているか不明？？？
   func weather() {
     delegate?.checkWeather()
   }

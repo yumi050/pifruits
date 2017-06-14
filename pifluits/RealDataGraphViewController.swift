@@ -31,11 +31,11 @@ class RealDataGraphViewController: UIViewController {
   //Data数
   let numberOfDataItems = 31
   
-//  lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
+  lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
 //  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
   
-  lazy var soilMoistures: [Double] = self.getSoilMoistureData(self.numberOfDataItems, max: 50)
-  lazy var labels: [String] = self.readDateTime(self.numberOfDataItems, text: "July")
+//  lazy var soilMoistures: [Double] = self.getSoilMoistureData(self.numberOfDataItems, max: 50)
+  lazy var labels: [String] = self.readDateTime(self.numberOfDataItems, text: "分前")
   
   
   override func viewDidLoad() {
@@ -44,7 +44,7 @@ class RealDataGraphViewController: UIViewController {
     graphView = ScrollableGraphView(frame: self.view.frame)
     graphView = createDarkGraph(self.view.frame)
     
-    graphView.set(data: soilMoistures, withLabels: labels) //data変更
+    graphView.set(data: data, withLabels: labels) //data変更
     self.view.addSubview(graphView)
     
     setupConstraints()
@@ -74,7 +74,7 @@ class RealDataGraphViewController: UIViewController {
       graphView = createPinkMountainGraph(self.view.frame)
     }
     
-    graphView.set(data: soilMoistures, withLabels: labels)//data変更
+    graphView.set(data: data, withLabels: labels)//data変更
     self.view.insertSubview(graphView, belowSubview: label)
     
     setupConstraints()
@@ -347,7 +347,7 @@ class RealDataGraphViewController: UIViewController {
     
     var labels = [String]()
     for i in 0 ..< numberOfItems {
-      labels.append("\(text) \(i+1)")
+      labels.append("\(i*15)\(text) ")
     }
     
     return labels
