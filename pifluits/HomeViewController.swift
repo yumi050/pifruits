@@ -53,6 +53,12 @@ class HomeViewController: UIViewController {
         statusLabel.sizeToFit() //contentsのサイズに合わせてobujectのサイズを変える
         //可愛いフォントを使用
       
+      let iconLabelWidth = iconLabel.bounds.size.width
+      
+      iconLabel.clipsToBounds = true
+      iconLabel.layer.cornerRadius = iconLabelWidth / 2
+      
+      
         //土壌水分量:最新の値を取得し、ラベルに表示する
         getSoilMoistureData()
         //UVIndex:最新の値を取得し、ラベルに表示する

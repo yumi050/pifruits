@@ -10,12 +10,16 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+protocol WeatherDataManagerProtocol {
+  func setWeather(data: WeatherDataModel);
+}
+
 // AlamofireによるAPI通信を管理
 class WeatherDataManager: NSObject {
   
   
   // レスポンスデータをパースするモデルクラスのインスタンスを格納すプロパティ
-  var weatherData: WeatherDataModel?
+//  var weatherData: WeatherDataModel?
   
   var delegate: WeatherViewController?
   
@@ -37,7 +41,10 @@ class WeatherDataManager: NSObject {
         // これはSwiftyJSONのルール
         let json = JSON(value)
         // JSONデータを引数に渡してモデルクラスのインスタンスを生成
-        self.weatherData = WeatherDataModel(data: json)
+        
+        if let data = WeatherDataModel(data: json) {
+          self.delegate?.setWeather(data: data)
+        }
         // デバッグ用のログ出力を行う
         print(value)
         
@@ -50,9 +57,9 @@ class WeatherDataManager: NSObject {
     
   }
   //あっているか不明？？？
-  func weather() {
-    delegate?.checkWeather()
-  }
+//  func weather() {
+//    delegate?.checkWeather()
+//  }
   
   
 }

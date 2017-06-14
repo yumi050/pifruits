@@ -143,22 +143,39 @@ class FirebaseManager {
   
     //UVIndex: グラフ表示用の配列（192：二日分のデータ）を返す関数
     func getUVIndexDataForGraph(completion: (([Double]) -> Void)?) {
+      
+      var count = 0
+      var uvIndexes: [Double] = []
+      
       //Set the firebase reference
       ref = Database.database().reference()
       databaseHandle = ref?.child("UV index").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
         //取得した値を格納する配列
-        var uvIndexes: [Double] = []
         
-        for childSnap in  snapshot.children.allObjects {
-          let snap = childSnap as! DataSnapshot
-          if let snapshotValue = snapshot.value as? NSDictionary {
-            //UVIndexの値のみをuvIndexesの配列にappendし、最新の値のみをラベルに表示
-            if snap.key == "UV index" {
-              let snapVal = (snapshotValue[snap.key] as! Double)
-              uvIndexes.append(snapVal)
-            }
+        if let uvIndex = snapshot.value as? NSDictionary {
+          if let uvIndexValue = uvIndex["UV index"] as? Double {
+            uvIndexes.append(uvIndexValue)
           }
         }
+        
+//        
+//        
+//        count = count + 1
+//        print("count: \(snapshot.children.allObjects.count)")
+//        print("count: \(snapshot.children.allObjects[0])")
+//        print("count: \(snapshot.children.allObjects[1])")
+//        
+//        for childSnap in snapshot.children.allObjects {
+//          let snap = childSnap as! DataSnapshot
+//          if let snapshotValue = snapshot.value as? NSDictionary {
+//            //UVIndexの値のみをuvIndexesの配列にappendし、最新の値のみをラベルに表示
+//            if snap.key == "UV index" {
+//              let snapVal = (snapshotValue[snap.key] as! Double)
+//              uvIndexes.append(snapVal)
+//            }
+//          }
+//        }
+//        print("loop count: \(count)")
         completion?(uvIndexes)
       })
     }

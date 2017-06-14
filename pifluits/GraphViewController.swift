@@ -45,6 +45,7 @@ class GraphViewController: UIViewController {
 
     }
   
+  
     func didTap(_ gesture: UITapGestureRecognizer) {
     
         currentGraphType.next()
