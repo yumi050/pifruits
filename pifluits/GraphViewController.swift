@@ -35,7 +35,7 @@ class GraphViewController: UIViewController {
       graphView = createDarkGraph(self.view.frame)
       
         let firebaseManager = FirebaseManager()
-        firebaseManager.getUVIndexData(completion: {
+        firebaseManager.getUVIndexDataForGraph(completion: {
             uvIndexes in self.data = uvIndexes
             self.graphView.set(data: self.data, withLabels: self.labels)
             self.view.addSubview(self.graphView)
