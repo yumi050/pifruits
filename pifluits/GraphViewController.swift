@@ -20,7 +20,7 @@ class GraphViewController: UIViewController {
     var labelConstraints = [NSLayoutConstraint]()
   
     //Data
-    let numberOfDataItems = 29
+    let numberOfDataItems = 29 //192 = 二日ぶんのデータ
   
 //    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
     var data: [Double] = []
@@ -78,6 +78,9 @@ class GraphViewController: UIViewController {
     fileprivate func createDarkGraph(_ frame: CGRect) -> ScrollableGraphView {
     
       let graphView = ScrollableGraphView(frame: frame)
+      
+      graphView.bottomMargin = 55
+      graphView.topMargin = 10
     
       graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333")
     
@@ -117,6 +120,9 @@ class GraphViewController: UIViewController {
     
       let graphView = ScrollableGraphView(frame: frame)
       
+      graphView.bottomMargin = 55
+      graphView.topMargin = 10
+      
       graphView.dataPointType = ScrollableGraphViewDataPointType.circle
       graphView.shouldDrawBarLayer = true
       graphView.shouldDrawDataPoint = false
@@ -149,6 +155,9 @@ class GraphViewController: UIViewController {
       
       let graphView = ScrollableGraphView(frame: frame)
       
+      graphView.bottomMargin = 55
+      graphView.topMargin = 10
+      
       graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#ADD6FF") //#00BFFF:水色、#B2D8FF:パステル水色
       graphView.lineColor = UIColor.clear
       
@@ -174,6 +183,9 @@ class GraphViewController: UIViewController {
     private func createPinkMountainGraph(_ frame: CGRect) -> ScrollableGraphView {
     
       let graphView = ScrollableGraphView(frame: frame)
+      
+      graphView.bottomMargin = 55
+      graphView.topMargin = 10
       
       graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") // #222222
       graphView.lineColor = UIColor.clear
