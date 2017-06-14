@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
   
@@ -36,10 +37,14 @@ class HomeViewController: UIViewController {
   //UserDefaultsのインスタンス生成
   let userDefaults: UserDefaults = UserDefaults.standard
   
+  //天気API(openweathermap)のURL
+  var urlString = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c03dbd8a937565924a9b9257b70aa918"  //Tokyo: 1850147
   
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //東京の天気を表示
+//        getWeather()
         //今日の日付を表示
         dateLabel.text = getNowClockString()
         //植物の状態を表示
@@ -67,7 +72,7 @@ class HomeViewController: UIViewController {
         plantNameLabel.text = readSavedData()
         //imageViewにUserDefaultsに登録した画像を表示する
         iconLabel.image = readSavedPictureData()
-      
+
     }
     
 
@@ -102,15 +107,41 @@ class HomeViewController: UIViewController {
   //今日の日付を表示させる関数
   func getNowClockString() -> String {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy/MM/dd"
+    formatter.dateFormat = "yyyy. MM. dd"
     let now = Date()
     
     return formatter.string(from:now)
-    
   }
   
   
   //東京の天気を表示させる関数
+//  func getWeather() {
+//    let url = URL(string: self.urlString)!
+//    let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+//      if error == nil {
+//        do {
+//          // リソースの取得が終わると、ここに書いた処理が実行される
+//          let json = try JSON(data: data!)
+//          // 各セルに情報を突っ込む
+//          for i in 0 ..< 3 {
+//            let dt_txt = json["list"][i]["dt_txt"]
+//            let weatherMain = json["list"][i]["weather"][0]["main"]
+//            let weatherDescription = json["list"][i]["weather"][0]["description"]
+//            let info = "\(dt_txt), \(weatherMain), \(weatherDescription)"
+//            print(info)
+//            self.weatherLabel.text = info
+//          }
+////          self.view.reloadData()
+//          
+//        } catch let jsonError {
+//          print(jsonError.localizedDescription)
+//        }
+//      }
+//    }
+//    
+//    task.resume()
+//    
+//  }
   
   
   

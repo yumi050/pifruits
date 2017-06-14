@@ -36,6 +36,9 @@ class WeatherViewController: UIViewController {
   }
   
   
+  func getWeather() {
+    
+  }
   
   
   /*
