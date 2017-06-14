@@ -119,24 +119,31 @@ class FirebaseManager {
   
     //土壌水分量：グラフ表示用の配列（192：二日分のデータ）を返す関数
     func getSoilMoistureDataForGraph(completion: (([Double]) -> Void)?) {
+      //取得した値を格納する配列
+      var soilMoistures: [Double] = []
+      
       //Set the firebase reference
       ref = Database.database().reference()
       databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
-        //取得した値を格納する配列
-        var soilMoistures: [Double] = []
         
-        for childSnap in  snapshot.children.allObjects {
-          let snap = childSnap as! DataSnapshot //型キャスト
-          if let snapshotValue = snapshot.value as? NSDictionary {
-            //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
-            if snap.key == "soil_moisture" {
-              let snapVal = snapshotValue[snap.key]
-              soilMoistures.append(snapVal as! Double)
-              
-              completion?(soilMoistures)
-            }
+        if let soilMoisture = snapshot.value as? NSDictionary {
+          if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
+            soilMoistures.append(soilMoistureData)
           }
         }
+        
+//        for childSnap in  snapshot.children.allObjects {
+//          let snap = childSnap as! DataSnapshot //型キャスト
+//          if let snapshotValue = snapshot.value as? NSDictionary {
+//            //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
+//            if snap.key == "soil_moisture" {
+//              let snapVal = snapshotValue[snap.key]
+//              soilMoistures.append(snapVal as! Double)
+//            }
+//          }
+//        }
+        
+        completion?(soilMoistures)
       })
     }
 
@@ -144,13 +151,13 @@ class FirebaseManager {
     //UVIndex: グラフ表示用の配列（192：二日分のデータ）を返す関数
     func getUVIndexDataForGraph(completion: (([Double]) -> Void)?) {
       
-      var count = 0
+//      var count = 0
+      //取得した値を格納する配列
       var uvIndexes: [Double] = []
-      
+      っs
       //Set the firebase reference
       ref = Database.database().reference()
       databaseHandle = ref?.child("UV index").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
-        //取得した値を格納する配列
         
         if let uvIndex = snapshot.value as? NSDictionary {
           if let uvIndexValue = uvIndex["UV index"] as? Double {
@@ -215,23 +222,32 @@ class FirebaseManager {
   
     //Humidity: グラフ表示用の配列（192：二日分のデータ）を返す関数
     func getHumidityDataForGraph(completion: (([Double]) -> Void)?) {
+      //取得した値を格納する配列
+      var humids: [Double] = []
+      
       //Set the firebase reference
       ref = Database.database().reference()
       databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
-        //取得した値を格納する配列
-        var humids: [Double] = []
         
-        for childSnap in  snapshot.children.allObjects {
-          let snap = childSnap as! DataSnapshot
-          if let snapshotValue = snapshot.value as? NSDictionary {
-           
-            //湿度の値のみをhumidsの配列にappendし、最新の値のみをラベルに表示
-            if snap.key == "humidity" {
-              let snapVal = snapshotValue[snap.key]
-              humids.append(snapVal as! Double)
-            }
+        if let humid = snapshot.value as? NSDictionary {
+          if let humidData = humid["humidity"] as? Double {
+            //湿度の値をtempsの配列にappendし
+            humids.append(humidData)
           }
         }
+        
+//        for childSnap in  snapshot.children.allObjects {
+//          let snap = childSnap as! DataSnapshot
+//          if let snapshotValue = snapshot.value as? NSDictionary {
+//           
+//            //湿度の値のみをhumidsの配列にappendし、最新の値のみをラベルに表示
+//            if snap.key == "humidity" {
+//              let snapVal = snapshotValue[snap.key]
+//              humids.append(snapVal as! Double)
+//            }
+//          }
+//        }
+        
         completion?(humids)
       })
     }

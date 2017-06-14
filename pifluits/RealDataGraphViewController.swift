@@ -30,7 +30,7 @@ class RealDataGraphViewController: UIViewController {
   //    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
   var data: [Double] = []
   //  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
-  lazy var labels: [String] = self.readDateTime(self.numberOfDataItems, text: "分前")
+  lazy var labels: [String] = self.dataTimeLabel(self.numberOfDataItems, text: "分前")
   
   
   override func viewDidLoad() {
@@ -332,7 +332,7 @@ class RealDataGraphViewController: UIViewController {
   //    }
   
   //X軸のラベル生成
-  private func readDateTime(_ numberOfItems: Int, text: String) -> [String] {
+  private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
     
     var labels = [String]()
     for i in 0 ..< numberOfItems {
