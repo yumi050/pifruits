@@ -124,7 +124,7 @@ class FirebaseManager {
       
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
         
         if let soilMoisture = snapshot.value as? NSDictionary {
           if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
@@ -142,7 +142,7 @@ class FirebaseManager {
 //            }
 //          }
 //        }
-        
+        print(soilMoistures)
         completion?(soilMoistures)
       })
     }
@@ -154,10 +154,10 @@ class FirebaseManager {
 //      var count = 0
       //取得した値を格納する配列
       var uvIndexes: [Double] = []
-      っs
+      
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("UV index").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("UV index").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
         
         if let uvIndex = snapshot.value as? NSDictionary {
           if let uvIndexValue = uvIndex["UV index"] as? Double {
@@ -182,6 +182,7 @@ class FirebaseManager {
 //          }
 //        }
 //        print("loop count: \(count)")
+        print(uvIndexes)
         completion?(uvIndexes)
       })
     }
@@ -215,6 +216,7 @@ class FirebaseManager {
 //            }
 //          }
 //        }
+        print(temps)
         completion?(temps)
       })
     }
@@ -247,7 +249,7 @@ class FirebaseManager {
 //            }
 //          }
 //        }
-        
+        print(humids)
         completion?(humids)
       })
     }

@@ -25,12 +25,14 @@ class RealDataGraphViewController: UIViewController {
   var labelConstraints = [NSLayoutConstraint]()
   
   //Data
-  let numberOfDataItems = 29 //192 = 二日ぶんのデータ
+  let numberOfDataItems = 192 //192 = 　2日分のデータ
   
   //    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
   var data: [Double] = []
   //  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
   lazy var labels: [String] = self.dataTimeLabel(self.numberOfDataItems, text: "分前")
+  //FirebaseManagerのインスタンス生成
+  let firebaseManager = FirebaseManager()
   
   
   override func viewDidLoad() {
@@ -39,9 +41,10 @@ class RealDataGraphViewController: UIViewController {
     graphView = ScrollableGraphView(frame: self.view.frame)
     graphView = createDarkGraph(self.view.frame)
     
-    let firebaseManager = FirebaseManager()
-    firebaseManager.getUVIndexDataForGraph(completion: {
-      uvIndexes in self.data = uvIndexes
+//    let firebaseManager = FirebaseManager()
+    
+    firebaseManager.getTemperatureDataForGraph(completion: {
+      temps in self.data = temps
       self.graphView.set(data: self.data, withLabels: self.labels)
       self.view.addSubview(self.graphView)
       self.setupConstraints()
@@ -63,28 +66,48 @@ class RealDataGraphViewController: UIViewController {
       addLabel(withText: "Temperature")
       graphView = createDarkGraph(self.view.frame)
       //温度のデータをセット
-      graphView.set(data: data, withLabels: labels)
+      firebaseManager.getTemperatureDataForGraph(completion: {
+        temps in self.data = temps
+        self.graphView.set(data: self.data, withLabels: self.labels)
+      })
     case .bar:
       addLabel(withText: "Humidity")
       graphView = createBarGraph(self.view.frame)
       //湿度のデータをセット
-      graphView.set(data: data, withLabels: labels)
+      firebaseManager.getHumidityDataForGraph(completion: {
+        humids in self.data = humids
+        self.graphView.set(data: self.data, withLabels: self.labels)
+        self.view.insertSubview(self.graphView, belowSubview: self.label)
+        
+        self.setupConstraints()
+      })
     case .dot:
       addLabel(withText: "Water")
       graphView = createDotGraph(self.view.frame)
       //土壌水分のデータをセット
-      graphView.set(data: data, withLabels: labels)
+      firebaseManager.getSoilMoistureDataForGraph(completion: {
+        soilMoistures in self.data = soilMoistures
+        self.graphView.set(data: self.data, withLabels: self.labels)
+        self.view.insertSubview(self.graphView, belowSubview: self.label)
+        
+        self.setupConstraints()
+      })
     case .pink:
       addLabel(withText: "UV light")
       graphView = createPinkMountainGraph(self.view.frame)
       //UVのデータをセット
-      graphView.set(data: data, withLabels: labels)
+      firebaseManager.getUVIndexDataForGraph(completion: {
+        uvIndexes in self.data = uvIndexes
+        self.graphView.set(data: self.data, withLabels: self.labels)
+        self.view.insertSubview(self.graphView, belowSubview: self.label)
+        
+        self.setupConstraints()
+      })
     }
     
-    //      graphView.set(data: data, withLabels: labels)
-    self.view.insertSubview(graphView, belowSubview: label)
-    
-    setupConstraints()
+//    graphView.set(data: data, withLabels: labels)
+//    self.view.insertSubview(graphView, belowSubview: label)
+//    setupConstraints()
     
   }
   
