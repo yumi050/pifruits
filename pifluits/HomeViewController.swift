@@ -38,7 +38,7 @@ class HomeViewController: UIViewController {
   let userDefaults: UserDefaults = UserDefaults.standard
   
   //天気API(openweathermap)のURL
-  var urlString = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c03dbd8a937565924a9b9257b70aa918"  //Tokyo: 1850147
+//  var urlString = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=c03dbd8a937565924a9b9257b70aa918"  //Tokyo: 1850147
   
 
     override func viewDidLoad() {
