@@ -14,4 +14,5 @@ pod 'Firebase/Storage'
 pod ‘GoogleSignIn’
 pod 'ScrollableGraphView'
 pod 'SwiftyJSON'
+pod 'Alamofire', '~> 4.4'
 end
