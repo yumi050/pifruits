@@ -29,6 +29,10 @@
 		DED9AFE11ECAFFF600601606 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE01ECAFFF600601606 /* ChatViewController.swift */; };
 		DED9AFE31ECB000600601606 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE21ECB000600601606 /* GraphViewController.swift */; };
 		DED9AFE51ECB002800601606 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE41ECB002800601606 /* CameraViewController.swift */; };
+		DEEF32731EF0C26A00207A04 /* gray_bar-graph-icon_32x32px.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEF326F1EF0C26900207A04 /* gray_bar-graph-icon_32x32px.png */; };
+		DEEF32741EF0C26A00207A04 /* gray_camera-icon_32x32px.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEF32701EF0C26A00207A04 /* gray_camera-icon_32x32px.png */; };
+		DEEF32751EF0C26A00207A04 /* gray_comment-edit-icon_32x32px.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEF32711EF0C26A00207A04 /* gray_comment-edit-icon_32x32px.png */; };
+		DEEF32761EF0C26A00207A04 /* gray_home-icon_32x32px.png in Resources */ = {isa = PBXBuildFile; fileRef = DEEF32721EF0C26A00207A04 /* gray_home-icon_32x32px.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		DED9AFE01ECAFFF600601606 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DED9AFE21ECB000600601606 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		DED9AFE41ECB002800601606 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		DEEF326F1EF0C26900207A04 /* gray_bar-graph-icon_32x32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray_bar-graph-icon_32x32px.png"; sourceTree = "<group>"; };
+		DEEF32701EF0C26A00207A04 /* gray_camera-icon_32x32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray_camera-icon_32x32px.png"; sourceTree = "<group>"; };
+		DEEF32711EF0C26A00207A04 /* gray_comment-edit-icon_32x32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray_comment-edit-icon_32x32px.png"; sourceTree = "<group>"; };
+		DEEF32721EF0C26A00207A04 /* gray_home-icon_32x32px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray_home-icon_32x32px.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,10 @@
 				DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */,
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
+				DEEF326F1EF0C26900207A04 /* gray_bar-graph-icon_32x32px.png */,
+				DEEF32701EF0C26A00207A04 /* gray_camera-icon_32x32px.png */,
+				DEEF32711EF0C26A00207A04 /* gray_comment-edit-icon_32x32px.png */,
+				DEEF32721EF0C26A00207A04 /* gray_home-icon_32x32px.png */,
 				DE952B6A1EEA8299005A6B9E /* ok.png */,
 			);
 			path = pifluits;
@@ -199,9 +211,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEF32741EF0C26A00207A04 /* gray_camera-icon_32x32px.png in Resources */,
 				DE952B6B1EEA8299005A6B9E /* ok.png in Resources */,
 				DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */,
 				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
+				DEEF32751EF0C26A00207A04 /* gray_comment-edit-icon_32x32px.png in Resources */,
+				DEEF32761EF0C26A00207A04 /* gray_home-icon_32x32px.png in Resources */,
+				DEEF32731EF0C26A00207A04 /* gray_bar-graph-icon_32x32px.png in Resources */,
 				DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */,
 				183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */,
 			);

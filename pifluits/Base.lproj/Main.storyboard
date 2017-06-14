@@ -384,7 +384,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Graphs" id="Rj9-cn-1Cb"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Graphs" image="gray_bar-graph-icon_32x32px.png" id="Rj9-cn-1Cb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4as-2v-9lJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -415,7 +415,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="3" title="Camera" id="t1J-NT-lXE"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Camera" image="gray_camera-icon_32x32px.png" id="t1J-NT-lXE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOS-Gr-LPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -527,7 +527,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="Bz4-Gd-naX"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="gray_home-icon_32x32px.png" id="Bz4-Gd-naX"/>
                     <navigationItem key="navigationItem" id="P7M-J3-EGV"/>
                     <connections>
                         <outlet property="dateLabel" destination="XAm-Gz-ggY" id="efQ-Cp-UIh"/>
@@ -837,7 +837,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Chat" id="KCq-6L-gZ8"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Chat" image="gray_comment-edit-icon_32x32px.png" id="KCq-6L-gZ8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4h-Ko-Zx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -865,6 +865,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gray_bar-graph-icon_32x32px.png" width="32" height="32"/>
+        <image name="gray_camera-icon_32x32px.png" width="32" height="32"/>
+        <image name="gray_comment-edit-icon_32x32px.png" width="32" height="32"/>
+        <image name="gray_home-icon_32x32px.png" width="32" height="32"/>
         <image name="ok.png" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
