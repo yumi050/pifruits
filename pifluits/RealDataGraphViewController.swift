@@ -69,6 +69,9 @@ class RealDataGraphViewController: UIViewController {
       firebaseManager.getTemperatureDataForGraph(completion: {
         temps in self.data = temps
         self.graphView.set(data: self.data, withLabels: self.labels)
+        self.view.insertSubview(self.graphView, belowSubview: self.label)
+        
+        self.setupConstraints()
       })
     case .bar:
       addLabel(withText: "Humidity")
