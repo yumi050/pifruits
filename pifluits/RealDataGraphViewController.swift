@@ -24,17 +24,12 @@ class RealDataGraphViewController: UIViewController {
   var label = UILabel()
   var labelConstraints = [NSLayoutConstraint]()
   
-  //Firebase realtime database
-  var ref:DatabaseReference?
-  var databaseHandle:DatabaseHandle?
+  //Data
+  let numberOfDataItems = 29 //192 = 二日ぶんのデータ
   
-  //Data数
-  let numberOfDataItems = 31
-  
-  lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
-//  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
-  
-//  lazy var soilMoistures: [Double] = self.getSoilMoistureData(self.numberOfDataItems, max: 50)
+  //    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
+  var data: [Double] = []
+  //  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
   lazy var labels: [String] = self.readDateTime(self.numberOfDataItems, text: "分前")
   
   
@@ -44,13 +39,17 @@ class RealDataGraphViewController: UIViewController {
     graphView = ScrollableGraphView(frame: self.view.frame)
     graphView = createDarkGraph(self.view.frame)
     
-    graphView.set(data: data, withLabels: labels) //data変更
-    self.view.addSubview(graphView)
-    
-    setupConstraints()
-    addLabel(withText: "Temperature (TAP HERE)")
+    let firebaseManager = FirebaseManager()
+    firebaseManager.getUVIndexDataForGraph(completion: {
+      uvIndexes in self.data = uvIndexes
+      self.graphView.set(data: self.data, withLabels: self.labels)
+      self.view.addSubview(self.graphView)
+      self.setupConstraints()
+      self.addLabel(withText: "Temperature (TAP HERE)")
+    })
     
   }
+  
   
   func didTap(_ gesture: UITapGestureRecognizer) {
     
@@ -63,18 +62,26 @@ class RealDataGraphViewController: UIViewController {
     case .dark:
       addLabel(withText: "Temperature")
       graphView = createDarkGraph(self.view.frame)
+      //温度のデータをセット
+      graphView.set(data: data, withLabels: labels)
     case .bar:
       addLabel(withText: "Humidity")
       graphView = createBarGraph(self.view.frame)
+      //湿度のデータをセット
+      graphView.set(data: data, withLabels: labels)
     case .dot:
       addLabel(withText: "Water")
       graphView = createDotGraph(self.view.frame)
+      //土壌水分のデータをセット
+      graphView.set(data: data, withLabels: labels)
     case .pink:
       addLabel(withText: "UV light")
       graphView = createPinkMountainGraph(self.view.frame)
+      //UVのデータをセット
+      graphView.set(data: data, withLabels: labels)
     }
     
-    graphView.set(data: data, withLabels: labels)//data変更
+    //      graphView.set(data: data, withLabels: labels)
     self.view.insertSubview(graphView, belowSubview: label)
     
     setupConstraints()
@@ -85,6 +92,9 @@ class RealDataGraphViewController: UIViewController {
   fileprivate func createDarkGraph(_ frame: CGRect) -> ScrollableGraphView {
     
     let graphView = ScrollableGraphView(frame: frame)
+    
+    graphView.bottomMargin = 55
+    graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333")
     
@@ -104,16 +114,17 @@ class RealDataGraphViewController: UIViewController {
     graphView.dataPointFillColor = UIColor.white
     
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
-    graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
+    graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
     graphView.referenceLineLabelColor = UIColor.white
-    graphView.numberOfIntermediateReferenceLines = 5
-    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
+    graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
+    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.2)
     
     graphView.shouldAnimateOnStartup = true
-    graphView.shouldAdaptRange = true
+    //      graphView.shouldAdaptRange = true //Y軸を自動調整
     graphView.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
     graphView.animationDuration = 1.5
-    graphView.rangeMax = 50
+    graphView.rangeMin = 20 //Y軸最小値
+    graphView.rangeMax = 38 //Y軸最大値
     graphView.shouldRangeAlwaysStartAtZero = true
     
     return graphView
@@ -123,6 +134,9 @@ class RealDataGraphViewController: UIViewController {
   private func createBarGraph(_ frame: CGRect) -> ScrollableGraphView {
     
     let graphView = ScrollableGraphView(frame: frame)
+    
+    graphView.bottomMargin = 300
+    graphView.topMargin = 10
     
     graphView.dataPointType = ScrollableGraphViewDataPointType.circle
     graphView.shouldDrawBarLayer = true
@@ -138,15 +152,16 @@ class RealDataGraphViewController: UIViewController {
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
     graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
     graphView.referenceLineLabelColor = UIColor.white
-    graphView.numberOfIntermediateReferenceLines = 5
+    graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
     graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
     
     graphView.shouldAnimateOnStartup = true
     graphView.shouldAdaptRange = true
     graphView.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
     graphView.animationDuration = 1.5
-    graphView.rangeMax = 50
-    graphView.shouldRangeAlwaysStartAtZero = true
+    graphView.rangeMin = 25 //Y軸最小値
+    graphView.rangeMax = 70 //Y軸最小値
+    graphView.shouldRangeAlwaysStartAtZero = true //0から始まる
     
     return graphView
   }
@@ -155,6 +170,9 @@ class RealDataGraphViewController: UIViewController {
   private func createDotGraph(_ frame: CGRect) -> ScrollableGraphView {
     
     let graphView = ScrollableGraphView(frame: frame)
+    
+    graphView.bottomMargin = 300
+    graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#ADD6FF") //#00BFFF:水色、#B2D8FF:パステル水色
     graphView.lineColor = UIColor.clear
@@ -170,9 +188,9 @@ class RealDataGraphViewController: UIViewController {
     graphView.referenceLineLabelColor = UIColor.white
     graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.both
     
-    graphView.numberOfIntermediateReferenceLines = 9
-    
-    graphView.rangeMax = 50
+    graphView.numberOfIntermediateReferenceLines = 9 //上下を除いた中間線の数
+    graphView.rangeMin = 0 //Y軸最小値
+    graphView.rangeMax = 100 //Y軸最大値
     
     return graphView
   }
@@ -181,6 +199,9 @@ class RealDataGraphViewController: UIViewController {
   private func createPinkMountainGraph(_ frame: CGRect) -> ScrollableGraphView {
     
     let graphView = ScrollableGraphView(frame: frame)
+    
+    graphView.bottomMargin = 55
+    graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") // #222222
     graphView.lineColor = UIColor.clear
@@ -193,7 +214,7 @@ class RealDataGraphViewController: UIViewController {
     graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10)
     graphView.dataPointLabelColor = UIColor.white
     
-    graphView.dataPointLabelsSparsity = 3
+    graphView.dataPointLabelsSparsity = 1 //3
     
     graphView.referenceLineThickness = 1
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 10)
@@ -201,11 +222,11 @@ class RealDataGraphViewController: UIViewController {
     graphView.referenceLineLabelColor = UIColor.white
     graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.both
     
-    graphView.numberOfIntermediateReferenceLines = 1
+    graphView.numberOfIntermediateReferenceLines = 1 //上下を除いた中間線の数
     
     graphView.shouldAdaptRange = true
-    
-    graphView.rangeMax = 50
+    graphView.rangeMin = 0 //Y軸最小値
+    graphView.rangeMax = 5 //Y軸最大値
     
     return graphView
   }
@@ -279,6 +300,7 @@ class RealDataGraphViewController: UIViewController {
     
   }
   
+  //不使用
   //Data Generation
   private func generateRandomeData(_ numberOfItems: Int, max: Double) -> [Double] {
     
@@ -291,58 +313,25 @@ class RealDataGraphViewController: UIViewController {
       }
       
       data.append(randomNumber)
-
     }
     
     return data
     
   }
   
+  //    //X軸のラベル生成
+  //    private func generateSequentialLabels(_ numberOfItems: Int, text: String) -> [String] {
+  //
+  //      var labels = [String]()
+  //      for i in 0 ..< numberOfItems {
+  //        labels.append("\(text) \(i+15)")
+  //      }
+  //
+  //      return labels
+  //
+  //    }
   
-  private func getSoilMoistureData(_ numberOfItems: Int, max: Double) -> [Double] {
-    //取得した値を格納する配列
-    var soilMoistures = [Double]()
-
-    //Set the firebase reference
-    ref = Database.database().reference()
-    databaseHandle = ref?.child("soil_moisture").observe(.childAdded, with: { (snapshot) in
- 
-      for childSnap in  snapshot.children.allObjects {
-        let snap = childSnap as! DataSnapshot //型キャスト
-        if let snapshotValue = snapshot.value as? NSDictionary {
-          //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
-          if snap.key == "soil_moisture" {
-            let snapVal = snapshotValue[snap.key]
-            soilMoistures.append(snapVal as! Double)
-//            print(soilMoistures)
-   
-          }
-        }
-      }
-    })
-    
-    return soilMoistures
-    
-  }
-  
-  
-  
-  
-  //グラフデータのラベル生成
-  private func generateSequentialLabels(_ numberOfItems: Int, text: String) -> [String] {
-    
-    var labels = [String]()
-    for i in 0 ..< numberOfItems {
-      labels.append("\(text) \(i+1)")
-    }
-    
-    return labels
-    
-  }
-  
-  
-  
-  //グラフデータのラベル生成
+  //X軸のラベル生成
   private func readDateTime(_ numberOfItems: Int, text: String) -> [String] {
     
     var labels = [String]()
@@ -353,8 +342,6 @@ class RealDataGraphViewController: UIViewController {
     return labels
     
   }
-  
- 
   
   //表示するグラフの種類
   enum GraphType {
@@ -377,21 +364,9 @@ class RealDataGraphViewController: UIViewController {
     }
   }
   
-  
-  
-  
   override var prefersStatusBarHidden: Bool {
     return true
   }
-  
-  override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
-    //Set the firebase reference
-//    ref = Database.database().reference()
-    //画面が消えたときに、Firebaseのデータ読み取りのObserverを削除しておく
-//    ref?.removeAllObservers()
-  }
-  
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -408,5 +383,6 @@ class RealDataGraphViewController: UIViewController {
    // Pass the selected object to the new view controller.
    }
    */
+
   
 }

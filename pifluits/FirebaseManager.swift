@@ -158,8 +158,7 @@ class FirebaseManager {
           }
         }
         
-//        
-//        
+       
 //        count = count + 1
 //        print("count: \(snapshot.children.allObjects.count)")
 //        print("count: \(snapshot.children.allObjects[0])")
@@ -168,7 +167,7 @@ class FirebaseManager {
 //        for childSnap in snapshot.children.allObjects {
 //          let snap = childSnap as! DataSnapshot
 //          if let snapshotValue = snapshot.value as? NSDictionary {
-//            //UVIndexの値のみをuvIndexesの配列にappendし、最新の値のみをラベルに表示
+//            //UVIndexの値のみをuvIndexesの配列にappend
 //            if snap.key == "UV index" {
 //              let snapVal = (snapshotValue[snap.key] as! Double)
 //              uvIndexes.append(snapVal)
@@ -183,23 +182,32 @@ class FirebaseManager {
   
     //Temperature: グラフ表示用の配列（192：二日分のデータ）を返す関数
     func getTemperatureDataForGraph(completion: (([Double]) -> Void)?) {
+      //取得した値を格納する配列
+      var temps: [Double] = []
+      
       //Set the firebase reference
       ref = Database.database().reference()
       databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
-        //取得した値を格納する配列
-        var temps: [Double] = []
         
-        for childSnap in  snapshot.children.allObjects {
-          let snap = childSnap as! DataSnapshot
-          if let snapshotValue = snapshot.value as? NSDictionary {
-            
-            //気温の値のみをtempsの配列にappendし、最新の値のみをラベルに表示
-            if snap.key == "temp" {
-              let snapVal = snapshotValue[snap.key]
-              temps.append(snapVal as! Double)
-            }
+        if let temp = snapshot.value as? NSDictionary {
+          if let tempData = temp["temp"] as? Double {
+            //気温の値をtempsの配列にappendし
+            temps.append(tempData)
           }
         }
+        
+        
+//        for childSnap in  snapshot.children.allObjects {
+//          let snap = childSnap as! DataSnapshot
+//          if let snapshotValue = snapshot.value as? NSDictionary {
+//            
+//            //気温の値をtempsの配列にappend
+//            if snap.key == "temp" {
+//              let snapVal = snapshotValue[snap.key]
+//              temps.append(snapVal as! Double)
+//            }
+//          }
+//        }
         completion?(temps)
       })
     }
