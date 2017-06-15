@@ -68,8 +68,8 @@ class FirebaseViewController: UIViewController {
         let firebaseManager = FirebaseManager()
         firebaseManager.getSoilMoistureData(completion: {
             text in
-            self.soilMoistureLabel.text = text
-        })
+            self.soilMoistureLabel.text = String(text) + " %"
+    })
     
     
     

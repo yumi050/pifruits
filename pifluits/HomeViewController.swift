@@ -54,8 +54,9 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         dateLabel.text = getNowClockString()
       
         //植物の状態を表示
-        statusLabel.text = getStatus()
-        statusLabel.numberOfLines = 0 //表示可能最大行数=0
+//        getStatus()
+        statusLabel.text = ""
+        statusLabel.numberOfLines = 0 // numberOfLines を [0] に設定しないと自動リサイズされない
         statusLabel.sizeToFit() //contentsのサイズに合わせてobujectのサイズを変える
       
         //可愛いフォントを使用
@@ -65,7 +66,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         iconLabel.clipsToBounds = true
         iconLabel.layer.cornerRadius = iconLabelWidth / 2
       
-        //土壌水分量:最新の値を取得し、ラベルに表示する
+        //土壌水分量:最新の値を取得し、ラベルに表示する　& 水分量に応じて、植物の状態をstatusLabelに表示する
         getSoilMoistureData()
         //UVIndex:最新の値を取得し、ラベルに表示する
         getUVIndexData()
@@ -146,49 +147,68 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
   
   
   //植物の状態を表示させる関数
-  func getStatus () -> String {
-    var status: String
-    let soilMoistrue = 20
-    let temperature = 25
-    let moisture = 20
-    let sunLight = 20
+  func getStatus () { //-> String
     
-    if (soilMoistrue >= 70 && sunLight >= 50) {
-      if (temperature >= 25 && moisture >= 30) {
-        status = "Healthy"
-      }else{
-        status = "Healthy but it's Hot..."
-      }
-      
-    }else if (soilMoistrue >= 50 && sunLight >= 40) {
-      if (temperature >= 25 && moisture >= 30) {
-        status = "Need Water"
-      }else{
-        status = "Need Water and it's Hot..."
-      }
-      
-    }else if (soilMoistrue >= 30 && sunLight >= 30) {
-      if (temperature >= 25 && moisture >= 30) {
-        status = "Thirsty..."
-      }else{
-        status = "Hot and Thirsty..."
-      }
-      
-    }else{
-      status = "Dying...\n need water and sunlight!"
-    }
+//    var status: String = "Hello"
+//    var soilMoistrue: Double = 0.0
+//    
+//    let firebaseManager = FirebaseManager()
+//    firebaseManager.getSoilMoistureData(completion: {
+//      text in soilMoistrue = text
+//      
+//      print (String(soilMoistrue) + "hoge")
+//
+//    if (soilMoistrue >= 70) {
+//        status = "Healthy \n お水はまだあるよ！"
+//        self.statusLabel.text = status
+//      
+//    }else if (soilMoistrue >= 50) {
+//        status = "Need Water"
+//        self.statusLabel.text = status
+//     
+//    }else if (soilMoistrue >= 30) {
+//        status = "Very Thirsty...\n そろそろお水をください！"
+//        self.statusLabel.text = status
+//
+//    }else {
+//        status = "Dying...\n need water RIGHT NOW!"
+//        self.statusLabel.text = status
+//    }
+//    
+//    })
 
-    return status
+//    return status
   }
   
   
-  //土壌水分量:最新の値を取得し、ラベルに表示する関数
+  //土壌水分量:最新の値を取得し、ラベルに表示する関数 & 水分量に応じて、植物の状態をstatusLabelに表示する
   func getSoilMoistureData() {
+    
+    var status: String = "Hello"
     
     let firebaseManager = FirebaseManager()
     firebaseManager.getSoilMoistureData(completion: {
       text in
-      self.soilMoistureLabel.text = text
+      self.soilMoistureLabel.text = String(text) + " %"
+      
+      if (text >= 70) {
+        status = "Healthy \n お水はまだあるよ！"
+        self.statusLabel.text = status
+        print("Healthy \n お水はまだあるよ！")
+      }else if (text >= 50) {
+        status = "Need Water"
+        self.statusLabel.text = status
+        print("Need Water")
+      }else if (text >= 30) {
+        status = "Very Thirsty...\n そろそろお水をください！"
+        self.statusLabel.text = status
+        print("Very Thirsty...\n そろそろお水をください！")
+      }else {
+        status = "Dying...\n need water RIGHT NOW!"
+        self.statusLabel.text = status
+        print("Dying...\n need water RIGHT NOW!")
+      }
+      
     })
   }
   

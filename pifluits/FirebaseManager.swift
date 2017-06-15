@@ -18,25 +18,43 @@ class FirebaseManager {
 
   
     //土壌水分量：firebaseの最新の値のみを返す関数
-    func getSoilMoistureData(completion: ((String) -> Void)?) {
-        //Set the firebase reference
-        ref = Database.database().reference()
-        databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
-            //取得した値を格納する配列
-            var soilMoistures: [Double] = []
-            
-            for childSnap in  snapshot.children.allObjects {
-                let snap = childSnap as! DataSnapshot //型キャスト
-                if let snapshotValue = snapshot.value as? NSDictionary {
-                    //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
-                    if snap.key == "soil_moisture" {
-                        let snapVal = snapshotValue[snap.key]
-                        soilMoistures.append(snapVal as! Double)
-                        
-                        completion?(String(describing: soilMoistures.last!) + "  %")
-                    }
-                }
-            }
+    func getSoilMoistureData(completion: ((Double) -> Void)?) {
+      
+      //取得した値を格納する配列
+      var soilMoistures: [Double] = []
+      
+      //Set the firebase reference
+      ref = Database.database().reference()
+      databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+        
+        if let soilMoisture = snapshot.value as? NSDictionary {
+          if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
+            soilMoistures.append(soilMoistureData)
+          }
+        }
+        
+      
+//        //Set the firebase reference
+//        ref = Database.database().reference()
+//        databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
+//            //取得した値を格納する配列
+//            var soilMoistures: [Double] = []
+//            
+//            for childSnap in  snapshot.children.allObjects {
+//                let snap = childSnap as! DataSnapshot //型キャスト
+//                if let snapshotValue = snapshot.value as? NSDictionary {
+//                    //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
+//                    if snap.key == "soil_moisture" {
+//                        let snapVal = snapshotValue[snap.key]
+//                        soilMoistures.append(snapVal as! Double)
+//                        print(soilMoistures.last!)
+//                        completion?(String(describing: soilMoistures.last!))
+
+//                    }
+//                }
+//            }
+          print(soilMoistures.last!)
+          completion?(soilMoistures.last!)
         })
     }
   
