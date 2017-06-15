@@ -119,7 +119,7 @@ class RealDataGraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 55
+    graphView.bottomMargin = 280
     graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333")
@@ -129,13 +129,13 @@ class RealDataGraphViewController: UIViewController {
     graphView.lineStyle = ScrollableGraphViewLineStyle.smooth
     
     graphView.shouldFill = true
-    graphView.fillType = ScrollableGraphViewFillType.gradient
+    graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
     graphView.fillColor = UIColor.colorFromHex(hexString: "#555555")
     graphView.fillGradientType = ScrollableGraphViewGradientType.linear
     graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#555555")
     graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#444444")
     
-    graphView.dataPointSpacing = 80 //x軸（日付）の間隔
+    graphView.dataPointSpacing = 80 //x軸（時間）の間隔
     graphView.dataPointSize = 2
     graphView.dataPointFillColor = UIColor.white
     
@@ -143,15 +143,20 @@ class RealDataGraphViewController: UIViewController {
     graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
     graphView.referenceLineLabelColor = UIColor.white
     graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
-    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.2)
+    graphView.shouldShowReferenceLineUnits = true //Y軸の単位設定
+    graphView.referenceLineUnits = "℃"
+    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
+    
+//    graphView.shouldAutomaticallyDetectRange = true //???
     
     graphView.shouldAnimateOnStartup = true
-    //      graphView.shouldAdaptRange = true //Y軸を自動調整
+//    graphView.shouldAdaptRange = true //Y軸を自動調整
+    graphView.shouldAnimateOnAdapt = true //mmmmm
     graphView.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
     graphView.animationDuration = 1.5
-    graphView.rangeMin = 20 //Y軸最小値
-    graphView.rangeMax = 38 //Y軸最大値
-    graphView.shouldRangeAlwaysStartAtZero = true
+    graphView.rangeMin = 22 //Y軸最小値
+    graphView.rangeMax = 28 //Y軸最大値
+//    graphView.shouldRangeAlwaysStartAtZero = true
     
     return graphView
   }
@@ -161,10 +166,11 @@ class RealDataGraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 300
+    graphView.bottomMargin = 280
     graphView.topMargin = 10
     
     graphView.dataPointType = ScrollableGraphViewDataPointType.circle
+//    graphView.dataPointSpacing = 55 //x軸（時間）の間隔
     graphView.shouldDrawBarLayer = true
     graphView.shouldDrawDataPoint = false
     
@@ -179,15 +185,17 @@ class RealDataGraphViewController: UIViewController {
     graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
     graphView.referenceLineLabelColor = UIColor.white
     graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
-    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.5)
+    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
+    graphView.dataPointSpacing = 59 //x軸（時間）の間隔
     
     graphView.shouldAnimateOnStartup = true
+    graphView.shouldAnimateOnAdapt = true
     graphView.shouldAdaptRange = true
     graphView.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
     graphView.animationDuration = 1.5
     graphView.rangeMin = 25 //Y軸最小値
     graphView.rangeMax = 70 //Y軸最小値
-    graphView.shouldRangeAlwaysStartAtZero = true //0から始まる
+//    graphView.shouldRangeAlwaysStartAtZero = true //0から始まる
     
     return graphView
   }
@@ -197,24 +205,28 @@ class RealDataGraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 300
+    graphView.bottomMargin = 280
     graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#ADD6FF") //#00BFFF:水色、#B2D8FF:パステル水色
     graphView.lineColor = UIColor.clear
     
     graphView.dataPointSize = 5
-    graphView.dataPointSpacing = 80
-    graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10)
-    graphView.dataPointLabelColor = UIColor.white
+    graphView.dataPointSpacing = 75 //x軸（時間）の間隔
+    graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10) //X軸のラベルの文字サイズ
+    graphView.dataPointLabelColor = UIColor.white  //X軸ラベルの色
     graphView.dataPointFillColor = UIColor.white
     
-    graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 10)
+    graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 9) //Y軸のラベルの文字サイズ
     graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
     graphView.referenceLineLabelColor = UIColor.white
     graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.both
     
     graphView.numberOfIntermediateReferenceLines = 9 //上下を除いた中間線の数
+    graphView.shouldAnimateOnStartup = true
+//    graphView.shouldAdaptRange = true
+    graphView.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
+    graphView.animationDuration = 1.5
     graphView.rangeMin = 0 //Y軸最小値
     graphView.rangeMax = 100 //Y軸最大値
     
@@ -226,24 +238,28 @@ class RealDataGraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 55
+    graphView.bottomMargin = 280
     graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") // #222222
     graphView.lineColor = UIColor.clear
     
     graphView.shouldFill = true
+    graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
     graphView.fillColor = UIColor.colorFromHex(hexString: "#BCBCFF") //#FF0080: 濃ピンク、#fde5e9：パステルピンク
+    graphView.fillGradientType = ScrollableGraphViewGradientType.linear //radial
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#BCBCFF")
+    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#E8D1FF") //薄いピンク：#E8D1FF
     
     graphView.shouldDrawDataPoint = false
-    graphView.dataPointSpacing = 22
+    graphView.dataPointSpacing = 70 //x軸（時間）の間隔
     graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10)
-    graphView.dataPointLabelColor = UIColor.white
+    graphView.dataPointLabelColor = UIColor.white  //X軸ラベルの色
     
-    graphView.dataPointLabelsSparsity = 1 //3
+    graphView.dataPointLabelsSparsity = 1
     
     graphView.referenceLineThickness = 1
-    graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 10)
+    graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 9)
     graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
     graphView.referenceLineLabelColor = UIColor.white
     graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.both
@@ -252,7 +268,8 @@ class RealDataGraphViewController: UIViewController {
     
     graphView.shouldAdaptRange = true
     graphView.rangeMin = 0 //Y軸最小値
-    graphView.rangeMax = 5 //Y軸最大値
+    graphView.rangeMax = 1 //Y軸最大値
+//    graphView.shouldRangeAlwaysStartAtZero = true //0から始まる
     
     return graphView
   }
@@ -357,17 +374,43 @@ class RealDataGraphViewController: UIViewController {
   //
   //    }
   
+//  //X軸のラベル生成
+//  private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
+//    
+//    var labels = [String]()
+//    for i in 0 ..< numberOfItems {
+//      labels.append("\(i*15)\(text) ")
+//    }
+//    
+//    return labels
+//    
+//  }
+  
   //X軸のラベル生成
   private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
     
     var labels = [String]()
-    for i in 0 ..< numberOfItems {
-      labels.append("\(i*15)\(text) ")
+    
+    for i in 0 ..< 10 {
+      if (i < 7){ //6回繰り返す＝90分まで表示
+        labels.append("\(i*15)\(text) ")
+      }else{
+        for h in 1 ..< 25 { //24時間45分前まで表示
+          for m in 0 ..< 4 {
+            if (m == 0) {
+              labels.append("\(h)時間前")
+            }else{
+              labels.append("\(h)時間\(m*15)\(text) ")
+            }
+          }
+        }
+      }
     }
-    
+    print(labels)
     return labels
-    
-  }
+      
+    }
+  
   
   //表示するグラフの種類
   enum GraphType {
