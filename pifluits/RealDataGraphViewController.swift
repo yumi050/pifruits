@@ -23,6 +23,7 @@ class RealDataGraphViewController: UIViewController {
   
   var label = UILabel()
   var labelConstraints = [NSLayoutConstraint]()
+    
   
   //Data
   let numberOfDataItems = 192 //192 = 　2日分のデータ
@@ -243,6 +244,7 @@ class RealDataGraphViewController: UIViewController {
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") // #222222
     graphView.lineColor = UIColor.clear
+    graphView.lineStyle = ScrollableGraphViewLineStyle.smooth //丸みのあるライン
     
     graphView.shouldFill = true
     graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
@@ -268,7 +270,7 @@ class RealDataGraphViewController: UIViewController {
     
     graphView.shouldAdaptRange = true
     graphView.rangeMin = 0 //Y軸最小値
-    graphView.rangeMax = 1 //Y軸最大値
+    graphView.rangeMax = 2 //Y軸最大値
 //    graphView.shouldRangeAlwaysStartAtZero = true //0から始まる
     
     return graphView
