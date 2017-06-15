@@ -25,7 +25,7 @@ class WeatherDataModel: NSObject {
     //パース：JSONデータをプロジェクト内で使えるようにする
     //今日の天気データを取得して変数に格納する
     self.weather = data["list"][0]["weather"][0]["main"].stringValue
-    self.temp = data["list"][0]["main"]["temp"].intValue
+//    self.temp = data["list"][0]["main"]["temp"].intValue
   }
 
 }

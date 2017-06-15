@@ -17,28 +17,21 @@ protocol WeatherDataManagerProtocol {
 // AlamofireによるAPI通信を管理
 class WeatherDataManager: NSObject {
   
+  var delegate: HomeViewController?
+//  var delegate: WeatherViewController?
   
-  // レスポンスデータをパースするモデルクラスのインスタンスを格納すプロパティ
-//  var weatherData: WeatherDataModel?
-  
-  var delegate: WeatherViewController?
-  
-  // リクエストするurl
+  // リクエストするurl（東京の天気）
   let url = "http://api.openweathermap.org/data/2.5/forecast?units=metric&q=Tokyo&APPID=c03dbd8a937565924a9b9257b70aa918"
-//  let url = "http://api.openweathermap.org/data/2.5/forecast?id=1850147&APPID=c03dbd8a937565924a9b9257b70aa918" //Tokyo: 1850147
-
   
   // APIリクエストを実行する
   func dataRequest() {
-    
     // AlamofireによるAPI通信
     Alamofire.request(url).responseJSON { response in
       switch response.result {
         
       case .success(let value):
         // 通信成功時の処理
-        // レスポンスデータをJSON型に変換する
-        // これはSwiftyJSONのルール
+        // レスポンスデータをJSON型に変換する（これはSwiftyJSONのルール）
         let json = JSON(value)
         // JSONデータを引数に渡してモデルクラスのインスタンスを生成
         
@@ -54,12 +47,7 @@ class WeatherDataManager: NSObject {
         print(error)
       }
     }
-    
   }
-  //あっているか不明？？？
-//  func weather() {
-//    delegate?.checkWeather()
-//  }
   
   
 }

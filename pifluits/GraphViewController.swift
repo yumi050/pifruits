@@ -24,8 +24,8 @@ class GraphViewController: UIViewController {
   
 //    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
     var data: [Double] = []
-    lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
-  
+    //  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
+    lazy var labels: [String] = self.readDateTime(self.numberOfDataItems, text: "分前")
   
 
     override func viewDidLoad() {
@@ -57,18 +57,26 @@ class GraphViewController: UIViewController {
       case .dark:
         addLabel(withText: "Temperature")
         graphView = createDarkGraph(self.view.frame)
+        //温度のデータをセット
+        graphView.set(data: data, withLabels: labels)
       case .bar:
         addLabel(withText: "Humidity")
         graphView = createBarGraph(self.view.frame)
+        //湿度のデータをセット
+        graphView.set(data: data, withLabels: labels)
       case .dot:
         addLabel(withText: "Water")
         graphView = createDotGraph(self.view.frame)
+        //土壌水分のデータをセット
+        graphView.set(data: data, withLabels: labels)
       case .pink:
         addLabel(withText: "UV light")
         graphView = createPinkMountainGraph(self.view.frame)
+        //UVのデータをセット
+        graphView.set(data: data, withLabels: labels)
       }
     
-      graphView.set(data: data, withLabels: labels)
+//      graphView.set(data: data, withLabels: labels)
       self.view.insertSubview(graphView, belowSubview: label)
     
       setupConstraints()
@@ -306,16 +314,29 @@ class GraphViewController: UIViewController {
       
     }
   
-    private func generateSequentialLabels(_ numberOfItems: Int, text: String) -> [String] {
-      
-      var labels = [String]()
-      for i in 0 ..< numberOfItems {
-        labels.append("\(text) \(i+15)")
-      }
-      
-      return labels
+//    //X軸のラベル生成
+//    private func generateSequentialLabels(_ numberOfItems: Int, text: String) -> [String] {
+//      
+//      var labels = [String]()
+//      for i in 0 ..< numberOfItems {
+//        labels.append("\(text) \(i+15)")
+//      }
+//      
+//      return labels
+//    
+//    }
+  
+  //X軸のラベル生成
+  private func readDateTime(_ numberOfItems: Int, text: String) -> [String] {
     
+    var labels = [String]()
+    for i in 0 ..< numberOfItems {
+      labels.append("\(i*15)\(text) ")
     }
+    
+    return labels
+    
+  }
   
     //表示するグラフの種類
     enum GraphType {
