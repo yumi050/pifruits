@@ -25,6 +25,11 @@ class UserDefaults2ViewController: UIViewController  {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      //画像を正円にする
+      let iconLabelWidth = iconLabel.bounds.size.width
+      iconLabel.clipsToBounds = true
+      iconLabel.layer.cornerRadius = iconLabelWidth / 2
 
     }
   

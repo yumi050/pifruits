@@ -232,7 +232,7 @@ class RealDataGraphViewController: UIViewController {
     graphView.shouldFill = true
     graphView.fillType = ScrollableGraphViewFillType.gradient
     graphView.fillColor = UIColor.colorFromHex(hexString: "#CCFFE5") //パステルブルー　CCFFFF
-    graphView.fillGradientType = ScrollableGraphViewGradientType.radial //radial
+    graphView.fillGradientType = ScrollableGraphViewGradientType.linear //radial
     graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#CCFFFF") //パステルグリーン　CCFFE5　、濃い　BCFFDD
     graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#FFD1FF") //薄いピンク　FFD1FF
     

@@ -89,7 +89,7 @@ class FirebaseManager {
 //            }
 //          }
 //        }
-        completion?(String(describing: temps.last!) + " ℃")
+        completion?(String(describing: temps.last!))
       })
     }
   
@@ -110,7 +110,7 @@ class FirebaseManager {
           }
         }
         print(humids)
-        completion?(String(describing: humids.last!) + " %")
+        completion?(String(describing: humids.last!))
       })
     }
 

@@ -107,7 +107,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     if let imageData = imageData {
         return UIImage(data:imageData)!
     } else {
-        return UIImage(named: "ok.png")!
+        return UIImage(named: "red_plants2.jpg")!
     }
   }
   
@@ -189,7 +189,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     let firebaseManager = FirebaseManager()
     firebaseManager.getSoilMoistureData(completion: {
       text in
-      self.soilMoistureLabel.text = String(text) + " %"
+      self.soilMoistureLabel.text = String(text)
       
       if (text >= 70) {
         status = "Healthy \n お水はまだあるよ！"

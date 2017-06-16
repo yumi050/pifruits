@@ -65,7 +65,7 @@ class UserDefaultViewController: UIViewController,UITextFieldDelegate {
   
   //画像をUserDefaultsに登録する
   func registerIcon() {
-    if let image = UIImage(named: "ok.png") {
+    if let image = UIImage(named: "red_plants2.jpg") {
       //UIImageをDataに変換
       let imageData = UIImagePNGRepresentation(image)
       //UserDefaultsに保存
