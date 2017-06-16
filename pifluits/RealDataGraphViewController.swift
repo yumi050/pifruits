@@ -23,10 +23,12 @@ class RealDataGraphViewController: UIViewController {
   
   var label = UILabel()
   var labelConstraints = [NSLayoutConstraint]()
+  
+  @IBOutlet weak var circleLabel: UILabel! //最新の値を表示するラベル
     
   
   //Data
-  let numberOfDataItems = 192 //192 = 　2日分のデータ
+  let numberOfDataItems = 96 //96 = 24時間分のデータ
   
   //    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
   var data: [Double] = []
@@ -39,17 +41,23 @@ class RealDataGraphViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    circleLabel.isHidden = true
     graphView = ScrollableGraphView(frame: self.view.frame)
     graphView = createDarkGraph(self.view.frame)
-    
-//    let firebaseManager = FirebaseManager()
-    
+    //温度のグラフを表示
     firebaseManager.getTemperatureDataForGraph(completion: {
       temps in self.data = temps
       self.graphView.set(data: self.data, withLabels: self.labels)
       self.view.addSubview(self.graphView)
       self.setupConstraints()
       self.addLabel(withText: "Temperature (TAP HERE)")
+      
+      //circleLabelを丸くし、最前面に移動
+      self.circleLabel.isHidden = false
+      let circleLabelWidth = self.circleLabel.bounds.size.width
+      self.circleLabel.clipsToBounds = true
+      self.circleLabel.layer.cornerRadius = circleLabelWidth / 2
+      self.view.bringSubview(toFront: self.circleLabel)
     })
     
   }
@@ -73,6 +81,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.view.bringSubview(toFront: self.circleLabel)
       })
     case .bar:
       addLabel(withText: "Humidity")
@@ -84,6 +93,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.view.bringSubview(toFront: self.circleLabel)
       })
     case .dot:
       addLabel(withText: "Water")
@@ -95,6 +105,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.view.bringSubview(toFront: self.circleLabel)
       })
     case .pink:
       addLabel(withText: "UV light")
@@ -106,6 +117,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.view.bringSubview(toFront: self.circleLabel)
       })
     }
     
@@ -151,12 +163,12 @@ class RealDataGraphViewController: UIViewController {
 //    graphView.shouldAutomaticallyDetectRange = true //???
     
     graphView.shouldAnimateOnStartup = true
-//    graphView.shouldAdaptRange = true //Y軸を自動調整
+    graphView.shouldAdaptRange = true //Y軸を自動調整
     graphView.shouldAnimateOnAdapt = true //mmmmm
     graphView.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
     graphView.animationDuration = 1.5
     graphView.rangeMin = 22 //Y軸最小値
-    graphView.rangeMax = 28 //Y軸最大値
+    graphView.rangeMax = 30 //Y軸最大値
 //    graphView.shouldRangeAlwaysStartAtZero = true
     
     return graphView
@@ -209,7 +221,15 @@ class RealDataGraphViewController: UIViewController {
     graphView.bottomMargin = 280
     graphView.topMargin = 10
     
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#ADD6FF") //#00BFFF:水色、#B2D8FF:パステル水色
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#B2D8FF") //#00BFFF:水色、#B2D8FF:パステル水色
+    //グラデーション部分（要確認）
+    graphView.shouldFill = true
+    graphView.fillType = ScrollableGraphViewFillType.gradient
+    graphView.fillColor = UIColor.colorFromHex(hexString: "#CCFFE5") //パステルブルー　CCFFFF
+    graphView.fillGradientType = ScrollableGraphViewGradientType.radial //radial
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#CCFFFF") //パステルグリーン　CCFFE5　、濃い　BCFFDD
+    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#FFD1FF") //薄いピンク　FFD1FF
+    
     graphView.lineColor = UIColor.clear
     
     graphView.dataPointSize = 5
@@ -250,7 +270,7 @@ class RealDataGraphViewController: UIViewController {
     graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
     graphView.fillColor = UIColor.colorFromHex(hexString: "#BCBCFF") //#FF0080: 濃ピンク、#fde5e9：パステルピンク
     graphView.fillGradientType = ScrollableGraphViewGradientType.linear //radial
-    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#BCBCFF")
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#B7B7FF") //#BCBCFF
     graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#E8D1FF") //薄いピンク：#E8D1FF
     
     graphView.shouldDrawDataPoint = false
@@ -327,7 +347,7 @@ class RealDataGraphViewController: UIViewController {
   private func createLabel(withText text: String) -> UILabel {
     
     let label = UILabel()
-    
+  
     label.backgroundColor = UIColor.black.withAlphaComponent(0.5)
     
     label.text = text
@@ -335,7 +355,7 @@ class RealDataGraphViewController: UIViewController {
     label.textAlignment = NSTextAlignment.center
     label.font = UIFont.boldSystemFont(ofSize: 14)
     
-    label.layer.cornerRadius = 2
+    label.layer.cornerRadius = 15
     label.clipsToBounds = true
     
     label.translatesAutoresizingMaskIntoConstraints = false
@@ -347,34 +367,23 @@ class RealDataGraphViewController: UIViewController {
   
   //不使用
   //Data Generation
-  private func generateRandomeData(_ numberOfItems: Int, max: Double) -> [Double] {
-    
-    var data = [Double]()
-    for _ in 0 ..< numberOfItems {
-      var randomNumber = Double(arc4random()).truncatingRemainder(dividingBy: max)
-      
-      if (arc4random() % 100 < 10) {
-        randomNumber *= 3
-      }
-      
-      data.append(randomNumber)
-    }
-    
-    return data
-    
-  }
-  
-  //    //X軸のラベル生成
-  //    private func generateSequentialLabels(_ numberOfItems: Int, text: String) -> [String] {
-  //
-  //      var labels = [String]()
-  //      for i in 0 ..< numberOfItems {
-  //        labels.append("\(text) \(i+15)")
-  //      }
-  //
-  //      return labels
-  //
-  //    }
+//  private func generateRandomeData(_ numberOfItems: Int, max: Double) -> [Double] {
+//    
+//    var data = [Double]()
+//    for _ in 0 ..< numberOfItems {
+//      var randomNumber = Double(arc4random()).truncatingRemainder(dividingBy: max)
+//      
+//      if (arc4random() % 100 < 10) {
+//        randomNumber *= 3
+//      }
+//      
+//      data.append(randomNumber)
+//    }
+//    
+//    return data
+//    
+//  }
+
   
 //  //X軸のラベル生成
 //  private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {

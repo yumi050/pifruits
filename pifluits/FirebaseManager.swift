@@ -25,7 +25,7 @@ class FirebaseManager {
       
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
         
         if let soilMoisture = snapshot.value as? NSDictionary {
           if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
@@ -63,7 +63,7 @@ class FirebaseManager {
     func getUVIndexData(completion: ((String) -> Void)?) {
         //Set the firebase reference
         ref = Database.database().reference()
-        databaseHandle = ref?.child("UV index").queryLimited(toLast: 192).observe(.childAdded, with: { (snapshot) in
+        databaseHandle = ref?.child("UV index").queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
             //取得した値を格納する配列
             var uvIndexes: [Double] = []
             
@@ -86,7 +86,7 @@ class FirebaseManager {
     func getTemperatureData(completion: ((String) -> Void)?) {
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
         //取得した値を格納する配列
         var temps: [Double] = []
 //        var pressures: [Double] = []
@@ -115,7 +115,7 @@ class FirebaseManager {
     func getHumidityData(completion: ((String) -> Void)?) {
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 1).observe(.childAdded, with: { (snapshot) in
         //取得した値を格納する配列
         var humids: [Double] = []
         
@@ -142,24 +142,13 @@ class FirebaseManager {
       
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("soil_moisture").queryLimited(toLast: 96).observe(.childAdded, with: { (snapshot) in
         
         if let soilMoisture = snapshot.value as? NSDictionary {
           if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
             soilMoistures.append(soilMoistureData)
           }
         }
-        
-//        for childSnap in  snapshot.children.allObjects {
-//          let snap = childSnap as! DataSnapshot //型キャスト
-//          if let snapshotValue = snapshot.value as? NSDictionary {
-//            //土壌水分量の値のみをsoilMoisturesの配列にappendし、最新の値のみをラベルに表示
-//            if snap.key == "soil_moisture" {
-//              let snapVal = snapshotValue[snap.key]
-//              soilMoistures.append(snapVal as! Double)
-//            }
-//          }
-//        }
         print(soilMoistures)
         completion?(soilMoistures)
       })
@@ -175,15 +164,13 @@ class FirebaseManager {
       
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("UV index").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("UV index").queryLimited(toLast: 96).observe(.childAdded, with: { (snapshot) in
         
         if let uvIndex = snapshot.value as? NSDictionary {
           if let uvIndexValue = uvIndex["UV index"] as? Double {
             uvIndexes.append(uvIndexValue)
           }
         }
-        
-       
 //        count = count + 1
 //        print("count: \(snapshot.children.allObjects.count)")
 //        print("count: \(snapshot.children.allObjects[0])")
@@ -213,7 +200,7 @@ class FirebaseManager {
       
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 96).observe(.childAdded, with: { (snapshot) in
         
         if let temp = snapshot.value as? NSDictionary {
           if let tempData = temp["temp"] as? Double {
@@ -221,19 +208,6 @@ class FirebaseManager {
             temps.append(tempData)
           }
         }
-        
-        
-//        for childSnap in  snapshot.children.allObjects {
-//          let snap = childSnap as! DataSnapshot
-//          if let snapshotValue = snapshot.value as? NSDictionary {
-//            
-//            //気温の値をtempsの配列にappend
-//            if snap.key == "temp" {
-//              let snapVal = snapshotValue[snap.key]
-//              temps.append(snapVal as! Double)
-//            }
-//          }
-//        }
         print(temps)
         completion?(temps)
       })
@@ -247,7 +221,7 @@ class FirebaseManager {
       
       //Set the firebase reference
       ref = Database.database().reference()
-      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 10).observe(.childAdded, with: { (snapshot) in
+      databaseHandle = ref?.child("Temp_Hum_Pres").queryLimited(toLast: 96).observe(.childAdded, with: { (snapshot) in
         
         if let humid = snapshot.value as? NSDictionary {
           if let humidData = humid["humidity"] as? Double {
@@ -255,18 +229,6 @@ class FirebaseManager {
             humids.append(humidData)
           }
         }
-        
-//        for childSnap in  snapshot.children.allObjects {
-//          let snap = childSnap as! DataSnapshot
-//          if let snapshotValue = snapshot.value as? NSDictionary {
-//           
-//            //湿度の値のみをhumidsの配列にappendし、最新の値のみをラベルに表示
-//            if snap.key == "humidity" {
-//              let snapVal = snapshotValue[snap.key]
-//              humids.append(snapVal as! Double)
-//            }
-//          }
-//        }
         print(humids)
         completion?(humids)
       })
