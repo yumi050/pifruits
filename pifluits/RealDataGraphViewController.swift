@@ -52,12 +52,14 @@ class RealDataGraphViewController: UIViewController {
       self.setupConstraints()
       self.addLabel(withText: "Temperature (TAP HERE)")
       
-      //circleLabelを丸くし、最前面に移動
+      //circleLabelに温度データをセット、円形にし、最前面に移動
+      self.getTemperatureData()
       self.circleLabel.isHidden = false
       let circleLabelWidth = self.circleLabel.bounds.size.width
       self.circleLabel.clipsToBounds = true
       self.circleLabel.layer.cornerRadius = circleLabelWidth / 2
       self.view.bringSubview(toFront: self.circleLabel)
+      
     })
     
   }
@@ -81,6 +83,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.getTemperatureData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
       })
     case .bar:
@@ -93,6 +96,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.getHumidityData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
       })
     case .dot:
@@ -105,6 +109,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.getSoilMoistureData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
       })
     case .pink:
@@ -117,6 +122,7 @@ class RealDataGraphViewController: UIViewController {
         self.view.insertSubview(self.graphView, belowSubview: self.label)
         
         self.setupConstraints()
+        self.getUVIndexData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
       })
     }
@@ -443,6 +449,43 @@ class RealDataGraphViewController: UIViewController {
       }
     }
   }
+  
+  
+  //土壌水分量:最新の値を取得し、ラベルに表示する関数 
+  func getSoilMoistureData() {
+    firebaseManager.getSoilMoistureData(completion: {
+      text in
+      self.circleLabel.text = String(text) + " %"
+    })
+  }
+  
+  
+  //UVIndex:最新の値を取得し、ラベルに表示する関数
+  func getUVIndexData() {
+    firebaseManager.getUVIndexData(completion: {
+      text in
+      self.circleLabel.text = text
+    })
+  }
+  
+  
+  //Temperature:最新の値を取得し、ラベルに表示する関数
+  func getTemperatureData() {
+    firebaseManager.getTemperatureData(completion: {
+      text in
+      self.circleLabel.text = text
+    })
+  }
+  
+  
+  //Humidity:最新の値を取得し、ラベルに表示する関数
+  func getHumidityData() {
+    firebaseManager.getHumidityData(completion: {
+      text in
+      self.circleLabel.text = text
+    })
+  }
+  
   
   override var prefersStatusBarHidden: Bool {
     return true
