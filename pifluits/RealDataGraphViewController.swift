@@ -27,6 +27,9 @@ class RealDataGraphViewController: UIViewController {
   @IBOutlet weak var circleLabel: UILabel! //最新の値を表示するラベル
   
   @IBOutlet weak var backgroundImage: UIImageView! //背景画像
+  @IBOutlet weak var backgroundImage2: UIImageView! //背景画像2
+  @IBOutlet weak var backgroundImage3: UIImageView! //背景画像3
+  @IBOutlet weak var backgroundImage4: UIImageView! //背景画像4
   
   
   //Data
@@ -61,7 +64,8 @@ class RealDataGraphViewController: UIViewController {
       self.circleLabel.clipsToBounds = true
       self.circleLabel.layer.cornerRadius = circleLabelWidth / 2
       self.view.bringSubview(toFront: self.circleLabel) //最前面に移動
-      self.view.bringSubview(toFront: self.backgroundImage) //最背面に移動
+      self.view.bringSubview(toFront: self.backgroundImage) //最前面に移動
+      
       
       
     })
@@ -89,6 +93,7 @@ class RealDataGraphViewController: UIViewController {
         self.setupConstraints()
         self.getTemperatureData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
+        self.view.bringSubview(toFront: self.backgroundImage) //最前面に移動
       })
     case .bar:
       addLabel(withText: "Humidity")
@@ -102,6 +107,7 @@ class RealDataGraphViewController: UIViewController {
         self.setupConstraints()
         self.getHumidityData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
+        self.view.bringSubview(toFront: self.backgroundImage2) //最前面に移動
       })
     case .dot:
       addLabel(withText: "Water")
@@ -115,6 +121,7 @@ class RealDataGraphViewController: UIViewController {
         self.setupConstraints()
         self.getSoilMoistureData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
+        self.view.bringSubview(toFront: self.backgroundImage3) //最前面に移動
       })
     case .pink:
       addLabel(withText: "UV light")
@@ -128,6 +135,7 @@ class RealDataGraphViewController: UIViewController {
         self.setupConstraints()
         self.getUVIndexData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
+        self.view.bringSubview(toFront: self.backgroundImage4) //最前面に移動
       })
     }
     
@@ -145,18 +153,18 @@ class RealDataGraphViewController: UIViewController {
     graphView.bottomMargin = 280
     graphView.topMargin = 10
     
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333")
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") //333333
     
     graphView.lineWidth = 1
-    graphView.lineColor = UIColor.colorFromHex(hexString: "#777777")
+    graphView.lineColor = UIColor.colorFromHex(hexString: "#777777") //777777
     graphView.lineStyle = ScrollableGraphViewLineStyle.smooth
     
     graphView.shouldFill = true
     graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
-    graphView.fillColor = UIColor.colorFromHex(hexString: "#555555")
+    graphView.fillColor = UIColor.colorFromHex(hexString: "#FFE0FF") //555555
     graphView.fillGradientType = ScrollableGraphViewGradientType.linear
-    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#555555")
-    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#444444")
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#93FFC9") //555555  orangepink:FFDBED
+    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#FFE0FF") //444444 lightpink:FFE0FF
     
     graphView.dataPointSpacing = 80 //x軸（時間）の間隔
     graphView.dataPointSize = 2
@@ -168,7 +176,7 @@ class RealDataGraphViewController: UIViewController {
     graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
     graphView.shouldShowReferenceLineUnits = true //Y軸の単位設定
     graphView.referenceLineUnits = "℃"
-    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
+    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#777777")//UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
     
 //    graphView.shouldAutomaticallyDetectRange = true //???
     
@@ -200,15 +208,16 @@ class RealDataGraphViewController: UIViewController {
     graphView.lineColor = UIColor.clear
     graphView.barWidth = 25
     graphView.barLineWidth = 1
-    graphView.barLineColor = UIColor.colorFromHex(hexString: "#777777")
-    graphView.barColor = UIColor.colorFromHex(hexString: "#555555")
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333")
+    graphView.barLineColor = UIColor.colorFromHex(hexString: "#777777") //origin:777777
+    graphView.barColor = UIColor.colorFromHex(hexString: "#FFE5FF") //origin:555555 pink:FFE0FF
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#CCFFFF") //origin:333333
     
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
     graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
-    graphView.referenceLineLabelColor = UIColor.white
+    graphView.referenceLineLabelColor = UIColor.colorFromHex(hexString: "#777777") //x軸のラベルの色
     graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
-    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
+//    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
+    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#777777") //X軸ラベルの色
     graphView.dataPointSpacing = 59 //x軸（時間）の間隔
     
     graphView.shouldAnimateOnStartup = true
@@ -245,7 +254,7 @@ class RealDataGraphViewController: UIViewController {
     graphView.dataPointSize = 5
     graphView.dataPointSpacing = 75 //x軸（時間）の間隔
     graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10) //X軸のラベルの文字サイズ
-    graphView.dataPointLabelColor = UIColor.white  //X軸ラベルの色
+    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#777777")  //X軸ラベルの色
     graphView.dataPointFillColor = UIColor.white
     
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 9) //Y軸のラベルの文字サイズ
@@ -280,8 +289,8 @@ class RealDataGraphViewController: UIViewController {
     graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
     graphView.fillColor = UIColor.colorFromHex(hexString: "#BCBCFF") //#FF0080: 濃ピンク、#fde5e9：パステルピンク
     graphView.fillGradientType = ScrollableGraphViewGradientType.linear //radial
-    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#B7B7FF") //#BCBCFF
-    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#E8D1FF") //薄いピンク：#E8D1FF
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#B2B2FF") //#BCBCFF 紫：B7B7FF　＞　C1C1FF
+    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#FFE0FF") //薄いピンク：#E8D1FF < FFDBFF
     
     graphView.shouldDrawDataPoint = false
     graphView.dataPointSpacing = 70 //x軸（時間）の間隔

@@ -140,9 +140,9 @@ class GraphViewController: UIViewController {
       graphView.lineColor = UIColor.clear
       graphView.barWidth = 25
       graphView.barLineWidth = 1
-      graphView.barLineColor = UIColor.colorFromHex(hexString: "#777777")
-      graphView.barColor = UIColor.colorFromHex(hexString: "#555555")
-      graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333")
+      graphView.barLineColor = UIColor.colorFromHex(hexString: "#777777") //777777
+      graphView.barColor = UIColor.colorFromHex(hexString: "#555555") //555555
+      graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") //333333
       
       graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
       graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)

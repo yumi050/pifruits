@@ -780,23 +780,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower-backet.png" translatesAutoresizingMaskIntoConstraints="NO" id="f3K-es-c0L">
-                                <rect key="frame" x="0.0" y="305" width="320" height="263"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="80 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ZR-l7-1dg">
-                                <rect key="frame" x="93" y="361" width="135" height="135"/>
+                                <rect key="frame" x="93" y="345" width="135" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leaf2.png" translatesAutoresizingMaskIntoConstraints="NO" id="f3K-es-c0L">
+                                <rect key="frame" x="0.0" y="488" width="320" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leaf3.png" translatesAutoresizingMaskIntoConstraints="NO" id="J2S-wr-w2e">
+                                <rect key="frame" x="-1" y="488" width="320" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ucE-XZ-9cF">
+                                <rect key="frame" x="-21" y="492" width="361" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leaf2.png" translatesAutoresizingMaskIntoConstraints="NO" id="dst-tn-bAY">
+                                <rect key="frame" x="0.0" y="488" width="320" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="f3K-es-c0L" id="LsD-eb-KfW"/>
+                        <outlet property="backgroundImage2" destination="J2S-wr-w2e" id="ERE-Bo-o0p"/>
+                        <outlet property="backgroundImage3" destination="ucE-XZ-9cF" id="mcy-7Y-icY"/>
+                        <outlet property="backgroundImage4" destination="dst-tn-bAY" id="0ry-Lw-Tzn"/>
                         <outlet property="circleLabel" destination="0ZR-l7-1dg" id="Nm9-B3-9KU"/>
                     </connections>
                 </viewController>
@@ -956,10 +971,12 @@
         <image name="about_background.jpg" width="1280" height="855"/>
         <image name="camera_tab.png" width="32" height="32"/>
         <image name="chat_tab.png" width="32" height="32"/>
-        <image name="flower-backet.png" width="2500" height="2500"/>
+        <image name="flower2.png" width="1976" height="287"/>
         <image name="graph_tab.png" width="32" height="32"/>
         <image name="home_tab.png" width="32" height="32"/>
         <image name="humidity.png" width="256" height="256"/>
+        <image name="leaf2.png" width="2469" height="451"/>
+        <image name="leaf3.png" width="2470" height="481"/>
         <image name="mercury-thermometer.png" width="256" height="256"/>
         <image name="ok.png" width="300" height="300"/>
         <image name="sprout 3.png" width="256" height="256"/>
