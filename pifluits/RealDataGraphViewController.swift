@@ -25,7 +25,9 @@ class RealDataGraphViewController: UIViewController {
   var labelConstraints = [NSLayoutConstraint]()
   
   @IBOutlet weak var circleLabel: UILabel! //最新の値を表示するラベル
-    
+  
+  @IBOutlet weak var backgroundImage: UIImageView! //背景画像
+  
   
   //Data
   let numberOfDataItems = 96 //96 = 24時間分のデータ
@@ -58,7 +60,9 @@ class RealDataGraphViewController: UIViewController {
       let circleLabelWidth = self.circleLabel.bounds.size.width
       self.circleLabel.clipsToBounds = true
       self.circleLabel.layer.cornerRadius = circleLabelWidth / 2
-      self.view.bringSubview(toFront: self.circleLabel)
+      self.view.bringSubview(toFront: self.circleLabel) //最前面に移動
+      self.view.bringSubview(toFront: self.backgroundImage) //最背面に移動
+      
       
     })
     

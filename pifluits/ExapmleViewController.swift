@@ -1,25 +1,21 @@
 //
-//  CameraViewController.swift
+//  ExapmleViewController.swift
 //  pifluits
 //
-//  Created by yumiH on 2017/05/16.
+//  Created by yumiH on 2017/06/17.
 //  Copyright © 2017年 yumiH. All rights reserved.
 //
 
 import UIKit
-import Firebase //動画をFirebaseにアップする場合
 
-class CameraViewController: UIViewController {
-  //ストレージ サービスへの参照を取得
-//  let storage = Storage.storage()
+class ExapmleViewController: UIViewController {
+  
   
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Create a storage reference from our storage service
-//        let storageRef = storage.reference(forURL: "gs://pifruits-5d32b.appspot.com")
-      
-      
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,13 +25,13 @@ class CameraViewController: UIViewController {
   
   
   
-  @IBAction func cameraButton(_ sender: Any) {
-    
-    
-  }
-  
-    
+  //カラーExamples!!!
+  // botanical pink: F7D1DD
+  // lumine pink: f7cdce
 
+  
+  
+  
     /*
     // MARK: - Navigation
 
