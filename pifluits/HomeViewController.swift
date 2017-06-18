@@ -11,37 +11,37 @@ import FirebaseDatabase
 import SwiftyJSON
 
 class HomeViewController: UIViewController, WeatherDataManagerProtocol {
-  
-  //植物名を表示するラベル（UserDefaultsに登録した"plantName"）
-  @IBOutlet weak var plantNameLabel: UILabel!
-  //今日の日付を表示するラベル
-  @IBOutlet var dateLabel: UILabel!
-  //今日の天気の画像を表示する
-  @IBOutlet weak var weatherImage: UIImageView!
-  //登録した植物の画像を表示する
-  @IBOutlet var iconLabel: UIImageView!
-  //植物の状態を表示するラベル
-  @IBOutlet var statusLabel: UILabel!
-  
-  
-  //土壌水分量を表示するラベル
-  @IBOutlet weak var soilMoistureLabel: UILabel!
-  //UV指数を表示するラベル
-  @IBOutlet weak var uvLabel: UILabel!
-  //温度を表示するラベル
-  @IBOutlet weak var temperatureLabel: UILabel!
-  //湿度を表示するラベル
-  @IBOutlet weak var moistureLabel: UILabel!
-  
-  
-  //UserDefaultsのインスタンス生成
-  let userDefaults: UserDefaults = UserDefaults.standard
-  
-  // APIリクエストや、レスポンスデータを利用するためのクラスのインスタンス
-  let dataManager = WeatherDataManager()
-  
-  
-
+    
+    //植物名を表示するラベル（UserDefaultsに登録した"plantName"）
+    @IBOutlet weak var plantNameLabel: UILabel!
+    //今日の日付を表示するラベル
+    @IBOutlet var dateLabel: UILabel!
+    //今日の天気の画像を表示する
+    @IBOutlet weak var weatherImage: UIImageView!
+    //登録した植物の画像を表示する
+    @IBOutlet var iconLabel: UIImageView!
+    //植物の状態を表示するラベル
+    @IBOutlet var statusLabel: UILabel!
+    
+    
+    //土壌水分量を表示するラベル
+    @IBOutlet weak var soilMoistureLabel: UILabel!
+    //UV指数を表示するラベル
+    @IBOutlet weak var uvLabel: UILabel!
+    //温度を表示するラベル
+    @IBOutlet weak var temperatureLabel: UILabel!
+    //湿度を表示するラベル
+    @IBOutlet weak var moistureLabel: UILabel!
+    
+    
+    //UserDefaultsのインスタンス生成
+    let userDefaults: UserDefaults = UserDefaults.standard
+    
+    // APIリクエストや、レスポンスデータを利用するためのクラスのインスタンス
+    let dataManager = WeatherDataManager()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //東京の天気を表示
@@ -49,23 +49,21 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         self.dataManager.delegate = self
         // ここでAPIリクエストを行う
         self.dataManager.dataRequest()
-      
+        
         //今日の日付を表示
         dateLabel.text = getNowClockString()
-      
+        
         //植物の状態を表示
-//        getStatus()
+        //        getStatus()
         statusLabel.text = ""
-        statusLabel.numberOfLines = 0 // numberOfLines を [0] に設定しないと自動リサイズされない
-        statusLabel.sizeToFit() //contentsのサイズに合わせてobujectのサイズを変える
-      
+        
         //可愛いフォントを使用
-      
+        
         //画像を正円にする
         let iconLabelWidth = iconLabel.bounds.size.width
         iconLabel.clipsToBounds = true
         iconLabel.layer.cornerRadius = iconLabelWidth / 2
-      
+        
         //土壌水分量:最新の値を取得し、ラベルに表示する　& 水分量に応じて、植物の状態をstatusLabelに表示する
         getSoilMoistureData()
         //UVIndex:最新の値を取得し、ラベルに表示する
@@ -74,9 +72,9 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         getTemperatureData()
         //Humidity:最新の値を取得し、ラベルに表示する
         getHumidityData()
-
+        
     }
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //植物名をラベルに表示させる
@@ -85,183 +83,182 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         iconLabel.image = readSavedPictureData()
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
-  
-  //植物名をUserDefaultsから読み出す関数
-  func readSavedData() -> String {
-    // Keyを"plantName"として指定して読み込み
-    let plantName: String = userDefaults.string(forKey: "plantName") ?? "clover"
     
-    return plantName
-  }
-  
-  
-  //UserDefaultsに登録した画像を呼び出す関数
-  func readSavedPictureData() -> UIImage {
-    let imageData:Data? = userDefaults.object(forKey:"plantIcon") as? Data
-    if let imageData = imageData {
-        return UIImage(data:imageData)!
-    } else {
-        return UIImage(named: "red_plants2.jpg")!
-    }
-  }
-  
-  
-  //今日の日付を表示させる関数
-  func getNowClockString() -> String {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy. MM. dd"
-    let now = Date()
     
-    return formatter.string(from:now)
-  }
-  
-  
-  //東京の天気を表示させる関数
-  func setWeather(data: WeatherDataModel) {
-    // お天気APIの返却値によって画像を変更する条件式
-    if data.weather == "Clouds" {
-      // 曇
-      weatherImage.image = UIImage(named: "cloudy-3.png")
-//      print(data.weather)
-    } else if data.weather == "Clear" {
-      // 晴れ
-      weatherImage.image = UIImage(named: "sunny.png")
-//      print(data.weather)
-    } else if data.weather == "Rain" {
-      // 雨
-      weatherImage.image = UIImage(named: "rainy-2.png")
-//      print(data.weather)
-    } else{
-//      weatherImage.image = UIImage(named: "")
-//      print(data.weather)
-      print("その他")
+    //植物名をUserDefaultsから読み出す関数
+    func readSavedData() -> String {
+        // Keyを"plantName"として指定して読み込み
+        let plantName: String = userDefaults.string(forKey: "plantName") ?? "clover"
+        
+        return plantName
     }
     
-  }
-  
-  
-  //植物の状態を表示させる関数
-  func getStatus () { //-> String
     
-//    var status: String = "Hello"
-//    var soilMoistrue: Double = 0.0
-//    
-//    let firebaseManager = FirebaseManager()
-//    firebaseManager.getSoilMoistureData(completion: {
-//      text in soilMoistrue = text
-//      
-//      print (String(soilMoistrue) + "hoge")
-//
-//    if (soilMoistrue >= 70) {
-//        status = "Healthy \n お水はまだあるよ！"
-//        self.statusLabel.text = status
-//      
-//    }else if (soilMoistrue >= 50) {
-//        status = "Need Water"
-//        self.statusLabel.text = status
-//     
-//    }else if (soilMoistrue >= 30) {
-//        status = "Very Thirsty...\n そろそろお水をください！"
-//        self.statusLabel.text = status
-//
-//    }else {
-//        status = "Dying...\n need water RIGHT NOW!"
-//        self.statusLabel.text = status
-//    }
-//    
-//    })
-
-//    return status
-  }
-  
-  
-  //土壌水分量:最新の値を取得し、ラベルに表示する関数 & 水分量に応じて、植物の状態をstatusLabelに表示する
-  func getSoilMoistureData() {
+    //UserDefaultsに登録した画像を呼び出す関数
+    func readSavedPictureData() -> UIImage {
+        let imageData:Data? = userDefaults.object(forKey:"plantIcon") as? Data
+        if let imageData = imageData {
+            return UIImage(data:imageData)!
+        } else {
+            return UIImage(named: "red_plants2.jpg")!
+        }
+    }
     
-    var status: String = "Hello"
     
-    let firebaseManager = FirebaseManager()
-    firebaseManager.getSoilMoistureData(completion: {
-      text in
-      self.soilMoistureLabel.text = String(text)
-      
-      if (text >= 70) {
-        status = "Healthy \n お水はまだあるよ！"
-        self.statusLabel.text = status
-        print("Healthy \n お水はまだあるよ！")
-      }else if (text >= 50) {
-        status = "Need Water"
-        self.statusLabel.text = status
-        print("Need Water")
-      }else if (text >= 30) {
-        status = "Very Thirsty...\n そろそろお水をください！"
-        self.statusLabel.text = status
-        print("Very Thirsty...\n そろそろお水をください！")
-      }else {
-        status = "Dying...\n need water RIGHT NOW!"
-        self.statusLabel.text = status
-        print("Dying...\n need water RIGHT NOW!")
-      }
-      
-    })
-  }
-  
-  
-  //UVIndex:最新の値を取得し、ラベルに表示する関数
-  func getUVIndexData() {
+    //今日の日付を表示させる関数
+    func getNowClockString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy. MM. dd"
+        let now = Date()
+        
+        return formatter.string(from:now)
+    }
     
-    let firebaseManager = FirebaseManager()
-    firebaseManager.getUVIndexData(completion: {
-      text in
-      self.uvLabel.text = text
-    })
-  }
-  
-  
-  //Temperature:最新の値を取得し、ラベルに表示する関数
-  func getTemperatureData() {
     
-    let firebaseManager = FirebaseManager()
-    firebaseManager.getTemperatureData(completion: {
-      text in
-      self.temperatureLabel.text = text
-    })
-  }
-  
-  
-  //Humidity:最新の値を取得し、ラベルに表示する関数
-  func getHumidityData() {
+    //東京の天気を表示させる関数
+    func setWeather(data: WeatherDataModel) {
+        // お天気APIの返却値によって画像を変更する条件式
+        if data.weather == "Clouds" {
+            // 曇
+            weatherImage.image = UIImage(named: "cloudy-3.png")
+            //      print(data.weather)
+        } else if data.weather == "Clear" {
+            // 晴れ
+            weatherImage.image = UIImage(named: "sunny.png")
+            //      print(data.weather)
+        } else if data.weather == "Rain" {
+            // 雨
+            weatherImage.image = UIImage(named: "rainy-2.png")
+            //      print(data.weather)
+        } else{
+            //      weatherImage.image = UIImage(named: "")
+            //      print(data.weather)
+            print("その他")
+        }
+        
+    }
     
-    let firebaseManager = FirebaseManager()
-    firebaseManager.getHumidityData(completion: {
-      text in
-      self.moistureLabel.text = text
-    })
-  }
-  
-  
-  override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
     
-    let firebaseManager = FirebaseManager()
-    //画面が消えたときに、Firebaseのデータ読み取りのObserverを削除しておく
-    firebaseManager.removeAllObservers()
-  }
-  
+    //植物の状態を表示させる関数
+    func getStatus () { //-> String
+        
+        //    var status: String = "Hello"
+        //    var soilMoistrue: Double = 0.0
+        //
+        //    let firebaseManager = FirebaseManager()
+        //    firebaseManager.getSoilMoistureData(completion: {
+        //      text in soilMoistrue = text
+        //
+        //      print (String(soilMoistrue) + "hoge")
+        //
+        //    if (soilMoistrue >= 70) {
+        //        status = "Healthy \n お水はまだあるよ！"
+        //        self.statusLabel.text = status
+        //
+        //    }else if (soilMoistrue >= 50) {
+        //        status = "Need Water"
+        //        self.statusLabel.text = status
+        //
+        //    }else if (soilMoistrue >= 30) {
+        //        status = "Very Thirsty...\n そろそろお水をください！"
+        //        self.statusLabel.text = status
+        //
+        //    }else {
+        //        status = "Dying...\n need water RIGHT NOW!"
+        //        self.statusLabel.text = status
+        //    }
+        //
+        //    })
+        
+        //    return status
+    }
+    
+    
+    //土壌水分量:最新の値を取得し、ラベルに表示する関数 & 水分量に応じて、植物の状態をstatusLabelに表示する
+    func getSoilMoistureData() {
+        
+        var status = ""
+        
+        let firebaseManager = FirebaseManager()
+        firebaseManager.getSoilMoistureData(completion: {
+            humidity in
+            
+            if (humidity >= 70) {
+                status = "Healthy \n お水はまだあるよ！"
+                self.statusLabel.text = status
+                print("Healthy \n お水はまだあるよ！")
+            }else if (humidity >= 50) {
+                status = "Need Water"
+                self.statusLabel.text = status
+                print("Need Water")
+            }else if (humidity >= 30) {
+                status = "Very Thirsty...\n そろそろお水をください！"
+                self.statusLabel.text = status
+                print("Very Thirsty...\n そろそろお水をください！")
+            }else {
+                status = "Dying...\n need water RIGHT NOW!"
+                self.statusLabel.text = status
+                print("Dying...\n need water RIGHT NOW!")
+            }
+            
+        })
+    }
+    
+    
+    //UVIndex:最新の値を取得し、ラベルに表示する関数
+    func getUVIndexData() {
+        
+        let firebaseManager = FirebaseManager()
+        firebaseManager.getUVIndexData(completion: {
+            text in
+            self.uvLabel.text = text
+        })
+    }
+    
+    
+    //Temperature:最新の値を取得し、ラベルに表示する関数
+    func getTemperatureData() {
+        
+        let firebaseManager = FirebaseManager()
+        firebaseManager.getTemperatureData(completion: {
+            text in
+            self.temperatureLabel.text = text
+        })
+    }
+    
+    
+    //Humidity:最新の値を取得し、ラベルに表示する関数
+    func getHumidityData() {
+        
+        let firebaseManager = FirebaseManager()
+        firebaseManager.getHumidityData(completion: {
+            text in
+            self.moistureLabel.text = text
+        })
+    }
+    
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        let firebaseManager = FirebaseManager()
+        //画面が消えたときに、Firebaseのデータ読み取りのObserverを削除しておく
+        firebaseManager.removeAllObservers()
+    }
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

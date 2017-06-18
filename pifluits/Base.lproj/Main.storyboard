@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0WW-pG-0nS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="knq-5X-C3K">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -573,7 +573,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="水やりが必要です！（仮）" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzz-8b-53A">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="水やりが必要です！（仮）" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="xzz-8b-53A">
                                 <rect key="frame" x="0.0" y="230" width="320" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -607,7 +607,7 @@
                         <outlet property="moistureLabel" destination="6ee-9d-Oas" id="ryp-CO-owv"/>
                         <outlet property="plantNameLabel" destination="Mjj-KQ-9aL" id="E0n-9z-QCF"/>
                         <outlet property="soilMoistureLabel" destination="Ef7-8h-RAh" id="L72-d1-IJJ"/>
-                        <outlet property="statusLabel" destination="Ya7-NH-349" id="QtY-ni-BqT"/>
+                        <outlet property="statusLabel" destination="xzz-8b-53A" id="kvF-fc-2up"/>
                         <outlet property="temperatureLabel" destination="07W-vR-3dB" id="sTw-Oc-nbu"/>
                         <outlet property="uvLabel" destination="JFz-iZ-zTl" id="yZv-SH-EM1"/>
                         <outlet property="weatherImage" destination="QYT-He-YfX" id="1Fb-iS-SZ0"/>
