@@ -54,7 +54,6 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         dateLabel.text = getNowClockString()
         
         //植物の状態を表示
-        //        getStatus()
         statusLabel.text = ""
         
         //可愛いフォントを使用
@@ -144,41 +143,6 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     }
     
     
-    //植物の状態を表示させる関数
-    func getStatus () { //-> String
-        
-        //    var status: String = "Hello"
-        //    var soilMoistrue: Double = 0.0
-        //
-        //    let firebaseManager = FirebaseManager()
-        //    firebaseManager.getSoilMoistureData(completion: {
-        //      text in soilMoistrue = text
-        //
-        //      print (String(soilMoistrue) + "hoge")
-        //
-        //    if (soilMoistrue >= 70) {
-        //        status = "Healthy \n お水はまだあるよ！"
-        //        self.statusLabel.text = status
-        //
-        //    }else if (soilMoistrue >= 50) {
-        //        status = "Need Water"
-        //        self.statusLabel.text = status
-        //
-        //    }else if (soilMoistrue >= 30) {
-        //        status = "Very Thirsty...\n そろそろお水をください！"
-        //        self.statusLabel.text = status
-        //
-        //    }else {
-        //        status = "Dying...\n need water RIGHT NOW!"
-        //        self.statusLabel.text = status
-        //    }
-        //
-        //    })
-        
-        //    return status
-    }
-    
-    
     //土壌水分量:最新の値を取得し、ラベルに表示する関数 & 水分量に応じて、植物の状態をstatusLabelに表示する
     func getSoilMoistureData() {
         
@@ -188,21 +152,30 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         firebaseManager.getSoilMoistureData(completion: {
             humidity in
             
-            if (humidity >= 70) {
+            if (humidity >= 200) {
                 status = "Healthy \n お水はまだあるよ！"
                 self.statusLabel.text = status
+                self.soilMoistureLabel.text = "100"
                 print("Healthy \n お水はまだあるよ！")
-            }else if (humidity >= 50) {
+            }else if (humidity >= 160) {
+                status = "Healthy \n お水はまだあるよ！"
+                self.statusLabel.text = status
+                self.soilMoistureLabel.text = String(humidity/2)
+                print("Healthy \n お水はまだあるよ！")
+            }else if (humidity >= 100) {
                 status = "Need Water"
                 self.statusLabel.text = status
+                self.soilMoistureLabel.text = String(humidity/2)
                 print("Need Water")
-            }else if (humidity >= 30) {
+            }else if (humidity >= 60) {
                 status = "Very Thirsty...\n そろそろお水をください！"
                 self.statusLabel.text = status
+                self.soilMoistureLabel.text = String(humidity/2)
                 print("Very Thirsty...\n そろそろお水をください！")
             }else {
                 status = "Dying...\n need water RIGHT NOW!"
                 self.statusLabel.text = status
+                self.soilMoistureLabel.text = String(humidity/2)
                 print("Dying...\n need water RIGHT NOW!")
             }
             
