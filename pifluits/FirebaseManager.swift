@@ -29,7 +29,7 @@ class FirebaseManager {
         
         if let soilMoisture = snapshot.value as? NSDictionary {
           if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
-            soilMoistures.append(soilMoistureData)
+            soilMoistures.append(soilMoistureData/2)
           }
         }
         print(soilMoistures.last!)
@@ -126,7 +126,7 @@ class FirebaseManager {
         
         if let soilMoisture = snapshot.value as? NSDictionary {
           if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
-            soilMoistures.append(soilMoistureData)
+            soilMoistures.append(soilMoistureData/2)
           }
         }
         print(soilMoistures)

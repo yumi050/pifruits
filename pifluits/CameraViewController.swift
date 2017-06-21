@@ -21,7 +21,7 @@ class CameraViewController: UIViewController, NVActivityIndicatorViewable {
     override func viewDidLoad() {
       super.viewDidLoad()
       
-      activeIndicatorView.startAnimating()
+//      activeIndicatorView.startAnimating()
       
 //      //ストレージ サービスへの参照を取得
 //      let storage = Storage.storage()
@@ -43,6 +43,13 @@ class CameraViewController: UIViewController, NVActivityIndicatorViewable {
 //        }
 //      
 //      }
+      
+    }
+  
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(true)
+      
+      
       
     }
   
@@ -81,6 +88,7 @@ class CameraViewController: UIViewController, NVActivityIndicatorViewable {
           let piCameraImage: UIImage! = UIImage(data: data!)
           self.cameraImage.image = piCameraImage
           print("image download")
+          
         }
       }
     }

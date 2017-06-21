@@ -160,22 +160,22 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
             }else if (humidity >= 160) {
                 status = "Healthy \n お水はまだあるよ！"
                 self.statusLabel.text = status
-                self.soilMoistureLabel.text = String(humidity/2)
+                self.soilMoistureLabel.text = String(humidity)
                 print("Healthy \n お水はまだあるよ！")
             }else if (humidity >= 100) {
                 status = "Need Water"
                 self.statusLabel.text = status
-                self.soilMoistureLabel.text = String(humidity/2)
+                self.soilMoistureLabel.text = String(humidity)
                 print("Need Water")
             }else if (humidity >= 60) {
                 status = "Very Thirsty...\n そろそろお水をください！"
                 self.statusLabel.text = status
-                self.soilMoistureLabel.text = String(humidity/2)
+                self.soilMoistureLabel.text = String(humidity)
                 print("Very Thirsty...\n そろそろお水をください！")
             }else {
                 status = "Dying...\n need water RIGHT NOW!"
                 self.statusLabel.text = status
-                self.soilMoistureLabel.text = String(humidity/2)
+                self.soilMoistureLabel.text = String(humidity)
                 print("Dying...\n need water RIGHT NOW!")
             }
             
