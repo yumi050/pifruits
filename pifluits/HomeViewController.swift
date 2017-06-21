@@ -151,25 +151,13 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         let firebaseManager = FirebaseManager()
         firebaseManager.getSoilMoistureData(completion: {
             humidity in
-            
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            if (humidity >= 70) {
-=======
-=======
->>>>>>> bd0d8f5b6dde5454806e5be1e8e6b3abcd3c229a
+
             if (humidity >= 200) {
                 status = "Healthy \n お水はまだあるよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = "100"
-<<<<<<< HEAD
                 print("Healthy \n お水は足りてます！")
             }else if (humidity >= 160) {
->>>>>>> Stashed changes
-=======
-                print("Healthy \n お水はまだあるよ！")
-            }else if (humidity >= 160) {
->>>>>>> bd0d8f5b6dde5454806e5be1e8e6b3abcd3c229a
                 status = "Healthy \n お水はまだあるよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity/2)
