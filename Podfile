@@ -16,4 +16,5 @@ pod 'ScrollableGraphView'
 pod 'SwiftyJSON'
 pod 'Alamofire', '~> 4.4'
 pod 'NVActivityIndicatorView'
+pod 'JSQMessagesViewController'
 end
