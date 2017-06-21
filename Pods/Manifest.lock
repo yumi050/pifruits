@@ -52,6 +52,7 @@ PODS:
   - GTMSessionFetcher/Core (1.1.10)
   - GTMSessionFetcher/Full (1.1.10):
     - GTMSessionFetcher/Core (= 1.1.10)
+  - NVActivityIndicatorView (3.6.1)
   - ScrollableGraphView (3.1.0)
   - SwiftyJSON (3.1.4)
 
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - GoogleSignIn
+  - NVActivityIndicatorView
   - ScrollableGraphView
   - SwiftyJSON
 
@@ -78,9 +80,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  NVActivityIndicatorView: 9f52a7f84bf5c6a798722c450fe3c198e01c56ed
   ScrollableGraphView: e2c8bedc7bbb643e8ac57b9456070d68355c4e4c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 37f63fc787daff5eecde80808e39536015bcb40c
+PODFILE CHECKSUM: fe90797c57cc0cbe4606edf5508a77a21c5af8a9
 
 COCOAPODS: 1.2.1

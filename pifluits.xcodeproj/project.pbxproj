@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */; };
 		183727981EEBD47B00F3CF58 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183727971EEBD47B00F3CF58 /* FirebaseManager.swift */; };
-		A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */; };
+		A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
 		DE3624F91EF3E9170008D843 /* camera_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3624F51EF3E9170008D843 /* camera_tab.png */; };
@@ -37,6 +37,7 @@
 		DE508BED1EF7C67E0008F91A /* pencilcactus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE508BEC1EF7C67E0008F91A /* pencilcactus.jpg */; };
 		DE508BEF1EF7D3B40008F91A /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BEE1EF7D3B40008F91A /* menu-button.png */; };
 		DE508BF11EF7D63A0008F91A /* fukidashi2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BF01EF7D63A0008F91A /* fukidashi2.png */; };
+		DE508BF31EFA0D290008F91A /* ActiveIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */; };
 		DE79BF891EF0FF5300CAA40D /* WeatherDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE79BF881EF0FF5300CAA40D /* WeatherDataManager.swift */; };
 		DE79BF8B1EF100BA00CAA40D /* WeatherDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE79BF8A1EF100BA00CAA40D /* WeatherDataModel.swift */; };
 		DE79BF8F1EF1177700CAA40D /* cloudy-3.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79BF8C1EF1177700CAA40D /* cloudy-3.png */; };
@@ -91,6 +92,7 @@
 		DE508BEC1EF7C67E0008F91A /* pencilcactus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pencilcactus.jpg; sourceTree = "<group>"; };
 		DE508BEE1EF7D3B40008F91A /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
 		DE508BF01EF7D63A0008F91A /* fukidashi2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fukidashi2.png; sourceTree = "<group>"; };
+		DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveIndicatorViewController.swift; sourceTree = "<group>"; };
 		DE79BF881EF0FF5300CAA40D /* WeatherDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataManager.swift; sourceTree = "<group>"; };
 		DE79BF8A1EF100BA00CAA40D /* WeatherDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataModel.swift; sourceTree = "<group>"; };
 		DE79BF8C1EF1177700CAA40D /* cloudy-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloudy-3.png"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				DED9AFE41ECB002800601606 /* CameraViewController.swift */,
 				DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */,
 				DE3624FD1EF3EC410008D843 /* tabBarSettingViewController.swift */,
+				DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */,
 				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
 				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
 				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
@@ -373,6 +376,7 @@
 				DE99ADA71EDC0E1D00B60AC3 /* FirebaseViewController.swift in Sources */,
 				DE3D6D561EE263E900D11F3C /* RealDataGraphViewController.swift in Sources */,
 				DEB790E31EC7F12F004FE1DA /* pifluits.xcdatamodeld in Sources */,
+				DE508BF31EFA0D290008F91A /* ActiveIndicatorViewController.swift in Sources */,
 				DED9AFE11ECAFFF600601606 /* ChatViewController.swift in Sources */,
 				DEB790DD1EC7F12F004FE1DA /* ViewController.swift in Sources */,
 				DED9AFE31ECB000600601606 /* GraphViewController.swift in Sources */,

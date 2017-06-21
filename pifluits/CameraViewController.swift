@@ -8,14 +8,20 @@
 
 import UIKit
 import Firebase //画像をFirebaseにアップする場合
+import NVActivityIndicatorView
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, NVActivityIndicatorViewable {
   
   @IBOutlet weak var cameraImage: UIImageView!
+  
+  
+  @IBOutlet weak var activeIndicatorView: NVActivityIndicatorView!
   
 
     override func viewDidLoad() {
       super.viewDidLoad()
+      
+      activeIndicatorView.startAnimating()
       
 //      //ストレージ サービスへの参照を取得
 //      let storage = Storage.storage()

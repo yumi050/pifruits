@@ -15,4 +15,5 @@ pod ‘GoogleSignIn’
 pod 'ScrollableGraphView'
 pod 'SwiftyJSON'
 pod 'Alamofire', '~> 4.4'
+pod 'NVActivityIndicatorView'
 end
