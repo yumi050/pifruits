@@ -203,9 +203,9 @@ class GraphViewController: UIViewController {
     graphView.lineColor = UIColor.clear
     graphView.barWidth = 25
     graphView.barLineWidth = 1
-    graphView.barLineColor = UIColor.colorFromHex(hexString: "#777777") //origin:777777
-    graphView.barColor = UIColor.colorFromHex(hexString: "#FFE5FF") //origin:555555 pink:FFE0FF
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#CCFFFF") //origin:333333
+    graphView.barLineColor = UIColor.colorFromHex(hexString: "#CCFFE5") //origin:777777
+    graphView.barColor = UIColor.colorFromHex(hexString: "#CCFFFF") //origin:555555 ,pink:FFE0FF, FFE5FF ,blue: C1FFFF
+    graphView.backgroundFillColor = UIColor.clear //UIColor.colorFromHex(hexString: "#CCFFFF") //origin:333333
     
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
     graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.2)
@@ -223,6 +223,8 @@ class GraphViewController: UIViewController {
     graphView.rangeMin = 25 //Y軸最小値
     graphView.rangeMax = 70 //Y軸最小値
     //    graphView.shouldRangeAlwaysStartAtZero = true //0から始まる
+    
+    self.gradientBackground()
     
     return graphView
   }
@@ -249,7 +251,7 @@ class GraphViewController: UIViewController {
     graphView.dataPointSize = 5
     graphView.dataPointSpacing = 75 //x軸（時間）の間隔
     graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10) //X軸のラベルの文字サイズ
-    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#777777")  //X軸ラベルの色
+    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#ffffff")  //X軸ラベルの色 ,777777
     graphView.dataPointFillColor = UIColor.white
     
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 9) //Y軸のラベルの文字サイズ
@@ -379,37 +381,6 @@ class GraphViewController: UIViewController {
     
   }
   
-  //不使用
-  //Data Generation
-  //  private func generateRandomeData(_ numberOfItems: Int, max: Double) -> [Double] {
-  //
-  //    var data = [Double]()
-  //    for _ in 0 ..< numberOfItems {
-  //      var randomNumber = Double(arc4random()).truncatingRemainder(dividingBy: max)
-  //
-  //      if (arc4random() % 100 < 10) {
-  //        randomNumber *= 3
-  //      }
-  //
-  //      data.append(randomNumber)
-  //    }
-  //
-  //    return data
-  //
-  //  }
-  
-  
-  //  //X軸のラベル生成
-  //  private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
-  //
-  //    var labels = [String]()
-  //    for i in 0 ..< numberOfItems {
-  //      labels.append("\(i*15)\(text) ")
-  //    }
-  //
-  //    return labels
-  //
-  //  }
   
   //X軸のラベル生成
   private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
@@ -505,6 +476,23 @@ class GraphViewController: UIViewController {
   }
   
 
+  //背景をグラデーションにする
+  func gradientBackground() {
+    //グラデーションの開始色
+    let topColor = UIColor.colorFromHex(hexString: "#FFFF9E") //blue: 066dab , green: C0F7EF
+    //グラデーションの開始色
+    let bottomColor = UIColor.colorFromHex(hexString: "#F5C2F9")
+    //グラデーションの色を配列で管理
+    let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+    //グラデーションレイヤーを作成
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
+    //グラデーションの色をレイヤーに割り当てる
+    gradientLayer.colors = gradientColors
+    //グラデーションレイヤーをスクリーンサイズにする
+    gradientLayer.frame = self.view.bounds
+    //グラデーションレイヤーをビューの一番下に配置
+    self.view.layer.insertSublayer(gradientLayer, at: 0)
+  }
   
 
     /*
