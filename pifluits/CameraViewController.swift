@@ -8,20 +8,17 @@
 
 import UIKit
 import Firebase //画像をFirebaseにアップする場合
+
 import NVActivityIndicatorView
 
-class CameraViewController: UIViewController, NVActivityIndicatorViewable {
+class CameraViewController: UIViewController {
   
   @IBOutlet weak var cameraImage: UIImageView!
-  
-  
-  @IBOutlet weak var activeIndicatorView: NVActivityIndicatorView!
   
 
     override func viewDidLoad() {
       super.viewDidLoad()
       
-      activeIndicatorView.startAnimating()
       
 //      //ストレージ サービスへの参照を取得
 //      let storage = Storage.storage()
@@ -71,6 +68,8 @@ class CameraViewController: UIViewController, NVActivityIndicatorViewable {
   
   
   @IBAction func cameraButton(_ sender: Any) {
+    gradientBackground()
+    NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
     
     //ストレージ サービスへの参照を取得
     let storage = Storage.storage()
@@ -88,6 +87,7 @@ class CameraViewController: UIViewController, NVActivityIndicatorViewable {
           let piCameraImage: UIImage! = UIImage(data: data!)
           self.cameraImage.image = piCameraImage
           print("image download")
+          NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
           
         }
       }
@@ -95,6 +95,26 @@ class CameraViewController: UIViewController, NVActivityIndicatorViewable {
     
     
   }
+  
+  
+  //背景をグラデーションにする
+  func gradientBackground() {
+    //グラデーションの開始色
+    let topColor = UIColor.colorFromHex(hexString: "#ACF2F9") //blue: 066dab , green: C0F7EF
+    //グラデーションの開始色
+    let bottomColor = UIColor.colorFromHex(hexString: "#F5C2F9")
+    //グラデーションの色を配列で管理
+    let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+    //グラデーションレイヤーを作成
+    let gradientLayer: CAGradientLayer = CAGradientLayer()
+    //グラデーションの色をレイヤーに割り当てる
+    gradientLayer.colors = gradientColors
+    //グラデーションレイヤーをスクリーンサイズにする
+    gradientLayer.frame = self.view.bounds
+    //グラデーションレイヤーをビューの一番下に配置
+    self.view.layer.insertSublayer(gradientLayer, at: 0)
+  }
+
   
   
   
