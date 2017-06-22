@@ -21,7 +21,7 @@ class CameraViewController: UIViewController, NVActivityIndicatorViewable {
     override func viewDidLoad() {
       super.viewDidLoad()
       
-//      activeIndicatorView.startAnimating()
+      activeIndicatorView.startAnimating()
       
 //      //ストレージ サービスへの参照を取得
 //      let storage = Storage.storage()

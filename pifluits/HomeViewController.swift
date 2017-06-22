@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 import SwiftyJSON
+import NVActivityIndicatorView
 
 class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     
@@ -40,7 +41,10 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     // APIリクエストや、レスポンスデータを利用するためのクラスのインスタンス
     let dataManager = WeatherDataManager()
     
-    
+    var gotSoilMoistureData = false
+    var gotUVIndexData = false
+    var gotTemperatureData = false
+    var gotHumidityData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +66,8 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         let iconLabelWidth = iconLabel.bounds.size.width
         iconLabel.clipsToBounds = true
         iconLabel.layer.cornerRadius = iconLabelWidth / 2
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
         
         //土壌水分量:最新の値を取得し、ラベルに表示する　& 水分量に応じて、植物の状態をstatusLabelに表示する
         getSoilMoistureData()
@@ -151,7 +157,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         let firebaseManager = FirebaseManager()
         firebaseManager.getSoilMoistureData(completion: {
             humidity in
-
+            
             if (humidity >= 200) {
                 status = "Healthy \n お水はまだあるよ！"
                 self.statusLabel.text = status
@@ -178,7 +184,11 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
                 self.soilMoistureLabel.text = String(humidity)
                 print("Dying...\n need water RIGHT NOW!")
             }
-            
+
+            self.gotSoilMoistureData = true
+            if self.gotAllData() == true {
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
         })
     }
     
@@ -190,6 +200,12 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         firebaseManager.getUVIndexData(completion: {
             text in
             self.uvLabel.text = text
+            
+            self.gotUVIndexData = true
+            if self.gotAllData() == true {
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+
         })
     }
     
@@ -201,6 +217,12 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         firebaseManager.getTemperatureData(completion: {
             text in
             self.temperatureLabel.text = text
+            
+            self.gotTemperatureData = true
+            if self.gotAllData() == true {
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+
         })
     }
     
@@ -212,7 +234,17 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         firebaseManager.getHumidityData(completion: {
             text in
             self.moistureLabel.text = text
+            
+            self.gotHumidityData = true
+            if self.gotAllData() == true {
+                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            }
+
         })
+    }
+    
+    func gotAllData() -> Bool {
+        return gotSoilMoistureData && gotUVIndexData && gotHumidityData && gotTemperatureData
     }
     
     
