@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase //画像をFirebaseにアップする場合
+import Firebase //画像をFirebaseにアップする
 
 import NVActivityIndicatorView
 
@@ -15,38 +15,48 @@ class CameraViewController: UIViewController {
   
   @IBOutlet weak var cameraImage: UIImageView!
   
+  @IBOutlet weak var whiteLabel: UILabel!
+  
 
     override func viewDidLoad() {
       super.viewDidLoad()
       
+      gradientBackground()
+      NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
       
-//      //ストレージ サービスへの参照を取得
-//      let storage = Storage.storage()
-//      //URLを取得し、imageのURLを参照
-//      if let imageURL = getImageUrl() {
-//        let storageRef = storage.reference(forURL: imageURL)
-//      
-////       Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-//        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
-//          if (error != nil) {
-//            // Uh-oh, an error occurred!
-//            print("error")
-//          } else {
-//            // Data for "images/island.jpg" is returned
-//            let piCameraImage: UIImage! = UIImage(data: data!)
-//            self.cameraImage.image = piCameraImage
-//            print("image download")
-//          }
-//        }
-//      
-//      }
+      //ストレージ サービスへの参照を取得
+      let storage = Storage.storage()
+      //URLを取得し、imageのURLを参照
+      if let imageURL = getImageUrl() {
+        let storageRef = storage.reference(forURL: imageURL)
+        
+        //Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+          if (error != nil) {
+            // Uh-oh, an error occurred!
+            print("error")
+          } else {
+            // Data for "images/island.jpg" is returned
+            let piCameraImage: UIImage! = UIImage(data: data!)
+            self.cameraImage.image = piCameraImage
+            print("image download")
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+            
+          }
+        }
+      }
+      
+      //画像の角を丸くする
+      self.cameraImage.clipsToBounds = true
+      self.cameraImage.layer.cornerRadius = 128
+      //白ラベルの角を丸くする
+      self.whiteLabel.clipsToBounds = true
+      self.whiteLabel.layer.cornerRadius = 128
       
     }
   
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(true)
-      
-      
       
     }
   
@@ -55,6 +65,7 @@ class CameraViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
   
   //GoogleService-InfoからstorageのimageURLを取得
   private func getImageUrl() -> String? {
@@ -67,42 +78,42 @@ class CameraViewController: UIViewController {
   }
   
   
-  @IBAction func cameraButton(_ sender: Any) {
-    gradientBackground()
-    NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
-    
-    //ストレージ サービスへの参照を取得
-    let storage = Storage.storage()
-    //URLを取得し、imageのURLを参照
-    if let imageURL = getImageUrl() {
-      let storageRef = storage.reference(forURL: imageURL)
-      
-      //Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
-      storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
-        if (error != nil) {
-          // Uh-oh, an error occurred!
-          print("error")
-        } else {
-          // Data for "images/island.jpg" is returned
-          let piCameraImage: UIImage! = UIImage(data: data!)
-          self.cameraImage.image = piCameraImage
-          print("image download")
-          NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-          
-        }
-      }
-    }
-    
-    
-  }
+//  @IBAction func cameraButton(_ sender: Any) {
+//    gradientBackground()
+//    NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
+//    
+//    //ストレージ サービスへの参照を取得
+//    let storage = Storage.storage()
+//    //URLを取得し、imageのURLを参照
+//    if let imageURL = getImageUrl() {
+//      let storageRef = storage.reference(forURL: imageURL)
+//      
+//      //Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+//      storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+//        if (error != nil) {
+//          // Uh-oh, an error occurred!
+//          print("error")
+//        } else {
+//          // Data for "images/island.jpg" is returned
+//          let piCameraImage: UIImage! = UIImage(data: data!)
+//          self.cameraImage.image = piCameraImage
+//          print("image download")
+//          NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+//          
+//        }
+//      }
+//    }
+//    
+//    
+//  }
   
   
   //背景をグラデーションにする
   func gradientBackground() {
     //グラデーションの開始色
-    let topColor = UIColor.colorFromHex(hexString: "#ACF2F9") //blue: 066dab , green: C0F7EF
+    let topColor = UIColor.colorFromHex(hexString: "#FFEAF4") //blue: 066dab , green: C0F7EF
     //グラデーションの開始色
-    let bottomColor = UIColor.colorFromHex(hexString: "#F5C2F9")
+    let bottomColor = UIColor.colorFromHex(hexString: "#E5E5FF")
     //グラデーションの色を配列で管理
     let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
     //グラデーションレイヤーを作成
