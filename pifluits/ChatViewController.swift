@@ -7,36 +7,88 @@
 //
 
 import UIKit
-//import JSQMessagesViewController
+import SwiftyJSON
+import JSQMessagesViewController
 
 
-class ChatViewController: UIViewController {
-
-//  var messages: [JSQMessage]?
-//  var incomingBubble: JSQMessagesBubbleImage!
-//  var outgoingBubble: JSQMessagesBubbleImage!
-//  var incomingAvatar: JSQMessagesAvatarImage!
-//  var outgoingAvatar: JSQMessagesAvatarImage!
+class ChatViewController: UIViewController { //JSQMessagesViewController
+  
+  
+  
+  
+  
+  
+  
+//JSQMessagesViewController のコード：
+//  private var messages: [JSQMessage] = []
+//  private var incomingBubble: JSQMessagesBubbleImage!
+//  private var outgoingBubble: JSQMessagesBubbleImage!
+//  private var incomingAvatar: JSQMessagesAvatarImage!
+//  // テスト用
+//  private let targetUser: JSON = ["senderId": "targetUser", "displayName": "passion"]
 //  
 //  override func viewDidLoad() {
 //    super.viewDidLoad()
-//    
-//    //自分のsenderId, senderDisokayNameを設定
-//    self.senderId = "user1"
-//    self.senderDisplayName = "hoge"
-//    
-//    //吹き出しの設定
+//    initialSettings()
+//  }
+//  
+//  private func initialSettings() {
+//    // 自分の情報入力
+//    self.senderId = "self"
+//    self.senderDisplayName = "自分の名前"
+//    // 吹き出しの色設定
 //    let bubbleFactory = JSQMessagesBubbleImageFactory()
 //    self.incomingBubble = bubbleFactory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
 //    self.outgoingBubble = bubbleFactory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
 //    
-//    //アバターの設定
-//    self.incomingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "ok.png")!, diameter: 64)
-//    self.outgoingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "red_plants2.jpg")!, diameter: 64)
+//    // 相手の画像設定
+//    self.incomingAvatar = JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "red_plants2.jpg")!, diameter: 64)
+//    // 自分の画像を表示しない
+//    self.collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+//  }
+//  
+//  // 送信ボタンを押した時の挙動
+//  override func didPressSend(_ button: UIButton, withMessageText text: String, senderId: String, senderDisplayName: String, date: Date) {
+//    let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
+//    messages.append(message!)
+//    // 更新
+//    finishSendingMessage(animated: true)
 //    
-//    //メッセージデータの配列を初期化
-//    self.messages = []
-//    
+//    sendAutoMessage()
+//  }
+//  
+//  // 表示するメッセージの内容
+//  //swift3の記法
+//  override func collectionView(_ collectionView: JSQMessagesCollectionView, messageDataForItemAt indexPath: IndexPath) -> JSQMessageData {
+//    return messages[indexPath.item]
+//  }
+//  
+//  // 表示するメッセージの背景を指定
+//  override func collectionView(_ collectionView: JSQMessagesCollectionView, messageBubbleImageDataForItemAt indexPath: IndexPath) -> JSQMessageBubbleImageDataSource {
+//    if messages[indexPath.item].senderId == senderId {
+//      return self.outgoingBubble
+//    }
+//    return self.incomingBubble
+//  }
+//  
+//  // 表示するユーザーアイコンを指定。nilを指定すると画像がでない
+//  override func collectionView(_ collectionView: JSQMessagesCollectionView, avatarImageDataForItemAt indexPath: IndexPath) -> JSQMessageAvatarImageDataSource? {
+//    if messages[indexPath.item].senderId != self.senderId {
+//      return incomingAvatar
+//    }
+//    return nil
+//  }
+//  
+//  // メッセージの件数を指定
+//  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//    return messages.count
+//  }
+//  
+//  // テストでメッセージを送信するためのメソッド
+//  private func sendAutoMessage() {
+//    let message = JSQMessage(senderId: targetUser["senderId"].string, displayName: targetUser["displayName"].string, text: "返信するぞ")
+//    messages.append(message!)
+//    finishReceivingMessage(animated: true)
 //  }
 //  
 //  override func didReceiveMemoryWarning() {
@@ -44,60 +96,41 @@ class ChatViewController: UIViewController {
 //    // Dispose of any resources that can be recreated.
 //  }
 //  
-//  //Sendボタンが押された時に呼ばれる
-//  func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-//    
-//    //新しいメッセージデータを追加する
-//    let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
-//    self.messages?.append(message!)
-//    
-//    //メッセジの送信処理を完了する(画面上にメッセージが表示される)
-//    self.finishReceivingMessage(animated: true)
-//    
-//    //擬似的に自動でメッセージを受信
-//    self.receiveAutoMessage()
-//    
-//  }
+
 //  
-//  //アイテムごとに参照するメッセージデータを返す
-//  func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-//    return self.messages?[indexPath.item]
-//  }
-//  
-//  //アイテムごとのMessageBubble(背景)を返す
-//  func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
-//    let message = self.messages?[indexPath.item]
-//    if message?.senderId == self.senderId {
-//      return self.outgoingBubble
+//  // 送信時刻を出すために高さを調整する
+//  override func collectionView(_ collectionView: JSQMessagesCollectionView, attributedTextForCellTopLabelAt indexPath: IndexPath) -> NSAttributedString? {
+//    let message = messages[indexPath.item]
+//    if indexPath.item == 0 {
+//      return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
 //    }
-//    return self.incomingBubble
-//  }
-//  
-//  //アイテムごとにアバター画像を返す
-//  func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
-//    let message = self.messages?[indexPath.item]
-//    if message?.senderId == self.senderId {
-//      return self.outgoingAvatar
+//    if indexPath.item - 1 > 0 {
+//      let previousMessage = messages[indexPath.item - 1]
+//      if message.date.timeIntervalSince(previousMessage.date) / 60 > 1 {
+//        return JSQMessagesTimestampFormatter.shared().attributedTimestamp(for: message.date)
+//      }
 //    }
-//    return self.incomingAvatar
+//    return nil //nil
 //  }
 //  
-//  //アイテムの総数を返す
-//  override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//    return (self.messages?.count)!
+//  // 送信時刻を出すために高さを調整する
+//  override func collectionView(_ collectionView: JSQMessagesCollectionView, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout, heightForCellTopLabelAt indexPath: IndexPath) -> CGFloat {
+//    if indexPath.item == 0 {
+//      return kJSQMessagesCollectionViewCellLabelHeightDefault
+//    }
+//    if indexPath.item - 1 > 0 {
+//      let previousMessage = messages[indexPath.item - 1]
+//      let message = messages[indexPath.item]
+//      if message.date.timeIntervalSince(previousMessage.date) / 60 > 1 {
+//        return kJSQMessagesCollectionViewCellLabelHeightDefault
+//      }
+//    }
+//    return 0.0
 //  }
 //  
-//  //返信メッセージを受信する
-//  func receiveAutoMessage() {
-//    Timer.scheduledTimer(timeInterval: 1, target: self, selector: "didFinishMessageTimer:", userInfo: nil, repeats: false)
-//  }
 //  
-//  func didFinishMessageTimer(sender: Timer) {
-//    let message = JSQMessage(senderId: "user2", displayName: "underscore", text: "Hello!")
-//    self.messages?.append(message!)
-//    self.finishReceivingMessage(animated: true)
-//  }
-//  
+//
+//
 
     /*
     // MARK: - Navigation

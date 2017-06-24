@@ -50,7 +50,7 @@ class GraphViewController: UIViewController {
       self.graphView.set(data: self.data, withLabels: self.labels)
       self.view.addSubview(self.graphView)
       self.setupConstraints()
-      self.addLabel(withText: "Temperature (TAP HERE)")
+      self.addLabel(withText: " Temperature  » ") //Temperature (TAP HERE)
       
       //circleLabelに温度データをセット、円形にし、最前面に移動
       self.getTemperatureData()
@@ -77,7 +77,7 @@ class GraphViewController: UIViewController {
     
     switch(currentGraphType) {
     case .dark:
-      addLabel(withText: "Temperature")
+      addLabel(withText: " Temperature  » ")
       graphView = createDarkGraph(self.view.frame)
       //温度のデータをセット
       firebaseManager.getTemperatureDataForGraph(completion: {
@@ -91,7 +91,7 @@ class GraphViewController: UIViewController {
         self.view.bringSubview(toFront: self.backgroundImage) //最前面に移動
       })
     case .bar:
-      addLabel(withText: "Humidity")
+      addLabel(withText: " Humidity  » ")
       graphView = createBarGraph(self.view.frame)
       //湿度のデータをセット
       firebaseManager.getHumidityDataForGraph(completion: {
@@ -105,7 +105,7 @@ class GraphViewController: UIViewController {
         self.view.bringSubview(toFront: self.backgroundImage2) //最前面に移動
       })
     case .dot:
-      addLabel(withText: "Water")
+      addLabel(withText: " Water  » ")
       graphView = createDotGraph(self.view.frame)
       //土壌水分のデータをセット
       firebaseManager.getSoilMoistureDataForGraph(completion: {
@@ -119,7 +119,7 @@ class GraphViewController: UIViewController {
         self.view.bringSubview(toFront: self.backgroundImage3) //最前面に移動
       })
     case .pink:
-      addLabel(withText: "UV light")
+      addLabel(withText: " UV light  » ")
       graphView = createPinkMountainGraph(self.view.frame)
       //UVのデータをセット
       firebaseManager.getUVIndexDataForGraph(completion: {
@@ -145,7 +145,7 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 280
+    graphView.bottomMargin = 270
     graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") //333333
@@ -192,7 +192,7 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 280
+    graphView.bottomMargin = 270
     graphView.topMargin = 10
     
     graphView.dataPointType = ScrollableGraphViewDataPointType.circle
@@ -234,7 +234,7 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 280
+    graphView.bottomMargin = 270
     graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#B2D8FF") //#00BFFF:水色、#B2D8FF:パステル水色
@@ -275,7 +275,7 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 280
+    graphView.bottomMargin = 270
     graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") // #222222
@@ -344,19 +344,23 @@ class GraphViewController: UIViewController {
     label = createLabel(withText: text)
     label.isUserInteractionEnabled = true
     
-    let rightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.right, multiplier: 1, constant: -20)
+//    let rightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.right, multiplier: 1, constant: -20) //-20
     
-    let topConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 20)
+    let topConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 5) //20
     
-    let heightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 40)
+    let heightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 40) //40
     
-    let widthConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: label.frame.width * 1.5)
+//    let widthConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: label.frame.width * 1.5) //label.frame.width * 1.5
+    
+    //self.viewの横幅いっぱいにする
+    let widthConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0)
     
     let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(didTap))
     label.addGestureRecognizer(tapGestureRecogniser)
     
     self.view.insertSubview(label, aboveSubview: graphView)
-    self.view.addConstraints([rightConstraint, topConstraint, heightConstraint, widthConstraint])
+//    self.view.addConstraints([rightConstraint, topConstraint, heightConstraint, widthConstraint])
+    self.view.addConstraints([topConstraint, heightConstraint, widthConstraint])
     
   }
   
@@ -364,13 +368,13 @@ class GraphViewController: UIViewController {
     
     let label = UILabel()
     
-    label.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+    label.backgroundColor = UIColor.clear //black.withAlphaComponent(0.5)
     
     label.text = text
-    label.textColor = UIColor.white
+    label.textColor = UIColor.lightGray
     label.textAlignment = NSTextAlignment.center
-    label.font = UIFont.boldSystemFont(ofSize: 14)
-    
+//    label.font = UIFont.boldSystemFont(ofSize: 15)
+    label.font = UIFont(name:"Palatino", size: UIFont.labelFontSize)
     label.layer.cornerRadius = 15
     label.clipsToBounds = true
     
@@ -452,7 +456,8 @@ class GraphViewController: UIViewController {
   func getTemperatureData() {
     firebaseManager.getTemperatureData(completion: {
       text in
-      self.circleLabel.text = text
+      self.circleLabel.text = text + " ℃"
+
     })
   }
   
@@ -461,7 +466,8 @@ class GraphViewController: UIViewController {
   func getHumidityData() {
     firebaseManager.getHumidityData(completion: {
       text in
-      self.circleLabel.text = text
+      self.circleLabel.text = text + " %"
+
     })
   }
   

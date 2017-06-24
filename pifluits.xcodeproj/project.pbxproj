@@ -22,7 +22,6 @@
 		DE36250C1EF411D60008D843 /* mercury-thermometer.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3625081EF411D60008D843 /* mercury-thermometer.png */; };
 		DE36250E1EF411D60008D843 /* uv-rays-of-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = DE36250A1EF411D60008D843 /* uv-rays-of-sun.png */; };
 		DE3625121EF4137D0008D843 /* sprout 3.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3625111EF4137D0008D843 /* sprout 3.png */; };
-		DE3625141EF419270008D843 /* about_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE3625131EF419270008D843 /* about_background.jpg */; };
 		DE36251A1EF43E120008D843 /* red_plants2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE3625191EF43E120008D843 /* red_plants2.jpg */; };
 		DE36251E1EF4EFFB0008D843 /* ExapmleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */; };
 		DE3625241EF52EF00008D843 /* leaf2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3625231EF52EF00008D843 /* leaf2.png */; };
@@ -30,7 +29,6 @@
 		DE3D6D561EE263E900D11F3C /* RealDataGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */; };
 		DE3D6D581EE407F800D11F3C /* UserDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */; };
 		DE3D6D5A1EE7F19400D11F3C /* UserDefaults2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */; };
-		DE508BD91EF793B10008F91A /* monstella.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE508BD81EF793B10008F91A /* monstella.jpg */; };
 		DE508BDB1EF795F40008F91A /* fukidashi.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BDA1EF795F40008F91A /* fukidashi.png */; };
 		DE508BE11EF7A6D50008F91A /* frame_black.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BE01EF7A6D50008F91A /* frame_black.png */; };
 		DE508BE51EF7B12B0008F91A /* sweatpea.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BE41EF7B12B0008F91A /* sweatpea.png */; };
@@ -42,6 +40,10 @@
 		DE79BF8F1EF1177700CAA40D /* cloudy-3.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79BF8C1EF1177700CAA40D /* cloudy-3.png */; };
 		DE79BF901EF1177700CAA40D /* rainy-2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79BF8D1EF1177700CAA40D /* rainy-2.png */; };
 		DE79BF911EF1177700CAA40D /* sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = DE79BF8E1EF1177700CAA40D /* sunny.png */; };
+		DE888E7B1EFDE8640084EFDB /* gradient6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE888E7A1EFDE8640084EFDB /* gradient6.jpg */; };
+		DE888E7D1EFDF4E90084EFDB /* gradient7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE888E7C1EFDF4E90084EFDB /* gradient7.jpg */; };
+		DE888E811EFE21DB0084EFDB /* garbella2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DE888E801EFE21DB0084EFDB /* garbella2.jpeg */; };
+		DE888E831EFE35ED0084EFDB /* ロゴたいぷゴシック.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE888E821EFE35ED0084EFDB /* ロゴたいぷゴシック.otf */; };
 		DE952B6B1EEA8299005A6B9E /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = DE952B6A1EEA8299005A6B9E /* ok.png */; };
 		DE99ADA71EDC0E1D00B60AC3 /* FirebaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99ADA61EDC0E1D00B60AC3 /* FirebaseViewController.swift */; };
 		DEB790DB1EC7F12F004FE1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB790DA1EC7F12F004FE1DA /* AppDelegate.swift */; };
@@ -76,7 +78,6 @@
 		DE3625081EF411D60008D843 /* mercury-thermometer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mercury-thermometer.png"; sourceTree = "<group>"; };
 		DE36250A1EF411D60008D843 /* uv-rays-of-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uv-rays-of-sun.png"; sourceTree = "<group>"; };
 		DE3625111EF4137D0008D843 /* sprout 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprout 3.png"; sourceTree = "<group>"; };
-		DE3625131EF419270008D843 /* about_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about_background.jpg; sourceTree = "<group>"; };
 		DE3625191EF43E120008D843 /* red_plants2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_plants2.jpg; sourceTree = "<group>"; };
 		DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExapmleViewController.swift; sourceTree = "<group>"; };
 		DE3625231EF52EF00008D843 /* leaf2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaf2.png; sourceTree = "<group>"; };
@@ -84,7 +85,6 @@
 		DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealDataGraphViewController.swift; sourceTree = "<group>"; };
 		DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultViewController.swift; sourceTree = "<group>"; };
 		DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults2ViewController.swift; sourceTree = "<group>"; };
-		DE508BD81EF793B10008F91A /* monstella.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = monstella.jpg; sourceTree = "<group>"; };
 		DE508BDA1EF795F40008F91A /* fukidashi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fukidashi.png; sourceTree = "<group>"; };
 		DE508BE01EF7A6D50008F91A /* frame_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame_black.png; sourceTree = "<group>"; };
 		DE508BE41EF7B12B0008F91A /* sweatpea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sweatpea.png; sourceTree = "<group>"; };
@@ -96,6 +96,10 @@
 		DE79BF8C1EF1177700CAA40D /* cloudy-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloudy-3.png"; sourceTree = "<group>"; };
 		DE79BF8D1EF1177700CAA40D /* rainy-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rainy-2.png"; sourceTree = "<group>"; };
 		DE79BF8E1EF1177700CAA40D /* sunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny.png; sourceTree = "<group>"; };
+		DE888E7A1EFDE8640084EFDB /* gradient6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient6.jpg; sourceTree = "<group>"; };
+		DE888E7C1EFDF4E90084EFDB /* gradient7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient7.jpg; sourceTree = "<group>"; };
+		DE888E801EFE21DB0084EFDB /* garbella2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = garbella2.jpeg; sourceTree = "<group>"; };
+		DE888E821EFE35ED0084EFDB /* ロゴたいぷゴシック.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ロゴたいぷゴシック.otf"; sourceTree = "<group>"; };
 		DE952B6A1EEA8299005A6B9E /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
 		DE99ADA61EDC0E1D00B60AC3 /* FirebaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseViewController.swift; sourceTree = "<group>"; };
 		DEB790D71EC7F12F004FE1DA /* pifluits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pifluits.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,16 +194,18 @@
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
 				DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */,
+				DE888E821EFE35ED0084EFDB /* ロゴたいぷゴシック.otf */,
+				DE888E801EFE21DB0084EFDB /* garbella2.jpeg */,
+				DE888E7C1EFDF4E90084EFDB /* gradient7.jpg */,
+				DE888E7A1EFDE8640084EFDB /* gradient6.jpg */,
 				DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */,
 				DE508BEC1EF7C67E0008F91A /* pencilcactus.jpg */,
 				DE508BF01EF7D63A0008F91A /* fukidashi2.png */,
 				DE508BE01EF7A6D50008F91A /* frame_black.png */,
 				DE508BE41EF7B12B0008F91A /* sweatpea.png */,
 				DE508BDA1EF795F40008F91A /* fukidashi.png */,
-				DE508BD81EF793B10008F91A /* monstella.jpg */,
 				DE3625231EF52EF00008D843 /* leaf2.png */,
 				DE36252F1EF554870008D843 /* leaf3.png */,
-				DE3625131EF419270008D843 /* about_background.jpg */,
 				DE3625191EF43E120008D843 /* red_plants2.jpg */,
 				DE3625111EF4137D0008D843 /* sprout 3.png */,
 				DE3625071EF411D60008D843 /* humidity.png */,
@@ -285,6 +291,8 @@
 				DE3624FB1EF3E9170008D843 /* graph_tab.png in Resources */,
 				DE36250E1EF411D60008D843 /* uv-rays-of-sun.png in Resources */,
 				DE3625121EF4137D0008D843 /* sprout 3.png in Resources */,
+				DE888E7D1EFDF4E90084EFDB /* gradient7.jpg in Resources */,
+				DE888E831EFE35ED0084EFDB /* ロゴたいぷゴシック.otf in Resources */,
 				DE79BF911EF1177700CAA40D /* sunny.png in Resources */,
 				DE508BE11EF7A6D50008F91A /* frame_black.png in Resources */,
 				DE508BF11EF7D63A0008F91A /* fukidashi2.png in Resources */,
@@ -293,9 +301,8 @@
 				DE952B6B1EEA8299005A6B9E /* ok.png in Resources */,
 				DE36251A1EF43E120008D843 /* red_plants2.jpg in Resources */,
 				DE508BE51EF7B12B0008F91A /* sweatpea.png in Resources */,
-				DE3625141EF419270008D843 /* about_background.jpg in Resources */,
-				DE508BD91EF793B10008F91A /* monstella.jpg in Resources */,
 				DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */,
+				DE888E7B1EFDE8640084EFDB /* gradient6.jpg in Resources */,
 				DE79BF8F1EF1177700CAA40D /* cloudy-3.png in Resources */,
 				DE36250C1EF411D60008D843 /* mercury-thermometer.png in Resources */,
 				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
@@ -304,6 +311,7 @@
 				DE3624F91EF3E9170008D843 /* camera_tab.png in Resources */,
 				DE36250B1EF411D60008D843 /* humidity.png in Resources */,
 				DE3625241EF52EF00008D843 /* leaf2.png in Resources */,
+				DE888E811EFE21DB0084EFDB /* garbella2.jpeg in Resources */,
 				DE3624FA1EF3E9170008D843 /* chat_tab.png in Resources */,
 				DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */,
 				183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */,
