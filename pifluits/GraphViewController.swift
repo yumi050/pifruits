@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import ScrollableGraphView
+import NVActivityIndicatorView
+
 
 class GraphViewController: UIViewController {
   
@@ -26,6 +28,12 @@ class GraphViewController: UIViewController {
   @IBOutlet weak var backgroundImage3: UIImageView!
   @IBOutlet weak var backgroundImage4: UIImageView!
   
+  @IBOutlet weak var temperatureImage: UIImageView!
+  @IBOutlet weak var humidityImage: UIImageView!
+  @IBOutlet weak var soilMoistureImage: UIImageView!
+  @IBOutlet weak var uvImage: UIImageView!
+  
+  
   
   //Data
   let numberOfDataItems = 96 //96 = 24時間分のデータ
@@ -37,9 +45,14 @@ class GraphViewController: UIViewController {
   //FirebaseManagerのインスタンス生成
   let firebaseManager = FirebaseManager()
   
+  //Indicator表示用
+  var gotTemperatureData = false
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
     
     circleLabel.isHidden = true
     graphView = ScrollableGraphView(frame: self.view.frame)
@@ -60,8 +73,7 @@ class GraphViewController: UIViewController {
       self.circleLabel.layer.cornerRadius = circleLabelWidth / 2
       self.view.bringSubview(toFront: self.circleLabel) //最前面に移動
       self.view.bringSubview(toFront: self.backgroundImage) //最前面に移動
-      
-      
+      self.view.bringSubview(toFront: self.temperatureImage) //温度のロゴを最前面に移動
       
     })
     
@@ -89,6 +101,7 @@ class GraphViewController: UIViewController {
         self.getTemperatureData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
         self.view.bringSubview(toFront: self.backgroundImage) //最前面に移動
+        self.view.bringSubview(toFront: self.temperatureImage) //温度のロゴを最前面に移動
       })
     case .bar:
       addLabel(withText: " Humidity  » ")
@@ -103,6 +116,10 @@ class GraphViewController: UIViewController {
         self.getHumidityData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
         self.view.bringSubview(toFront: self.backgroundImage2) //最前面に移動
+        self.view.sendSubview(toBack: self.temperatureImage)
+        self.view.sendSubview(toBack: self.soilMoistureImage)
+        self.view.sendSubview(toBack: self.uvImage)
+        self.view.bringSubview(toFront: self.humidityImage) //湿度のロゴを最前面に移動
       })
     case .dot:
       addLabel(withText: " Water  » ")
@@ -117,6 +134,7 @@ class GraphViewController: UIViewController {
         self.getSoilMoistureData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
         self.view.bringSubview(toFront: self.backgroundImage3) //最前面に移動
+        self.view.bringSubview(toFront: self.soilMoistureImage) //土壌水分のロゴを最前面に移動
       })
     case .pink:
       addLabel(withText: " UV light  » ")
@@ -131,6 +149,7 @@ class GraphViewController: UIViewController {
         self.getUVIndexData()//ラベルにデータをセット
         self.view.bringSubview(toFront: self.circleLabel)
         self.view.bringSubview(toFront: self.backgroundImage4) //最前面に移動
+        self.view.bringSubview(toFront: self.uvImage) //UVのロゴを最前面に移動
       })
     }
     
@@ -145,20 +164,20 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 270
+    graphView.bottomMargin = 250
     graphView.topMargin = 10
     
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") //333333
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#C1FFE0") //333333
     
     graphView.lineWidth = 1
-    graphView.lineColor = UIColor.colorFromHex(hexString: "#777777") //777777
+    graphView.lineColor = UIColor.clear //UIColor.colorFromHex(hexString: "#FFE0FF") //777777
     graphView.lineStyle = ScrollableGraphViewLineStyle.smooth
     
     graphView.shouldFill = true
     graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
     graphView.fillColor = UIColor.colorFromHex(hexString: "#FFE0FF") //555555
     graphView.fillGradientType = ScrollableGraphViewGradientType.linear
-    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#93FFC9") //555555  orangepink:FFDBED
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#8EFFC6") //555555  orangepink:FFDBED , green: 93FFC9
     graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#FFE0FF") //444444 lightpink:FFE0FF
     
     graphView.dataPointSpacing = 80 //x軸（時間）の間隔
@@ -171,7 +190,7 @@ class GraphViewController: UIViewController {
     graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
     graphView.shouldShowReferenceLineUnits = true //Y軸の単位設定
     graphView.referenceLineUnits = "℃"
-    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#777777")//UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
+    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#ffffff")//UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色 777777
     
     //    graphView.shouldAutomaticallyDetectRange = true //???
     
@@ -192,7 +211,7 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 270
+    graphView.bottomMargin = 250
     graphView.topMargin = 10
     
     graphView.dataPointType = ScrollableGraphViewDataPointType.circle
@@ -234,7 +253,7 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 270
+    graphView.bottomMargin = 250
     graphView.topMargin = 10
     
     graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#B2D8FF") //#00BFFF:水色、#B2D8FF:パステル水色
@@ -275,10 +294,10 @@ class GraphViewController: UIViewController {
     
     let graphView = ScrollableGraphView(frame: frame)
     
-    graphView.bottomMargin = 270
+    graphView.bottomMargin = 250
     graphView.topMargin = 10
     
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#333333") // #222222
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#B2B2FF") // #222222
     graphView.lineColor = UIColor.clear
     graphView.lineStyle = ScrollableGraphViewLineStyle.smooth //丸みのあるライン
     
@@ -346,7 +365,7 @@ class GraphViewController: UIViewController {
     
 //    let rightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.right, multiplier: 1, constant: -20) //-20
     
-    let topConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 5) //20
+    let topConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 10) //20
     
     let heightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 40) //40
     
@@ -371,10 +390,10 @@ class GraphViewController: UIViewController {
     label.backgroundColor = UIColor.clear //black.withAlphaComponent(0.5)
     
     label.text = text
-    label.textColor = UIColor.lightGray
+    label.textColor = UIColor.colorFromHex(hexString: "#777777") //UIColor.lightGray
     label.textAlignment = NSTextAlignment.center
 //    label.font = UIFont.boldSystemFont(ofSize: 15)
-    label.font = UIFont(name:"Palatino", size: UIFont.labelFontSize)
+    label.font = UIFont(name:"American Typewriter", size: 20) //UIFont.labelFontSize
     label.layer.cornerRadius = 15
     label.clipsToBounds = true
     
@@ -457,7 +476,11 @@ class GraphViewController: UIViewController {
     firebaseManager.getTemperatureData(completion: {
       text in
       self.circleLabel.text = text + " ℃"
-
+      //値を取得できたらindicatorを止める
+      self.gotTemperatureData = true
+      if self.gotTemperatureData == true {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+      }
     })
   }
   
