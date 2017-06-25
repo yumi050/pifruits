@@ -63,10 +63,10 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         //可愛いフォントを使用
         
         //画像を正円にする
-        let iconLabelWidth = iconLabel.bounds.size.width
-        iconLabel.clipsToBounds = true
-        iconLabel.layer.cornerRadius = iconLabelWidth / 2
-        
+//        let iconLabelWidth = iconLabel.bounds.size.width
+//        iconLabel.clipsToBounds = true
+//        iconLabel.layer.cornerRadius = iconLabelWidth / 2
+      
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
         
         //土壌水分量:最新の値を取得し、ラベルに表示する　& 水分量に応じて、植物の状態をstatusLabelに表示する
@@ -98,7 +98,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     //植物名をUserDefaultsから読み出す関数
     func readSavedData() -> String {
         // Keyを"plantName"として指定して読み込み
-        let plantName: String = userDefaults.string(forKey: "plantName") ?? "clover"
+        let plantName: String = userDefaults.string(forKey: "plantName") ?? "Alice"
         
         return plantName
     }
@@ -130,15 +130,15 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         // お天気APIの返却値によって画像を変更する条件式
         if data.weather == "Clouds" {
             // 曇
-            weatherImage.image = UIImage(named: "cloudy-3.png")
+            weatherImage.image = UIImage(named: "cloud.png")
             //      print(data.weather)
         } else if data.weather == "Clear" {
             // 晴れ
-            weatherImage.image = UIImage(named: "sunny.png")
+            weatherImage.image = UIImage(named: "sun.png")
             //      print(data.weather)
         } else if data.weather == "Rain" {
             // 雨
-            weatherImage.image = UIImage(named: "rainy-2.png")
+            weatherImage.image = UIImage(named: "umbrella.png")
             //      print(data.weather)
         } else{
             //      weatherImage.image = UIImage(named: "")
@@ -158,31 +158,31 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         firebaseManager.getSoilMoistureData(completion: {
             humidity in
             
-            if (humidity >= 200) {
-                status = "Healthy \n お水はまだあるよ！"
+            if (humidity >= 100) {
+                status = "今日は元気いっぱい!!! \n お腹いっぱだよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = "100"
-                print("Healthy \n お水は足りてます！")
-            }else if (humidity >= 160) {
-                status = "Healthy \n お水はまだあるよ！"
+                print("今日は元気いっぱい!!!\n お腹いっぱだよ！")
+            }else if (humidity >= 80) {
+                status = "今日は元気いっぱいで\n 潤ってます^ ^"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("Healthy \n お水はまだあるよ！")
-            }else if (humidity >= 100) {
-                status = "Need Water"
+                print("今日は元気いっぱいで\n 潤ってます^ ^")
+            }else if (humidity >= 50) {
+                status = "今日も調子がいいよ！ \n お水はまだあるよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("Need Water")
-            }else if (humidity >= 60) {
-                status = "Very Thirsty...\n そろそろお水をください！"
+                print("今日も調子がいいよ！ \n お水はまだあるよ！")
+            }else if (humidity >= 30) {
+                status = "乾燥気味です＞＜ \n そろそろお水をください！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("Very Thirsty...\n そろそろお水をください！")
+                print("乾燥気味です＞＜ \n そろそろお水をください！")
             }else {
-                status = "Dying...\n need water RIGHT NOW!"
+                status = "のどが渇いたよ。。。\n　今すぐお水をください＞＜"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("Dying...\n need water RIGHT NOW!")
+                print("のどが渇いたよ。。。\n　今すぐお水をください＞＜")
             }
 
             self.gotSoilMoistureData = true

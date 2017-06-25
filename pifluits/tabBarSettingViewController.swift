@@ -14,11 +14,11 @@ class tabBarSettingViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // タブバーアイコン非選択時の色を変更（iOS 10で利用可能）
-        UITabBar.appearance().unselectedItemTintColor = .white
+        UITabBar.appearance().unselectedItemTintColor = .gray
         //選択時のアイコンの色
-        UITabBar.appearance().tintColor = UIColor.colorFromHex(hexString: "#FFD6FF") //pink: FFDBFF < FFD6FF ,bluegreen: A8FFD3
+        UITabBar.appearance().tintColor = UIColor.colorFromHex(hexString: "#FF84C1") //pink: FFDBFF < FFD6FF ,bluegreen: A8FFD3
         //TabBarの背景色
-        UITabBar.appearance().barTintColor = .black
+        UITabBar.appearance().barTintColor = .white
         // ナビゲーションバーを半透明にしない(画面遷移直後にちらつくため)
         tabBar.isTranslucent = false
 

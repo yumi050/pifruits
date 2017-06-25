@@ -13,6 +13,15 @@
 		DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
+		DE2E48D71EFE99040028A9D1 /* strawberry1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48D61EFE99040028A9D1 /* strawberry1.jpg */; };
+		DE2E48D91EFE990E0028A9D1 /* strawberry2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48D81EFE990E0028A9D1 /* strawberry2.jpg */; };
+		DE2E48DB1EFE99160028A9D1 /* strawberry3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48DA1EFE99160028A9D1 /* strawberry3.jpg */; };
+		DE2E48DD1EFEAC370028A9D1 /* frame1.png in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48DC1EFEAC370028A9D1 /* frame1.png */; };
+		DE2E48E11EFF7C8F0028A9D1 /* strawberry4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48E01EFF7C8F0028A9D1 /* strawberry4.jpg */; };
+		DE2E48E31EFF818E0028A9D1 /* flower2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48E21EFF818D0028A9D1 /* flower2.png */; };
+		DE2E48E51EFFECFF0028A9D1 /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48E41EFFECFF0028A9D1 /* cloud.png */; };
+		DE2E48E71EFFED0D0028A9D1 /* umbrella.png in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48E61EFFED0D0028A9D1 /* umbrella.png */; };
+		DE2E48E91EFFED180028A9D1 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = DE2E48E81EFFED180028A9D1 /* sun.png */; };
 		DE3624F91EF3E9170008D843 /* camera_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3624F51EF3E9170008D843 /* camera_tab.png */; };
 		DE3624FA1EF3E9170008D843 /* chat_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3624F61EF3E9170008D843 /* chat_tab.png */; };
 		DE3624FB1EF3E9170008D843 /* graph_tab.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3624F71EF3E9170008D843 /* graph_tab.png */; };
@@ -29,9 +38,7 @@
 		DE3D6D561EE263E900D11F3C /* RealDataGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */; };
 		DE3D6D581EE407F800D11F3C /* UserDefaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */; };
 		DE3D6D5A1EE7F19400D11F3C /* UserDefaults2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */; };
-		DE508BDB1EF795F40008F91A /* fukidashi.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BDA1EF795F40008F91A /* fukidashi.png */; };
 		DE508BE11EF7A6D50008F91A /* frame_black.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BE01EF7A6D50008F91A /* frame_black.png */; };
-		DE508BE51EF7B12B0008F91A /* sweatpea.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BE41EF7B12B0008F91A /* sweatpea.png */; };
 		DE508BED1EF7C67E0008F91A /* pencilcactus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE508BEC1EF7C67E0008F91A /* pencilcactus.jpg */; };
 		DE508BF11EF7D63A0008F91A /* fukidashi2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE508BF01EF7D63A0008F91A /* fukidashi2.png */; };
 		DE508BF31EFA0D290008F91A /* ActiveIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */; };
@@ -69,6 +76,15 @@
 		DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient1.jpg; sourceTree = "<group>"; };
 		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
 		DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		DE2E48D61EFE99040028A9D1 /* strawberry1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberry1.jpg; sourceTree = "<group>"; };
+		DE2E48D81EFE990E0028A9D1 /* strawberry2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberry2.jpg; sourceTree = "<group>"; };
+		DE2E48DA1EFE99160028A9D1 /* strawberry3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberry3.jpg; sourceTree = "<group>"; };
+		DE2E48DC1EFEAC370028A9D1 /* frame1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1.png; sourceTree = "<group>"; };
+		DE2E48E01EFF7C8F0028A9D1 /* strawberry4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = strawberry4.jpg; sourceTree = "<group>"; };
+		DE2E48E21EFF818D0028A9D1 /* flower2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower2.png; sourceTree = "<group>"; };
+		DE2E48E41EFFECFF0028A9D1 /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud.png; sourceTree = "<group>"; };
+		DE2E48E61EFFED0D0028A9D1 /* umbrella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = umbrella.png; sourceTree = "<group>"; };
+		DE2E48E81EFFED180028A9D1 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		DE3624F51EF3E9170008D843 /* camera_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_tab.png; sourceTree = "<group>"; };
 		DE3624F61EF3E9170008D843 /* chat_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat_tab.png; sourceTree = "<group>"; };
 		DE3624F71EF3E9170008D843 /* graph_tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph_tab.png; sourceTree = "<group>"; };
@@ -85,9 +101,7 @@
 		DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealDataGraphViewController.swift; sourceTree = "<group>"; };
 		DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultViewController.swift; sourceTree = "<group>"; };
 		DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults2ViewController.swift; sourceTree = "<group>"; };
-		DE508BDA1EF795F40008F91A /* fukidashi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fukidashi.png; sourceTree = "<group>"; };
 		DE508BE01EF7A6D50008F91A /* frame_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame_black.png; sourceTree = "<group>"; };
-		DE508BE41EF7B12B0008F91A /* sweatpea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sweatpea.png; sourceTree = "<group>"; };
 		DE508BEC1EF7C67E0008F91A /* pencilcactus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pencilcactus.jpg; sourceTree = "<group>"; };
 		DE508BF01EF7D63A0008F91A /* fukidashi2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fukidashi2.png; sourceTree = "<group>"; };
 		DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveIndicatorViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +208,14 @@
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
 				DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */,
+				DE2E48E81EFFED180028A9D1 /* sun.png */,
+				DE2E48E61EFFED0D0028A9D1 /* umbrella.png */,
+				DE2E48E41EFFECFF0028A9D1 /* cloud.png */,
+				DE2E48E01EFF7C8F0028A9D1 /* strawberry4.jpg */,
+				DE2E48DC1EFEAC370028A9D1 /* frame1.png */,
+				DE2E48DA1EFE99160028A9D1 /* strawberry3.jpg */,
+				DE2E48D81EFE990E0028A9D1 /* strawberry2.jpg */,
+				DE2E48D61EFE99040028A9D1 /* strawberry1.jpg */,
 				DE888E821EFE35ED0084EFDB /* ロゴたいぷゴシック.otf */,
 				DE888E801EFE21DB0084EFDB /* garbella2.jpeg */,
 				DE888E7C1EFDF4E90084EFDB /* gradient7.jpg */,
@@ -202,8 +224,7 @@
 				DE508BEC1EF7C67E0008F91A /* pencilcactus.jpg */,
 				DE508BF01EF7D63A0008F91A /* fukidashi2.png */,
 				DE508BE01EF7A6D50008F91A /* frame_black.png */,
-				DE508BE41EF7B12B0008F91A /* sweatpea.png */,
-				DE508BDA1EF795F40008F91A /* fukidashi.png */,
+				DE2E48E21EFF818D0028A9D1 /* flower2.png */,
 				DE3625231EF52EF00008D843 /* leaf2.png */,
 				DE36252F1EF554870008D843 /* leaf3.png */,
 				DE3625191EF43E120008D843 /* red_plants2.jpg */,
@@ -286,31 +307,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE508BDB1EF795F40008F91A /* fukidashi.png in Resources */,
 				DE508BED1EF7C67E0008F91A /* pencilcactus.jpg in Resources */,
 				DE3624FB1EF3E9170008D843 /* graph_tab.png in Resources */,
+				DE2E48E11EFF7C8F0028A9D1 /* strawberry4.jpg in Resources */,
 				DE36250E1EF411D60008D843 /* uv-rays-of-sun.png in Resources */,
 				DE3625121EF4137D0008D843 /* sprout 3.png in Resources */,
 				DE888E7D1EFDF4E90084EFDB /* gradient7.jpg in Resources */,
+				DE2E48DB1EFE99160028A9D1 /* strawberry3.jpg in Resources */,
 				DE888E831EFE35ED0084EFDB /* ロゴたいぷゴシック.otf in Resources */,
 				DE79BF911EF1177700CAA40D /* sunny.png in Resources */,
 				DE508BE11EF7A6D50008F91A /* frame_black.png in Resources */,
 				DE508BF11EF7D63A0008F91A /* fukidashi2.png in Resources */,
+				DE2E48E51EFFECFF0028A9D1 /* cloud.png in Resources */,
 				DE3624FC1EF3E9170008D843 /* home_tab.png in Resources */,
+				DE2E48DD1EFEAC370028A9D1 /* frame1.png in Resources */,
+				DE2E48E71EFFED0D0028A9D1 /* umbrella.png in Resources */,
 				DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */,
 				DE952B6B1EEA8299005A6B9E /* ok.png in Resources */,
 				DE36251A1EF43E120008D843 /* red_plants2.jpg in Resources */,
-				DE508BE51EF7B12B0008F91A /* sweatpea.png in Resources */,
 				DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */,
 				DE888E7B1EFDE8640084EFDB /* gradient6.jpg in Resources */,
 				DE79BF8F1EF1177700CAA40D /* cloudy-3.png in Resources */,
 				DE36250C1EF411D60008D843 /* mercury-thermometer.png in Resources */,
 				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
+				DE2E48D71EFE99040028A9D1 /* strawberry1.jpg in Resources */,
+				DE2E48E91EFFED180028A9D1 /* sun.png in Resources */,
 				DE79BF901EF1177700CAA40D /* rainy-2.png in Resources */,
 				DE3625301EF554870008D843 /* leaf3.png in Resources */,
 				DE3624F91EF3E9170008D843 /* camera_tab.png in Resources */,
 				DE36250B1EF411D60008D843 /* humidity.png in Resources */,
+				DE2E48D91EFE990E0028A9D1 /* strawberry2.jpg in Resources */,
 				DE3625241EF52EF00008D843 /* leaf2.png in Resources */,
+				DE2E48E31EFF818E0028A9D1 /* flower2.png in Resources */,
 				DE888E811EFE21DB0084EFDB /* garbella2.jpeg in Resources */,
 				DE3624FA1EF3E9170008D843 /* chat_tab.png in Resources */,
 				DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */,
