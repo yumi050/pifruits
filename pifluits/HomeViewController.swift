@@ -159,30 +159,30 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
             humidity in
             
             if (humidity >= 100) {
-                status = "今日は元気いっぱい!!! \n お腹いっぱだよ！"
+                status = "今日は元気いっぱい!!! \nお腹いっぱだよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = "100"
-                print("今日は元気いっぱい!!!\n お腹いっぱだよ！")
+                print("今日は元気いっぱい!!!\nお腹いっぱだよ！")
             }else if (humidity >= 80) {
-                status = "今日は元気いっぱいで\n 潤ってます^ ^"
+                status = "今日は元気いっぱいで\n潤ってます^ ^"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("今日は元気いっぱいで\n 潤ってます^ ^")
+                print("今日は元気いっぱいで\n潤ってます^ ^")
             }else if (humidity >= 50) {
-                status = "今日も調子がいいよ！ \n お水はまだあるよ！"
+                status = "今日も調子がいいよ！ \nお水はまだあるよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("今日も調子がいいよ！ \n お水はまだあるよ！")
+                print("今日も調子がいいよ！ \nお水はまだあるよ！")
             }else if (humidity >= 30) {
-                status = "乾燥気味です＞＜ \n そろそろお水をください！"
+                status = "乾燥気味です＞＜ \nそろそろお水をください！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
                 print("乾燥気味です＞＜ \n そろそろお水をください！")
             }else {
-                status = "のどが渇いたよ。。。\n　今すぐお水をください＞＜"
+                status = "のどが渇いたよ。。。\n今すぐお水をください＞＜"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("のどが渇いたよ。。。\n　今すぐお水をください＞＜")
+                print("のどが渇いたよ。。。\n今すぐお水をください＞＜")
             }
 
             self.gotSoilMoistureData = true

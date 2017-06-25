@@ -7,19 +7,38 @@
 //
 
 import UIKit
-import SwiftyJSON
-import JSQMessagesViewController
+//import SwiftyJSON
+//import JSQMessagesViewController
 
 
 class ChatViewController: UIViewController { //JSQMessagesViewController
   
+  @IBOutlet weak var iconLabel: UIImageView! //植物のアイコン画像
+  @IBOutlet weak var iconLabel2: UIImageView!
+  
+  @IBOutlet weak var iconLabel3: UIImageView!
   
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    //アイコン画像を正円にする
+    let iconLabelWidth = iconLabel.bounds.size.width
+    iconLabel.clipsToBounds = true
+    iconLabel.layer.cornerRadius = iconLabelWidth / 2
+    //二つ目のアイコン画像を正円にする
+    let iconLabelWidth2 = iconLabel2.bounds.size.width
+    iconLabel2.clipsToBounds = true
+    iconLabel2.layer.cornerRadius = iconLabelWidth2 / 2
+    //三つ目のアイコン画像を正円にする
+    let iconLabelWidth3 = iconLabel3.bounds.size.width
+    iconLabel3.clipsToBounds = true
+    iconLabel3.layer.cornerRadius = iconLabelWidth3 / 2
+
+  
+  }
   
   
-  
-  
-//JSQMessagesViewController のコード：
+////JSQMessagesViewController のコード：
 //  private var messages: [JSQMessage] = []
 //  private var incomingBubble: JSQMessagesBubbleImage!
 //  private var outgoingBubble: JSQMessagesBubbleImage!
@@ -96,7 +115,7 @@ class ChatViewController: UIViewController { //JSQMessagesViewController
 //    // Dispose of any resources that can be recreated.
 //  }
 //  
-
+//
 //  
 //  // 送信時刻を出すために高さを調整する
 //  override func collectionView(_ collectionView: JSQMessagesCollectionView, attributedTextForCellTopLabelAt indexPath: IndexPath) -> NSAttributedString? {
@@ -129,8 +148,8 @@ class ChatViewController: UIViewController { //JSQMessagesViewController
 //  }
 //  
 //  
-//
-//
+
+
 
     /*
     // MARK: - Navigation
