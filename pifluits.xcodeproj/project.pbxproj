@@ -10,6 +10,17 @@
 		183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */; };
 		183727981EEBD47B00F3CF58 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183727971EEBD47B00F3CF58 /* FirebaseManager.swift */; };
 		A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		DE0386921F00010E0073EA75 /* KN-blooming_01-pink-02.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386911F00010E0073EA75 /* KN-blooming_01-pink-02.png */; };
+		DE0386941F0004BF0073EA75 /* bubble_green.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386931F0004BF0073EA75 /* bubble_green.png */; };
+		DE0386961F0004D60073EA75 /* bubble_white.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386951F0004D60073EA75 /* bubble_white.png */; };
+		DE0386981F000A420073EA75 /* bubble_white2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386971F000A420073EA75 /* bubble_white2.png */; };
+		DE03869A1F000BB80073EA75 /* character.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = DE0386991F000BB80073EA75 /* character.jpeg */; };
+		DE0386A11F0013D70073EA75 /* frame1_left.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03869B1F0013D70073EA75 /* frame1_left.png */; };
+		DE0386A21F0013D70073EA75 /* frame1_right.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03869C1F0013D70073EA75 /* frame1_right.png */; };
+		DE0386A31F0013D70073EA75 /* frame1_top.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03869D1F0013D70073EA75 /* frame1_top.png */; };
+		DE0386A41F0013D70073EA75 /* frame1_top2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03869E1F0013D70073EA75 /* frame1_top2.png */; };
+		DE0386A51F0013D70073EA75 /* frame1_top3.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03869F1F0013D70073EA75 /* frame1_top3.png */; };
+		DE0386A61F0013D70073EA75 /* frame1_top4.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386A01F0013D70073EA75 /* frame1_top4.png */; };
 		DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
@@ -73,6 +84,17 @@
 		183727971EEBD47B00F3CF58 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pifluits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72E6FF53CF18378169418E5 /* Pods-pifluits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.release.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.release.xcconfig"; sourceTree = "<group>"; };
+		DE0386911F00010E0073EA75 /* KN-blooming_01-pink-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KN-blooming_01-pink-02.png"; sourceTree = "<group>"; };
+		DE0386931F0004BF0073EA75 /* bubble_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_green.png; sourceTree = "<group>"; };
+		DE0386951F0004D60073EA75 /* bubble_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_white.png; sourceTree = "<group>"; };
+		DE0386971F000A420073EA75 /* bubble_white2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_white2.png; sourceTree = "<group>"; };
+		DE0386991F000BB80073EA75 /* character.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = character.jpeg; sourceTree = "<group>"; };
+		DE03869B1F0013D70073EA75 /* frame1_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_left.png; sourceTree = "<group>"; };
+		DE03869C1F0013D70073EA75 /* frame1_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_right.png; sourceTree = "<group>"; };
+		DE03869D1F0013D70073EA75 /* frame1_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_top.png; sourceTree = "<group>"; };
+		DE03869E1F0013D70073EA75 /* frame1_top2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_top2.png; sourceTree = "<group>"; };
+		DE03869F1F0013D70073EA75 /* frame1_top3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_top3.png; sourceTree = "<group>"; };
+		DE0386A01F0013D70073EA75 /* frame1_top4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_top4.png; sourceTree = "<group>"; };
 		DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient1.jpg; sourceTree = "<group>"; };
 		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
 		DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +230,17 @@
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
 				DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */,
+				DE03869B1F0013D70073EA75 /* frame1_left.png */,
+				DE03869C1F0013D70073EA75 /* frame1_right.png */,
+				DE03869D1F0013D70073EA75 /* frame1_top.png */,
+				DE03869E1F0013D70073EA75 /* frame1_top2.png */,
+				DE03869F1F0013D70073EA75 /* frame1_top3.png */,
+				DE0386A01F0013D70073EA75 /* frame1_top4.png */,
+				DE0386991F000BB80073EA75 /* character.jpeg */,
+				DE0386931F0004BF0073EA75 /* bubble_green.png */,
+				DE0386951F0004D60073EA75 /* bubble_white.png */,
+				DE0386971F000A420073EA75 /* bubble_white2.png */,
+				DE0386911F00010E0073EA75 /* KN-blooming_01-pink-02.png */,
 				DE2E48E81EFFED180028A9D1 /* sun.png */,
 				DE2E48E61EFFED0D0028A9D1 /* umbrella.png */,
 				DE2E48E41EFFECFF0028A9D1 /* cloud.png */,
@@ -319,6 +352,7 @@
 				DE508BE11EF7A6D50008F91A /* frame_black.png in Resources */,
 				DE508BF11EF7D63A0008F91A /* fukidashi2.png in Resources */,
 				DE2E48E51EFFECFF0028A9D1 /* cloud.png in Resources */,
+				DE0386A11F0013D70073EA75 /* frame1_left.png in Resources */,
 				DE3624FC1EF3E9170008D843 /* home_tab.png in Resources */,
 				DE2E48DD1EFEAC370028A9D1 /* frame1.png in Resources */,
 				DE2E48E71EFFED0D0028A9D1 /* umbrella.png in Resources */,
@@ -326,23 +360,33 @@
 				DE952B6B1EEA8299005A6B9E /* ok.png in Resources */,
 				DE36251A1EF43E120008D843 /* red_plants2.jpg in Resources */,
 				DEB790E81EC7F12F004FE1DA /* LaunchScreen.storyboard in Resources */,
+				DE03869A1F000BB80073EA75 /* character.jpeg in Resources */,
 				DE888E7B1EFDE8640084EFDB /* gradient6.jpg in Resources */,
 				DE79BF8F1EF1177700CAA40D /* cloudy-3.png in Resources */,
+				DE0386A41F0013D70073EA75 /* frame1_top2.png in Resources */,
 				DE36250C1EF411D60008D843 /* mercury-thermometer.png in Resources */,
 				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
 				DE2E48D71EFE99040028A9D1 /* strawberry1.jpg in Resources */,
 				DE2E48E91EFFED180028A9D1 /* sun.png in Resources */,
 				DE79BF901EF1177700CAA40D /* rainy-2.png in Resources */,
+				DE0386A21F0013D70073EA75 /* frame1_right.png in Resources */,
 				DE3625301EF554870008D843 /* leaf3.png in Resources */,
 				DE3624F91EF3E9170008D843 /* camera_tab.png in Resources */,
 				DE36250B1EF411D60008D843 /* humidity.png in Resources */,
 				DE2E48D91EFE990E0028A9D1 /* strawberry2.jpg in Resources */,
 				DE3625241EF52EF00008D843 /* leaf2.png in Resources */,
 				DE2E48E31EFF818E0028A9D1 /* flower2.png in Resources */,
+				DE0386961F0004D60073EA75 /* bubble_white.png in Resources */,
 				DE888E811EFE21DB0084EFDB /* garbella2.jpeg in Resources */,
+				DE0386981F000A420073EA75 /* bubble_white2.png in Resources */,
+				DE0386A61F0013D70073EA75 /* frame1_top4.png in Resources */,
 				DE3624FA1EF3E9170008D843 /* chat_tab.png in Resources */,
 				DEB790E01EC7F12F004FE1DA /* Main.storyboard in Resources */,
+				DE0386A51F0013D70073EA75 /* frame1_top3.png in Resources */,
+				DE0386941F0004BF0073EA75 /* bubble_green.png in Resources */,
+				DE0386921F00010E0073EA75 /* KN-blooming_01-pink-02.png in Resources */,
 				183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */,
+				DE0386A31F0013D70073EA75 /* frame1_top.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
