@@ -8,8 +8,8 @@
 
 import UIKit
 import Firebase //画像をFirebaseにアップする
-
 import NVActivityIndicatorView
+
 
 class CameraViewController: UIViewController {
   
