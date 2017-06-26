@@ -21,6 +21,9 @@
 		DE0386A41F0013D70073EA75 /* frame1_top2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03869E1F0013D70073EA75 /* frame1_top2.png */; };
 		DE0386A51F0013D70073EA75 /* frame1_top3.png in Resources */ = {isa = PBXBuildFile; fileRef = DE03869F1F0013D70073EA75 /* frame1_top3.png */; };
 		DE0386A61F0013D70073EA75 /* frame1_top4.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386A01F0013D70073EA75 /* frame1_top4.png */; };
+		DE0386A81F00E6DA0073EA75 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */; };
+		DE0386AB1F00FBA40073EA75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0386A91F00FBA40073EA75 /* AVFoundation.framework */; };
+		DE0386AC1F00FBA40073EA75 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0386AA1F00FBA40073EA75 /* AVKit.framework */; };
 		DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
@@ -95,6 +98,9 @@
 		DE03869E1F0013D70073EA75 /* frame1_top2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_top2.png; sourceTree = "<group>"; };
 		DE03869F1F0013D70073EA75 /* frame1_top3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_top3.png; sourceTree = "<group>"; };
 		DE0386A01F0013D70073EA75 /* frame1_top4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame1_top4.png; sourceTree = "<group>"; };
+		DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		DE0386A91F00FBA40073EA75 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DE0386AA1F00FBA40073EA75 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient1.jpg; sourceTree = "<group>"; };
 		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
 		DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE0386AB1F00FBA40073EA75 /* AVFoundation.framework in Frameworks */,
+				DE0386AC1F00FBA40073EA75 /* AVKit.framework in Frameworks */,
 				A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +177,8 @@
 		02DC3752818033299DCB9EF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE0386A91F00FBA40073EA75 /* AVFoundation.framework */,
+				DE0386AA1F00FBA40073EA75 /* AVKit.framework */,
 				A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */,
 			);
 			name = Frameworks;
@@ -215,6 +225,7 @@
 				DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */,
 				DE3624FD1EF3EC410008D843 /* tabBarSettingViewController.swift */,
 				DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */,
+				DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */,
 				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
 				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
 				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
@@ -451,6 +462,7 @@
 				DED9AFDD1ECAD2EF00601606 /* RegisterViewController.swift in Sources */,
 				DE99ADA71EDC0E1D00B60AC3 /* FirebaseViewController.swift in Sources */,
 				DE3D6D561EE263E900D11F3C /* RealDataGraphViewController.swift in Sources */,
+				DE0386A81F00E6DA0073EA75 /* VideoViewController.swift in Sources */,
 				DEB790E31EC7F12F004FE1DA /* pifluits.xcdatamodeld in Sources */,
 				DE508BF31EFA0D290008F91A /* ActiveIndicatorViewController.swift in Sources */,
 				DED9AFE11ECAFFF600601606 /* ChatViewController.swift in Sources */,
