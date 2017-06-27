@@ -24,6 +24,7 @@
 		DE0386A81F00E6DA0073EA75 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */; };
 		DE0386AB1F00FBA40073EA75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0386A91F00FBA40073EA75 /* AVFoundation.framework */; };
 		DE0386AC1F00FBA40073EA75 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0386AA1F00FBA40073EA75 /* AVKit.framework */; };
+		DE0386C21F0208E50073EA75 /* play-button (4).png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386C11F0208E50073EA75 /* play-button (4).png */; };
 		DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
@@ -101,6 +102,7 @@
 		DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		DE0386A91F00FBA40073EA75 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE0386AA1F00FBA40073EA75 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		DE0386C11F0208E50073EA75 /* play-button (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button (4).png"; sourceTree = "<group>"; };
 		DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient1.jpg; sourceTree = "<group>"; };
 		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
 		DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
 				DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */,
+				DE0386C11F0208E50073EA75 /* play-button (4).png */,
 				DE03869B1F0013D70073EA75 /* frame1_left.png */,
 				DE03869C1F0013D70073EA75 /* frame1_right.png */,
 				DE03869D1F0013D70073EA75 /* frame1_top.png */,
@@ -381,6 +384,7 @@
 				DE2E48E91EFFED180028A9D1 /* sun.png in Resources */,
 				DE79BF901EF1177700CAA40D /* rainy-2.png in Resources */,
 				DE0386A21F0013D70073EA75 /* frame1_right.png in Resources */,
+				DE0386C21F0208E50073EA75 /* play-button (4).png in Resources */,
 				DE3625301EF554870008D843 /* leaf3.png in Resources */,
 				DE3624F91EF3E9170008D843 /* camera_tab.png in Resources */,
 				DE36250B1EF411D60008D843 /* humidity.png in Resources */,
