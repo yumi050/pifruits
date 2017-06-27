@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fj3-bu-M6i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fj3-bu-M6i">
                                 <rect key="frame" x="-2" y="2" width="321" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.9837297797203064" green="0.80378299951553345" blue="0.80602508783340454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flower2.png" translatesAutoresizingMaskIntoConstraints="NO" id="igt-hQ-ey8">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igt-hQ-ey8">
                                 <rect key="frame" x="0.0" y="525" width="320" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -54,7 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="flower2.png" width="1976" height="287"/>
         <image name="gradient1.jpg" width="1080" height="1920"/>
     </resources>
 </document>
