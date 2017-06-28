@@ -115,9 +115,10 @@ class FirebaseManager {
     }
 
   
-    //土壌水分量：グラフ表示用の配列（192：二日分のデータ）を返す関数
+    //土壌水分量：グラフ表示用の配列（96：1日分のデータ）を返す関数
     func getSoilMoistureDataForGraph(completion: (([Double]) -> Void)?) {
       //取得した値を格納する配列
+      var soilMoisturesArray: [Double] = []
       var soilMoistures: [Double] = []
       
       //Set the firebase reference
@@ -126,7 +127,8 @@ class FirebaseManager {
         
         if let soilMoisture = snapshot.value as? NSDictionary {
           if let soilMoistureData = soilMoisture["soil_moisture"] as? Double {
-            soilMoistures.append(soilMoistureData/2)
+            soilMoisturesArray.append(soilMoistureData/2)
+            soilMoistures = soilMoisturesArray.reversed()
           }
         }
         print(soilMoistures)
@@ -135,11 +137,12 @@ class FirebaseManager {
     }
 
   
-    //UVIndex: グラフ表示用の配列（192：二日分のデータ）を返す関数
+    //UVIndex: グラフ表示用の配列（96：1日分のデータ）を返す関数
     func getUVIndexDataForGraph(completion: (([Double]) -> Void)?) {
       
 //      var count = 0
       //取得した値を格納する配列
+      var uvIndexesArray: [Double] = []
       var uvIndexes: [Double] = []
       
       //Set the firebase reference
@@ -148,7 +151,8 @@ class FirebaseManager {
         
         if let uvIndex = snapshot.value as? NSDictionary {
           if let uvIndexValue = uvIndex["UV index"] as? Double {
-            uvIndexes.append(uvIndexValue)
+            uvIndexesArray.append(uvIndexValue)
+            uvIndexes = uvIndexesArray.reversed()
           }
         }
 //        count = count + 1
@@ -173,9 +177,10 @@ class FirebaseManager {
     }
 
   
-    //Temperature: グラフ表示用の配列（192：二日分のデータ）を返す関数
+    //Temperature: グラフ表示用の配列（96：1日分のデータ）を返す関数
     func getTemperatureDataForGraph(completion: (([Double]) -> Void)?) {
       //取得した値を格納する配列
+      var tempsArray: [Double] = []
       var temps: [Double] = []
       
       //Set the firebase reference
@@ -184,8 +189,9 @@ class FirebaseManager {
         
         if let temp = snapshot.value as? NSDictionary {
           if let tempData = temp["temp"] as? Double {
-            //気温の値をtempsの配列にappendし
-            temps.append(tempData)
+            //気温の値をtempsの配列にappendし、、新しい値が先頭にくる配列に作り変える
+            tempsArray.append(tempData)
+            temps = tempsArray.reversed()
           }
         }
         print(temps)
@@ -194,10 +200,12 @@ class FirebaseManager {
     }
 
   
-    //Humidity: グラフ表示用の配列（192：二日分のデータ）を返す関数
+    //Humidity: グラフ表示用の配列（96：1日分のデータ）を返す関数
     func getHumidityDataForGraph(completion: (([Double]) -> Void)?) {
       //取得した値を格納する配列
-      var humids: [Double] = []
+      var humidsArray: [Double] = [] //古い順から配列に追加される
+      var humids: [Double] = [] //新しい順から配列に追加（グラフ表示用）
+      
       
       //Set the firebase reference
       ref = Database.database().reference()
@@ -205,8 +213,9 @@ class FirebaseManager {
         
         if let humid = snapshot.value as? NSDictionary {
           if let humidData = humid["humidity"] as? Double {
-            //湿度の値をtempsの配列にappendし
-            humids.append(humidData)
+            //湿度の値をtempsの配列にappendし、新しい値が先頭にくる配列に作り変える
+            humidsArray.append(humidData)
+            humids = humidsArray.reversed()
           }
         }
         print(humids)
