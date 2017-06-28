@@ -26,6 +26,7 @@
 		DE0386AC1F00FBA40073EA75 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0386AA1F00FBA40073EA75 /* AVKit.framework */; };
 		DE0386C21F0208E50073EA75 /* play-button (4).png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386C11F0208E50073EA75 /* play-button (4).png */; };
 		DE0386CE1F038D080073EA75 /* myichigo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0386CD1F038D080073EA75 /* myichigo.jpg */; };
+		DE0386D21F03CB1B0073EA75 /* waku.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386D11F03CB1B0073EA75 /* waku.png */; };
 		DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
@@ -105,6 +106,7 @@
 		DE0386AA1F00FBA40073EA75 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		DE0386C11F0208E50073EA75 /* play-button (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button (4).png"; sourceTree = "<group>"; };
 		DE0386CD1F038D080073EA75 /* myichigo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = myichigo.jpg; sourceTree = "<group>"; };
+		DE0386D11F03CB1B0073EA75 /* waku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waku.png; sourceTree = "<group>"; };
 		DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient1.jpg; sourceTree = "<group>"; };
 		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
 		DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */,
 				DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */,
 				DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */,
+				DE0386D11F03CB1B0073EA75 /* waku.png */,
 				DE0386CD1F038D080073EA75 /* myichigo.jpg */,
 				DE0386C11F0208E50073EA75 /* play-button (4).png */,
 				DE03869B1F0013D70073EA75 /* frame1_left.png */,
@@ -358,6 +361,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE508BED1EF7C67E0008F91A /* pencilcactus.jpg in Resources */,
+				DE0386D21F03CB1B0073EA75 /* waku.png in Resources */,
 				DE3624FB1EF3E9170008D843 /* graph_tab.png in Resources */,
 				DE2E48E11EFF7C8F0028A9D1 /* strawberry4.jpg in Resources */,
 				DE36250E1EF411D60008D843 /* uv-rays-of-sun.png in Resources */,
