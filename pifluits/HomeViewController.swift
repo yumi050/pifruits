@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
 import SwiftyJSON
 import NVActivityIndicatorView
 
 class HomeViewController: UIViewController, WeatherDataManagerProtocol {
-    
+  
+  
+  @IBOutlet weak var cameraImage: UIImageView!
+ 
+  
     //植物名を表示するラベル（UserDefaultsに登録した"plantName"）
     @IBOutlet weak var plantNameLabel: UILabel!
     //今日の日付を表示するラベル
@@ -48,6 +53,29 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      //ストレージ サービスへの参照を取得
+      let storage = Storage.storage()
+      //URLを取得し、imageのURLを参照
+      if let imageURL = getImageUrl() {
+        let storageRef = storage.reference(forURL: imageURL)
+        
+        //Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+        storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
+          if (error != nil) {
+            // Uh-oh, an error occurred!
+            print("error")
+          } else {
+            // Data for "images/island.jpg" is returned
+            let piCameraImage: UIImage! = UIImage(data: data!)
+            self.cameraImage.image = piCameraImage
+            print("image download")
+            
+          }
+        }
+      }
+      
+      
         //東京の天気を表示
         //WeatherDataManagerのデリゲートをViewController自身に設定
         self.dataManager.delegate = self
@@ -61,7 +89,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         statusLabel.text = ""
         
         //可愛いフォントを使用
-        statusLabel.font = UIFont(name: "07LogoTypeGothic7", size: 20 )
+        statusLabel.font = UIFont(name: "07LogoTypeGothic7", size: 21 )
         
         //画像を正円にする
 //        let iconLabelWidth = iconLabel.bounds.size.width
@@ -256,7 +284,19 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         //画面が消えたときに、Firebaseのデータ読み取りのObserverを削除しておく
         firebaseManager.removeAllObservers()
     }
-    
+  
+  
+    //GoogleService-InfoからstorageのimageURLを取得
+    private func getImageUrl() -> String? {
+      guard let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") else {
+        return nil
+      }
+      
+      let configurations = NSDictionary(contentsOfFile: path)
+      return configurations?.object(forKey: "IMAGE_STORAGE_URL") as? String
+    }
+  
+  
     /*
      // MARK: - Navigation
      
