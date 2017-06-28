@@ -61,6 +61,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         statusLabel.text = ""
         
         //可愛いフォントを使用
+        statusLabel.font = UIFont(name: "07LogoTypeGothic7", size: 20 )
         
         //画像を正円にする
 //        let iconLabelWidth = iconLabel.bounds.size.width
