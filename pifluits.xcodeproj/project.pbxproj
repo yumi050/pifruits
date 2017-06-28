@@ -25,6 +25,7 @@
 		DE0386AB1F00FBA40073EA75 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0386A91F00FBA40073EA75 /* AVFoundation.framework */; };
 		DE0386AC1F00FBA40073EA75 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE0386AA1F00FBA40073EA75 /* AVKit.framework */; };
 		DE0386C21F0208E50073EA75 /* play-button (4).png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386C11F0208E50073EA75 /* play-button (4).png */; };
+		DE0386CE1F038D080073EA75 /* myichigo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0386CD1F038D080073EA75 /* myichigo.jpg */; };
 		DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */; };
 		DE248F931ED1C99000F7DB87 /* UIColor+colorFromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */; };
 		DE248F951ED9585E00F7DB87 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */; };
@@ -103,6 +104,7 @@
 		DE0386A91F00FBA40073EA75 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DE0386AA1F00FBA40073EA75 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		DE0386C11F0208E50073EA75 /* play-button (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-button (4).png"; sourceTree = "<group>"; };
+		DE0386CD1F038D080073EA75 /* myichigo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = myichigo.jpg; sourceTree = "<group>"; };
 		DE0D63111EFBA62A0017A8D3 /* gradient1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gradient1.jpg; sourceTree = "<group>"; };
 		DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+colorFromHex.swift"; sourceTree = "<group>"; };
 		DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -226,8 +228,6 @@
 				DED9AFE41ECB002800601606 /* CameraViewController.swift */,
 				DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */,
 				DE3624FD1EF3EC410008D843 /* tabBarSettingViewController.swift */,
-				DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */,
-				DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */,
 				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
 				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
 				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
@@ -242,7 +242,10 @@
 				DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */,
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
+				DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */,
+				DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */,
 				DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */,
+				DE0386CD1F038D080073EA75 /* myichigo.jpg */,
 				DE0386C11F0208E50073EA75 /* play-button (4).png */,
 				DE03869B1F0013D70073EA75 /* frame1_left.png */,
 				DE03869C1F0013D70073EA75 /* frame1_right.png */,
@@ -368,6 +371,7 @@
 				DE2E48E51EFFECFF0028A9D1 /* cloud.png in Resources */,
 				DE0386A11F0013D70073EA75 /* frame1_left.png in Resources */,
 				DE3624FC1EF3E9170008D843 /* home_tab.png in Resources */,
+				DE0386CE1F038D080073EA75 /* myichigo.jpg in Resources */,
 				DE2E48DD1EFEAC370028A9D1 /* frame1.png in Resources */,
 				DE2E48E71EFFED0D0028A9D1 /* umbrella.png in Resources */,
 				DE0D63121EFBA62A0017A8D3 /* gradient1.jpg in Resources */,
