@@ -167,7 +167,7 @@ class GraphViewController: UIViewController {
     graphView.bottomMargin = 250
     graphView.topMargin = 10
     
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#C1FFE0") //333333
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#B2FFD8") //333333 パステルグリーン：C1FFE0
     
     graphView.lineWidth = 1
     graphView.lineColor = UIColor.clear //UIColor.colorFromHex(hexString: "#FFE0FF") //777777
@@ -177,8 +177,8 @@ class GraphViewController: UIViewController {
     graphView.fillType = ScrollableGraphViewFillType.gradient //グラデーション
     graphView.fillColor = UIColor.colorFromHex(hexString: "#FFE0FF") //555555
     graphView.fillGradientType = ScrollableGraphViewGradientType.linear
-    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#8EFFC6") //555555  orangepink:FFDBED , green: 93FFC9
-    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#FFE0FF") //444444 lightpink:FFE0FF
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#7FFFBF") //555555  orangepink:FFDBED , green: 93FFC9 < 8EFFC6
+    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#FFD6FF") //444444 lightpink:FFE0FF
     
     graphView.dataPointSpacing = 80 //x軸（時間）の間隔
     graphView.dataPointSize = 2
@@ -215,7 +215,7 @@ class GraphViewController: UIViewController {
     graphView.topMargin = 10
     
     graphView.dataPointType = ScrollableGraphViewDataPointType.circle
-    //    graphView.dataPointSpacing = 55 //x軸（時間）の間隔
+    graphView.dataPointSpacing = 58 //x軸（時間）の間隔
     graphView.shouldDrawBarLayer = true
     graphView.shouldDrawDataPoint = false
     
@@ -232,7 +232,7 @@ class GraphViewController: UIViewController {
     graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
     //    graphView.dataPointLabelColor = UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色
     graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#777777") //X軸ラベルの色
-    graphView.dataPointSpacing = 59 //x軸（時間）の間隔
+    graphView.dataPointSpacing = 60 //x軸（時間）の間隔
     
     graphView.shouldAnimateOnStartup = true
     graphView.shouldAnimateOnAdapt = true
@@ -411,10 +411,10 @@ class GraphViewController: UIViewController {
     var labels = [String]()
     
     for i in 0 ..< 10 {
-      if (i < 7){ //6回繰り返す＝90分まで表示
+      if (i < 4){ //3回繰り返す＝45分まで表示
         labels.append("\(i*15)\(text) ")
       }else{
-        for h in 1 ..< 25 { //24時間45分前まで表示
+        for h in 1 ..< 25 { //23時間45分前まで表示
           for m in 0 ..< 4 {
             if (m == 0) {
               labels.append("\(h)時間前")
@@ -425,7 +425,7 @@ class GraphViewController: UIViewController {
         }
       }
     }
-    print(labels)
+//    print(labels)
     return labels
     
   }
