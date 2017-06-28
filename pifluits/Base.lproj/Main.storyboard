@@ -677,7 +677,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CK0-h0-pMs">
-                                <rect key="frame" x="20" y="418" width="278" height="95"/>
+                                <rect key="frame" x="20" y="418" width="278" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -700,42 +700,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="fwe-Oq-ot9">
-                                <rect key="frame" x="145" y="415" width="159" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1_top3.png" translatesAutoresizingMaskIntoConstraints="NO" id="D48-Md-YGn">
-                                <rect key="frame" x="153" y="384" width="14" height="10"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1_top2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sw6-gn-7Kk">
-                                <rect key="frame" x="161" y="395" width="14" height="10"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1_left.png" translatesAutoresizingMaskIntoConstraints="NO" id="kbJ-Gq-NLF">
-                                <rect key="frame" x="13" y="415" width="130" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1_top4.png" translatesAutoresizingMaskIntoConstraints="NO" id="N89-ZN-dhV">
-                                <rect key="frame" x="136" y="406" width="14" height="11"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1_top3.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cq4-Rt-qO2">
-                                <rect key="frame" x="170" y="406" width="15" height="10"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="frame1_top.png" translatesAutoresizingMaskIntoConstraints="NO" id="gpZ-9a-2RE">
-                                <rect key="frame" x="144" y="395" width="14" height="11"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="xzz-8b-53A">
-                                <rect key="frame" x="20" y="423" width="273" height="85"/>
+                                <rect key="frame" x="20" y="420" width="273" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-CondensedBold" family="American Typewriter" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="waku.png" translatesAutoresizingMaskIntoConstraints="NO" id="3tj-ZA-weB">
+                                <rect key="frame" x="1" y="372" width="327" height="157"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1398,12 +1374,7 @@
         <image name="chat_tab.png" width="32" height="32"/>
         <image name="flower2.png" width="1976" height="287"/>
         <image name="frame1.png" width="960" height="600"/>
-        <image name="frame1_left.png" width="415" height="599"/>
-        <image name="frame1_right.png" width="530" height="597"/>
         <image name="frame1_top.png" width="53" height="52"/>
-        <image name="frame1_top2.png" width="51" height="45"/>
-        <image name="frame1_top3.png" width="53" height="45"/>
-        <image name="frame1_top4.png" width="51" height="48"/>
         <image name="garbella2.jpeg" width="275" height="183"/>
         <image name="gradient1.jpg" width="1080" height="1920"/>
         <image name="gradient7.jpg" width="736" height="1309"/>
@@ -1421,6 +1392,7 @@
         <image name="strawberry4.jpg" width="1080" height="800"/>
         <image name="sunny.png" width="128" height="128"/>
         <image name="uv-rays-of-sun.png" width="256" height="256"/>
+        <image name="waku.png" width="608" height="358"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="JFE-1V-Zla"/>

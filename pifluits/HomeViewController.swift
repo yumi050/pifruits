@@ -90,7 +90,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
         
         //可愛いフォントを使用
         statusLabel.font = UIFont(name: "07LogoTypeGothic7", size: 21 )
-        
+      
         //画像を正円にする
 //        let iconLabelWidth = iconLabel.bounds.size.width
 //        iconLabel.clipsToBounds = true
@@ -188,30 +188,30 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
             humidity in
             
             if (humidity >= 100) {
-                status = "今日は元気いっぱい!!! \nお腹いっぱだよ！"
+                status = "お腹いっぱだよ！\nお水はたりてるよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = "100"
-                print("今日は元気いっぱい!!!\nお腹いっぱだよ！")
+                print("お腹いっぱだよ！\nお水はたりてるよ！")
             }else if (humidity >= 80) {
-                status = "今日は元気いっぱいで\n潤ってます^ ^"
+                status = "今日は元気いっぱい！\n潤ってます ^o^"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("今日は元気いっぱいで\n潤ってます^ ^")
+                print("今日は元気いっぱい！\n潤ってます ^ ^")
             }else if (humidity >= 50) {
                 status = "今日も調子がいいよ！ \nお水はまだあるよ！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
                 print("今日も調子がいいよ！ \nお水はまだあるよ！")
             }else if (humidity >= 30) {
-                status = "乾燥気味です＞＜ \nそろそろお水をください！"
+                status = "潤いがたりないわ＞＜ \nそろそろお水が欲しいな〜！"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("乾燥気味です＞＜ \n そろそろお水をください！")
+                print("潤いがたりないわ＞＜ \nそろそろお水が欲しいな〜！")
             }else {
-                status = "のどが渇いたよ。。。\n今すぐお水をください＞＜"
+                status = "のどが渇いたよ。。。\n今すぐお水が飲みたいよ〜＞＜"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("のどが渇いたよ。。。\n今すぐお水をください＞＜")
+                print("のどが渇いたよ。。。\n今すぐお水が飲みたいよ〜＞＜")
             }
 
             self.gotSoilMoistureData = true
