@@ -208,10 +208,10 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
                 self.soilMoistureLabel.text = String(humidity)
                 print("潤いがたりないわ＞＜ \nそろそろお水が欲しいな〜！")
             }else {
-                status = "のどが渇いたよ。。。\n今すぐお水が飲みたいよ〜＞＜"
+                status = "のどが渇いたよ。。。\n今すぐお水が飲みたいよ〜\n＞＜"
                 self.statusLabel.text = status
                 self.soilMoistureLabel.text = String(humidity)
-                print("のどが渇いたよ。。。\n今すぐお水が飲みたいよ〜＞＜")
+                print("のどが渇いたよ。。。\n今すぐお水が飲みたいよ〜\n＞＜")
             }
 
             self.gotSoilMoistureData = true
