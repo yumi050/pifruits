@@ -39,6 +39,13 @@ class RealDataGraphViewController: UIViewController {
   var data: [Double] = []
   //  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
   lazy var labels: [String] = self.dataTimeLabel(self.numberOfDataItems, text: "分前")
+  //自動水やり記録用データ
+  var autoData: [Double] = [0,0,0,100,0,0,0,0,100,0,0,0,100,0,0,0,0,0,100,0,0,0,0,100,0,0,0,0,0,100]
+  //自動水やり記録用 x軸ラベル
+  lazy var autoLabels: [String] = self.autoDataTimeLabel(self.numberOfDataItems, text: "6/")
+
+  
+  
   //FirebaseManagerのインスタンス生成
   let firebaseManager = FirebaseManager()
   
@@ -137,6 +144,13 @@ class RealDataGraphViewController: UIViewController {
         self.view.bringSubview(toFront: self.circleLabel)
         self.view.bringSubview(toFront: self.backgroundImage4) //最前面に移動
       })
+    case .pink2:
+      addLabel(withText: "自動水やり記録")
+      graphView = createAutoDotGraph(self.view.frame)
+      graphView.set(data: autoData, withLabels: autoLabels)
+      self.view.insertSubview(graphView, belowSubview: label)
+      setupConstraints()
+
     }
     
 //    graphView.set(data: data, withLabels: labels)
@@ -315,6 +329,49 @@ class RealDataGraphViewController: UIViewController {
     return graphView
   }
   
+  
+  //自動水やり日記：
+  private func createAutoDotGraph(_ frame: CGRect) -> ScrollableGraphView {
+    
+    let graphView = ScrollableGraphView(frame: frame)
+    
+    graphView.bottomMargin = 250
+    graphView.topMargin = 50
+    
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#CCFFFF") //#00BFFF:水色、#B2D8FF:パステル水色
+    //グラデーション部分（要確認）
+    graphView.shouldFill = true
+    graphView.fillType = ScrollableGraphViewFillType.gradient
+    graphView.fillColor = UIColor.colorFromHex(hexString: "#C1FFFF") //パステルブルー　CCFFFF
+    graphView.fillGradientType = ScrollableGraphViewGradientType.linear
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#FFE0FF") //パステルグリーン　CCFFE5　、濃い　BCFFDD
+    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#C1FFE0") //薄いピンク　FFD1FF
+    
+    graphView.lineColor = UIColor.clear
+    
+    graphView.dataPointSize = 5
+    graphView.dataPointSpacing = 75 //x軸（時間）の間隔
+    graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10) //X軸のラベルの文字サイズ
+    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#777777")  //X軸ラベルの色
+    graphView.dataPointFillColor = UIColor.white
+    
+    graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 9) //Y軸のラベルの文字サイズ
+    graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
+    graphView.referenceLineLabelColor = UIColor.white
+    graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.left //Y軸ラベル左側
+    
+    graphView.numberOfIntermediateReferenceLines = 1 //上下を除いた中間線の数
+    graphView.shouldAnimateOnStartup = true
+    //    graphView.shouldAdaptRange = true
+    graphView.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
+    graphView.animationDuration = 1.5
+    graphView.rangeMin = 0 //Y軸最小値
+    graphView.rangeMax = 100 //Y軸最大値
+    
+    return graphView
+  }
+
+  
   private func setupConstraints() {
     
     self.graphView.translatesAutoresizingMaskIntoConstraints = false
@@ -404,17 +461,17 @@ class RealDataGraphViewController: UIViewController {
 //  }
 
   
-//  //X軸のラベル生成
-//  private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
-//    
-//    var labels = [String]()
-//    for i in 0 ..< numberOfItems {
-//      labels.append("\(i*15)\(text) ")
-//    }
-//    
-//    return labels
-//    
-//  }
+  //X軸のラベル生成：自動水やり記録用
+  private func autoDataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
+    
+    var autoLabels = [String]()
+    for i in 1 ..< 31 {
+      autoLabels.append("\(text)\(i) ")
+    }
+    
+    return autoLabels
+    
+  }
   
   //X軸のラベル生成
   private func dataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
@@ -448,6 +505,7 @@ class RealDataGraphViewController: UIViewController {
     case bar
     case dot
     case pink
+    case pink2//追加
     
     mutating func next() {
       switch(self) {
@@ -458,7 +516,9 @@ class RealDataGraphViewController: UIViewController {
       case .dot:
         self = GraphType.pink
       case .pink:
-        self = GraphType.dark
+        self = GraphType.pink2//追加
+      case .pink2:
+        self = GraphType.dark//追加
       }
     }
   }

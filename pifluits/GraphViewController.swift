@@ -22,6 +22,8 @@ class GraphViewController: UIViewController {
     var labelConstraints = [NSLayoutConstraint]()
   
   @IBOutlet weak var circleLabel: UILabel!
+  @IBOutlet weak var averageLabel: UILabel!//平均水やり日数ラベル
+  
   
   @IBOutlet weak var backgroundImage: UIImageView!
   @IBOutlet weak var backgroundImage2: UIImageView!
@@ -35,13 +37,19 @@ class GraphViewController: UIViewController {
   
   
   
-  //Data
+  //Data数
   let numberOfDataItems = 96 //96 = 24時間分のデータ
-  
-  //    lazy var data: [Double] = self.generateRandomeData(self.numberOfDataItems, max: 50)
+  //グラフに表示するデータを格納する配列
   var data: [Double] = []
-  //  lazy var labels: [String] = self.generateSequentialLabels(self.numberOfDataItems, text: "July")
+  //X軸のラベル表示用の配列
   lazy var labels: [String] = self.dataTimeLabel(self.numberOfDataItems, text: "分前")
+  //自動水やり記録用データの配列
+  var autoData: [Double] = [0,0,100,0,0,0,0,0,100,0,0,0,100,0,0,0,0,0,100,0,0,0,0,100,0,0,0,0,0,100]
+  //自動水やり記録用 x軸ラベル表示用の配列
+  lazy var autoLabels: [String] = self.autoDataTimeLabel(self.numberOfDataItems, text: "6/")
+  
+  
+  
   //FirebaseManagerのインスタンス生成
   let firebaseManager = FirebaseManager()
   
@@ -151,6 +159,16 @@ class GraphViewController: UIViewController {
         self.view.bringSubview(toFront: self.backgroundImage4) //最前面に移動
         self.view.bringSubview(toFront: self.uvImage) //UVのロゴを最前面に移動
       })
+    case .dot2:
+      addLabel2(withText: "自動水やり記録")
+      graphView = createAutoDotGraph(self.view.frame)
+      graphView.set(data: autoData, withLabels: autoLabels)
+      self.view.insertSubview(graphView, belowSubview: label)
+      self.setupConstraints()
+      self.getAverageDays()//ラベルにデータをセット
+      self.view.bringSubview(toFront: self.circleLabel)
+      self.view.bringSubview(toFront: self.backgroundImage3) //最前面に移動
+      self.view.bringSubview(toFront: self.averageLabel)
     }
     
     //    graphView.set(data: data, withLabels: labels)
@@ -158,6 +176,7 @@ class GraphViewController: UIViewController {
     //    setupConstraints()
     
   }
+  
   
   //温度のグラフ
   fileprivate func createDarkGraph(_ frame: CGRect) -> ScrollableGraphView {
@@ -206,6 +225,7 @@ class GraphViewController: UIViewController {
     return graphView
   }
   
+  
   //湿度のグラフ
   private func createBarGraph(_ frame: CGRect) -> ScrollableGraphView {
     
@@ -248,6 +268,7 @@ class GraphViewController: UIViewController {
     return graphView
   }
   
+  
   //土壌水分のグラフ
   private func createDotGraph(_ frame: CGRect) -> ScrollableGraphView {
     
@@ -288,6 +309,7 @@ class GraphViewController: UIViewController {
     
     return graphView
   }
+  
   
   //UV指数のグラフ
   private func createPinkMountainGraph(_ frame: CGRect) -> ScrollableGraphView {
@@ -331,6 +353,49 @@ class GraphViewController: UIViewController {
     return graphView
   }
   
+  
+  //自動水やり日記：
+  private func createAutoDotGraph(_ frame: CGRect) -> ScrollableGraphView {
+    
+    let graphView = ScrollableGraphView(frame: frame)
+    
+    graphView.bottomMargin = 250
+    graphView.topMargin = 58
+    
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#FFDBFF") //#00BFFF:水色、#B2D8FF:パステル水色
+    //グラデーション部分（要確認）
+    graphView.shouldFill = true
+    graphView.fillType = ScrollableGraphViewFillType.gradient
+    graphView.fillColor = UIColor.colorFromHex(hexString: "#CCFFE5") //パステルブルー　CCFFFF
+    graphView.fillGradientType = ScrollableGraphViewGradientType.linear //radial
+    graphView.fillGradientStartColor = UIColor.colorFromHex(hexString: "#FFD1FF") //パステルグリーン　CCFFE5　、濃い　BCFFDD
+    graphView.fillGradientEndColor = UIColor.colorFromHex(hexString: "#B2D8FF") //薄いピンク　FFD1FF
+    
+    graphView.lineColor = UIColor.clear
+    
+    graphView.dataPointSize = 5
+    graphView.dataPointSpacing = 75 //x軸（時間）の間隔
+    graphView.dataPointLabelFont = UIFont.boldSystemFont(ofSize: 10) //X軸のラベルの文字サイズ
+    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#ffffff")  //X軸ラベルの色 ,777777
+    graphView.dataPointFillColor = UIColor.white
+    
+    graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 9) //Y軸のラベルの文字サイズ
+    graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
+    graphView.referenceLineLabelColor = UIColor.white
+    graphView.referenceLinePosition = ScrollableGraphViewReferenceLinePosition.both
+    
+    graphView.numberOfIntermediateReferenceLines = 1 //上下を除いた中間線の数
+    graphView.shouldAnimateOnStartup = true
+    //    graphView.shouldAdaptRange = true
+    graphView.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
+    graphView.animationDuration = 1.5
+    graphView.rangeMin = 0 //Y軸最小値
+    graphView.rangeMax = 100 //Y軸最大値
+    
+    return graphView
+  }
+  
+  
   private func setupConstraints() {
     
     self.graphView.translatesAutoresizingMaskIntoConstraints = false
@@ -344,8 +409,6 @@ class GraphViewController: UIViewController {
     
     let leftConstraint = NSLayoutConstraint(item: self.graphView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 0)
     
-    //let heightConstraint = NSLayoutConstraint(item: self.graphView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: self.view, attribute: NSLayoutAttribute.Height, multiplier: 1, constant: 0)
-    
     graphConstraints.append(topConstraint)
     graphConstraints.append(bottomConstraint)
     graphConstraints.append(rightConstraint)
@@ -356,7 +419,8 @@ class GraphViewController: UIViewController {
     
   }
   
-  //右上のラベル：タップでグラフの切り替え：Adding and updating the graph switching label in the top right corner of the screen
+  
+  //グラフ内容を表示するラベル：タップでグラフの切り替え：Adding and updating the graph switching label in the top right corner of the screen
   private func addLabel(withText text: String) {
     
     label.removeFromSuperview()
@@ -383,6 +447,8 @@ class GraphViewController: UIViewController {
     
   }
   
+  
+  //グラフ内容を表示するラベルを生成
   private func createLabel(withText text: String) -> UILabel {
     
     let label = UILabel()
@@ -392,7 +458,6 @@ class GraphViewController: UIViewController {
     label.text = text
     label.textColor = UIColor.colorFromHex(hexString: "#777777") //UIColor.lightGray
     label.textAlignment = NSTextAlignment.center
-//    label.font = UIFont.boldSystemFont(ofSize: 15)
     label.font = UIFont(name:"American Typewriter", size: 20) //UIFont.labelFontSize
     label.layer.cornerRadius = 15
     label.clipsToBounds = true
@@ -401,6 +466,69 @@ class GraphViewController: UIViewController {
     label.sizeToFit()
     
     return label
+    
+  }
+  
+  //自動水やり記録用のラベル
+  //グラフ内容を表示するラベル：タップでグラフの切り替え：Adding and updating the graph switching label in the top right corner of the screen
+  private func addLabel2(withText text: String) {
+    
+    label.removeFromSuperview()
+    label = createLabel2(withText: text)
+    label.isUserInteractionEnabled = true
+    
+    //    let rightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.right, multiplier: 1, constant: -20) //-20
+    
+    let topConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 10) //20
+    
+    let heightConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 40) //40
+    
+    //    let widthConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: label.frame.width * 1.5) //label.frame.width * 1.5
+    
+    //self.viewの横幅いっぱいにする
+    let widthConstraint = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: self.view, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0)
+    
+    let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(didTap))
+    label.addGestureRecognizer(tapGestureRecogniser)
+    
+    self.view.insertSubview(label, aboveSubview: graphView)
+    //    self.view.addConstraints([rightConstraint, topConstraint, heightConstraint, widthConstraint])
+    self.view.addConstraints([topConstraint, heightConstraint, widthConstraint])
+    
+  }
+  
+  //自動水やり記録用のラベル
+  //グラフ内容を表示するラベルを生成
+  private func createLabel2(withText text: String) -> UILabel {
+    
+    let label = UILabel()
+    
+    label.backgroundColor = UIColor.clear //black.withAlphaComponent(0.5)
+    
+    label.text = text
+    label.textColor = UIColor.colorFromHex(hexString: "#777777") //UIColor.lightGray
+    label.textAlignment = NSTextAlignment.center
+    label.font = UIFont(name:"07LogoTypeGothic7", size: 17) //UIFont.labelFontSize
+    label.layer.cornerRadius = 15
+    label.clipsToBounds = true
+    
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.sizeToFit()
+    
+    return label
+    
+  }
+  
+  
+  //X軸のラベル生成：自動水やり記録用
+  private func autoDataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
+    
+    var autoLabels = [String]()
+    for i in 1 ..< 31 {
+      autoLabels.append("\(text)\(i) ")
+    }
+    
+    return autoLabels
     
   }
   
@@ -437,6 +565,7 @@ class GraphViewController: UIViewController {
     case bar
     case dot
     case pink
+    case dot2
     
     mutating func next() {
       switch(self) {
@@ -447,6 +576,8 @@ class GraphViewController: UIViewController {
       case .dot:
         self = GraphType.pink
       case .pink:
+        self = GraphType.dot2
+      case .dot2:
         self = GraphType.dark
       }
     }
@@ -492,6 +623,14 @@ class GraphViewController: UIViewController {
       self.circleLabel.text = text + " %"
 
     })
+  }
+  
+  //自動水やり記録：平均水やり日数をラベルに表示する関数
+  func getAverageDays() {
+    self.circleLabel.text = "4日間"
+    self.averageLabel.text = "平均水やり間隔"
+    self.averageLabel.textColor = UIColor.darkGray.withAlphaComponent(0.7)//UIColor.colorFromHex(hexString: "#888888")
+    self.averageLabel.font = UIFont(name:"07LogoTypeGothic7", size: 14)
   }
   
   
