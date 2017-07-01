@@ -127,6 +127,7 @@ class GraphViewController: UIViewController {
         self.view.sendSubview(toBack: self.temperatureImage)
         self.view.sendSubview(toBack: self.soilMoistureImage)
         self.view.sendSubview(toBack: self.uvImage)
+        self.view.sendSubview(toBack: self.averageLabel)
         self.view.bringSubview(toFront: self.humidityImage) //湿度のロゴを最前面に移動
       })
     case .dot:
@@ -186,10 +187,10 @@ class GraphViewController: UIViewController {
     graphView.bottomMargin = 250
     graphView.topMargin = 10
     
-    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#B2FFD8") //333333 パステルグリーン：C1FFE0
+    graphView.backgroundFillColor = UIColor.colorFromHex(hexString: "#9EFFCE") //333333 パステルグリーン：C1FFE0,B2FFD8
     
     graphView.lineWidth = 1
-    graphView.lineColor = UIColor.clear //UIColor.colorFromHex(hexString: "#FFE0FF") //777777
+    graphView.lineColor = UIColor.white.withAlphaComponent(0.5) //colorFromHex(hexString: "#5297FF") //777777 .clear,7FFFBF
     graphView.lineStyle = ScrollableGraphViewLineStyle.smooth
     
     graphView.shouldFill = true
@@ -204,12 +205,12 @@ class GraphViewController: UIViewController {
     graphView.dataPointFillColor = UIColor.white
     
     graphView.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
-    graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.5)
-    graphView.referenceLineLabelColor = UIColor.white
+    graphView.referenceLineColor = UIColor.white.withAlphaComponent(0.9)
+    graphView.referenceLineLabelColor = UIColor.lightGray//white
     graphView.numberOfIntermediateReferenceLines = 5 //上下を除いた中間線の数
     graphView.shouldShowReferenceLineUnits = true //Y軸の単位設定
     graphView.referenceLineUnits = "℃"
-    graphView.dataPointLabelColor = UIColor.colorFromHex(hexString: "#ffffff")//UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色 777777
+    graphView.dataPointLabelColor = UIColor.lightGray//UIColor.white.withAlphaComponent(0.8) //X軸ラベルの色 777777, UIColor.colorFromHex(hexString: "#ffffff")
     
     //    graphView.shouldAutomaticallyDetectRange = true //???
     
