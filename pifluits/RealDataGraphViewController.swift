@@ -7,7 +7,7 @@
 //
 
 
-//Firebaseから実際のデータを取り出し、グラフに表示させるためのView!!!
+//Firebaseから実際のデータを取り出し、グラフに表示させるためのView：練習用ファイル
 
 import UIKit
 import Firebase

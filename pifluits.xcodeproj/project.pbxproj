@@ -49,7 +49,6 @@
 		DE36250E1EF411D60008D843 /* uv-rays-of-sun.png in Resources */ = {isa = PBXBuildFile; fileRef = DE36250A1EF411D60008D843 /* uv-rays-of-sun.png */; };
 		DE3625121EF4137D0008D843 /* sprout 3.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3625111EF4137D0008D843 /* sprout 3.png */; };
 		DE36251A1EF43E120008D843 /* red_plants2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DE3625191EF43E120008D843 /* red_plants2.jpg */; };
-		DE36251E1EF4EFFB0008D843 /* ExapmleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */; };
 		DE3625241EF52EF00008D843 /* leaf2.png in Resources */ = {isa = PBXBuildFile; fileRef = DE3625231EF52EF00008D843 /* leaf2.png */; };
 		DE3625301EF554870008D843 /* leaf3.png in Resources */ = {isa = PBXBuildFile; fileRef = DE36252F1EF554870008D843 /* leaf3.png */; };
 		DE3D6D561EE263E900D11F3C /* RealDataGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */; };
@@ -129,7 +128,6 @@
 		DE36250A1EF411D60008D843 /* uv-rays-of-sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uv-rays-of-sun.png"; sourceTree = "<group>"; };
 		DE3625111EF4137D0008D843 /* sprout 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sprout 3.png"; sourceTree = "<group>"; };
 		DE3625191EF43E120008D843 /* red_plants2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_plants2.jpg; sourceTree = "<group>"; };
-		DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExapmleViewController.swift; sourceTree = "<group>"; };
 		DE3625231EF52EF00008D843 /* leaf2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaf2.png; sourceTree = "<group>"; };
 		DE36252F1EF554870008D843 /* leaf3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaf3.png; sourceTree = "<group>"; };
 		DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealDataGraphViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +228,9 @@
 				DED9AFE41ECB002800601606 /* CameraViewController.swift */,
 				DE248F921ED1C99000F7DB87 /* UIColor+colorFromHex.swift */,
 				DE3624FD1EF3EC410008D843 /* tabBarSettingViewController.swift */,
+				183727971EEBD47B00F3CF58 /* FirebaseManager.swift */,
+				DE79BF881EF0FF5300CAA40D /* WeatherDataManager.swift */,
+				DE79BF8A1EF100BA00CAA40D /* WeatherDataModel.swift */,
 				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
 				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
 				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
@@ -237,16 +238,12 @@
 				DEB790E91EC7F12F004FE1DA /* Info.plist */,
 				DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */,
 				DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */,
-				DE79BF881EF0FF5300CAA40D /* WeatherDataManager.swift */,
-				DE79BF8A1EF100BA00CAA40D /* WeatherDataModel.swift */,
 				DE99ADA61EDC0E1D00B60AC3 /* FirebaseViewController.swift */,
-				183727971EEBD47B00F3CF58 /* FirebaseManager.swift */,
 				DE3D6D551EE263E900D11F3C /* RealDataGraphViewController.swift */,
 				DE3D6D571EE407F800D11F3C /* UserDefaultViewController.swift */,
 				DE3D6D591EE7F19400D11F3C /* UserDefaults2ViewController.swift */,
 				DE0386A71F00E6DA0073EA75 /* VideoViewController.swift */,
 				DE508BF21EFA0D290008F91A /* ActiveIndicatorViewController.swift */,
-				DE36251D1EF4EFFB0008D843 /* ExapmleViewController.swift */,
 				DE0386D11F03CB1B0073EA75 /* waku.png */,
 				DE0386CD1F038D080073EA75 /* myichigo.jpg */,
 				DE0386C11F0208E50073EA75 /* play-button (4).png */,
@@ -483,7 +480,6 @@
 				DEB790DB1EC7F12F004FE1DA /* AppDelegate.swift in Sources */,
 				DED9AFDF1ECAFFC700601606 /* HomeViewController.swift in Sources */,
 				183727981EEBD47B00F3CF58 /* FirebaseManager.swift in Sources */,
-				DE36251E1EF4EFFB0008D843 /* ExapmleViewController.swift in Sources */,
 				DE79BF891EF0FF5300CAA40D /* WeatherDataManager.swift in Sources */,
 				DE79BF8B1EF100BA00CAA40D /* WeatherDataModel.swift in Sources */,
 				DE3624FE1EF3EC410008D843 /* tabBarSettingViewController.swift in Sources */,

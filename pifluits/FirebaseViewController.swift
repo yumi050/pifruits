@@ -4,8 +4,6 @@
 //
 //  Created by yumiH on 2017/05/29.
 //  Copyright © 2017年 yumiH. All rights reserved.
-//
-
 
 //Firebaseのデータを読み出す動作確認：練習用ファイル
 

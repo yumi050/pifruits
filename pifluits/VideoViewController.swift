@@ -4,7 +4,8 @@
 //
 //  Created by yumiH on 2017/06/26.
 //  Copyright © 2017年 yumiH. All rights reserved.
-//
+
+//練習用ファイル：
 
 import UIKit
 import AVFoundation
