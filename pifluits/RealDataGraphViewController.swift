@@ -4,7 +4,6 @@
 //
 //  Created by yumiH on 2017/06/03.
 //  Copyright © 2017年 yumiH. All rights reserved.
-//
 
 
 //Firebaseから実際のデータを取り出し、グラフに表示させるためのView：練習用ファイル
