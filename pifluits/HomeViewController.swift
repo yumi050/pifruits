@@ -213,7 +213,7 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
                 self.soilMoistureLabel.text = String(humidity)
                 print("のどが渇いたよ。。。\n今すぐお水が飲みたいよ〜\n＞＜")
             }
-
+            
             self.gotSoilMoistureData = true
             if self.gotAllData() == true {
                 NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
