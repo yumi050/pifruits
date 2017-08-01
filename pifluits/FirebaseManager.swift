@@ -222,7 +222,9 @@ class FirebaseManager {
         completion?(humids)
       })
     }
+  
 
+    //Firebaseのデータ読み取りのObserverを削除しておく
     func removeAllObservers() {
       //Set the firebase reference
       ref = Database.database().reference()

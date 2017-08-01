@@ -38,7 +38,7 @@ class GraphViewController: UIViewController {
   
   
   //Data数
-  let numberOfDataItems = 96 //96 = 24時間分のデータ
+  let numberOfDataItems = 96 //96 = 15分間隔の24時間分のデータ
   //グラフに表示するデータを格納する配列
   var data: [Double] = []
   //X軸のラベル表示用の配列
@@ -521,7 +521,7 @@ class GraphViewController: UIViewController {
   }
   
   
-  //X軸のラベル生成：自動水やり記録用
+  //X軸のラベル生成：自動水やり記録用（1日〜31日まで）
   private func autoDataTimeLabel(_ numberOfItems: Int, text: String) -> [String] {
     
     var autoLabels = [String]()
@@ -625,6 +625,7 @@ class GraphViewController: UIViewController {
 
     })
   }
+  
   
   //自動水やり記録：平均水やり日数をラベルに表示する関数
   func getAverageDays() {
