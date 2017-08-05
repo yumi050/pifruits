@@ -4,5 +4,4 @@
 植物を楽しく、効率よく、栽培するためのサポートアプリです。
 
 
-
-[![Gardening Pi　ビデオ](https://www.youtube.com/watch?v=_I0gfHm3FAk)](https://www.youtube.com/watch?v=_I0gfHm3FAk)
+![Gardening Pi　ビデオ](https://github.com/yumi050/pifruits/)
