@@ -23,12 +23,42 @@ IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植�
 
 ### 紹介動画 : Home画面, Chatting画面
 
+<Home画面>
+植物状態を簡易モニタリングできる
+
+* 植物が今の状態を知らせてくる
+* 写真で観察（定点カメラでの定期撮影）
+* 各種センサの数値を観測
+
+<Chatting画面>
+チャットで植物と会話ができる
+
 ![Gardening Pi　ビデオ](https://github.com/yumi050/pifruits/blob/master/GardeningPi_1.gif)
 
-### 紹介動画 : Graphs(温度、湿度、土壌水分量)
+### 紹介動画 : Graph画面(温度、湿度、土壌水分量)
+
+<Graph画面>
+各センサの測定値をおしゃれなグラフで観測できる
+
+* 土壌水分量
+* 温度
+* 湿度
+* 紫外線量
 
 ![Graphs(温度、湿度、土壌水分量)](https://github.com/yumi050/pifruits/blob/master/GardeningPi_2.gif)
 
-### 紹介動画 : Graph(UV) & タイムラプス動画
+### 紹介動画 : Graph画面(UV) & カメラ画面
+
+<カメラ画面>
+タイムラプス動画で成長記録がみられる
 
 ![Graph(UV) & タイムラプス動画](https://github.com/yumi050/pifruits/blob/master/GardeningPi_3.gif)
+
+### 使用言語
+* Swift
+* Python
+* Arduino言語
+
+### Database
+* Firebase
+
