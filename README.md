@@ -23,7 +23,7 @@ IoT機器を植物のそばに置き、離れた場所からiPhoneで植物の�
 #### iOSアプリの詳細
 [アプリ紹介ページ ~ Gardening Pi ~ 植物と会話をしよう](https://yumi050.github.io/GardeningPi/)
 
-<a href="https://yumi050.github.io/GardeningPi/"><img src="https://github.com/yumi050/pifruits/blob/master/Landing.png" width="350"/></a>
+<a href="https://yumi050.github.io/GardeningPi/"><img src="https://github.com/yumi050/pifruits/blob/master/Landing.png" width="380"/></a>
 
 ## Movie_1 : Home画面, Chatting画面
 
