@@ -3,13 +3,13 @@
 このIoTとiOSを組み合わせたアプリは、「家庭菜園をする人向け」の、
 植物を楽しく、効率よく、栽培するためのサポートアプリです。
 
-IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植物の状態を観察でき、自分の育てている植物と会話をするように楽しめます。
+IoT機器を植物のそばに置き、離れた場所からiPhoneで植物の状態を観察でき、自分の育てている植物と会話をするように成長が楽しめます！
 
 #### IoT部分の詳細
 ![IoT image](https://github.com/yumi050/pifruits/blob/master/iotimage.png/)
 
 ###### 基盤：
-* Raspberry Pi3 ModelB
+* Raspberry Pi3 ModelB (OS:Raspbian)
 * Arduino Uno
 
 ###### センサ、その他：
@@ -57,8 +57,8 @@ IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植�
 ![Graph(UV) & タイムラプス動画](https://github.com/yumi050/pifruits/blob/master/GardeningPi_3.gif)
 
 ### 使用言語
-* Swift
-* Python
+* Swift 3.0.2
+* Python 3.5.1
 * Arduino言語
 
 ### Database
