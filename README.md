@@ -1,5 +1,5 @@
 # Gardening Pi (旧：　pifruits)
-## Description
+### Description
 このIoTとiOSを組み合わせたアプリは、「家庭菜園をする人向け」の、
 植物を楽しく、効率よく、栽培するためのサポートアプリです。
 
@@ -21,7 +21,7 @@ IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植�
 #### iOSアプリの詳細
 [アプリ紹介ページ ~ Gardening Pi ~ 植物と会話をしよう](https://yumi050.github.io/GardeningPi/)
 
-### 紹介動画 : Home画面, Chatting画面
+## Movie_1 : Home画面, Chatting画面
 
 <Home画面>
 植物状態を簡易モニタリングできる
@@ -35,7 +35,7 @@ IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植�
 
 ![Gardening Pi　ビデオ](https://github.com/yumi050/pifruits/blob/master/GardeningPi_1.gif)
 
-### 紹介動画 : Graph画面(温度、湿度、土壌水分量)
+## Movie_2 : Graph画面(温度、湿度、土壌水分量)
 
 <Graph画面>
 各センサの測定値をおしゃれなグラフで観測できる
@@ -47,7 +47,7 @@ IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植�
 
 ![Graphs(温度、湿度、土壌水分量)](https://github.com/yumi050/pifruits/blob/master/GardeningPi_2.gif)
 
-### 紹介動画 : Graph画面(UV) & カメラ画面
+## Movie_3 : Graph画面(UV) & カメラ画面
 
 <カメラ画面>
 タイムラプス動画で成長記録がみられる
