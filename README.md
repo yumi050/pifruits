@@ -6,7 +6,7 @@
 IoT機器を植物のそばに置き、離れた場所からiPhoneで植物の状態を観察でき、自分の育てている植物と会話をするように成長が楽しめます！
 
 #### IoT部分の詳細
-![IoT image](https://github.com/yumi050/pifruits/blob/master/iotimage.png =200*200)
+![IoT image](https://github.com/yumi050/pifruits/blob/master/iotimage.png =200x200)
 
 ###### 基盤：
 * Raspberry Pi3 ModelB (OS:Raspbian)
