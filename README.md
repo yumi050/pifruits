@@ -64,5 +64,5 @@ IoT機器を植物のそばに置き、離れた場所からiPhoneで植物の�
 * Arduino言語
 
 ### Database
-* Firebase
+* Firebase (Realtime Database, Storage)
 
