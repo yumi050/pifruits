@@ -5,6 +5,20 @@
 
 IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植物の状態を観察でき、自分の育てている植物と会話をするように楽しめます。
 
+#### IoT部分
+###### 基盤：
+*Raspberry Pi3 ModelB
+*Arduino Uno
+
+###### センサ、その他：
+*土壌水分センサ（SEN0114）
+*温湿度気圧センサ（BME280）
+*紫外線センサ（SI1145）
+*照度センサ（TSL2560）
+*電圧変換モジュール
+*Pi Camera
+
+#### iOSアプリ
 
 ### アプリ紹介ページ
 [Landing Page ~ Gardening Pi ~ 植物と会話をしよう](https://yumi050.github.io/GardeningPi/)
