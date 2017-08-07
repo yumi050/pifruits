@@ -1,6 +1,6 @@
 # Gardening Pi  （旧：pifruits）
 ### Description
-Gardening PiはIoTとiOSを組み合わせたアプリケーションです。
+Gardening PiはIoTとiOSを組み合わせたアプリケーションです。<br>
 「家庭菜園をする人」向けの、植物を楽しく、効率よく栽培するためのサポートアプリです。
 
 IoT機器を植物のそばに置き、離れた場所からiPhoneで植物の状態を観察でき、自分の育てている植物と会話をするように成長が楽しめます！
