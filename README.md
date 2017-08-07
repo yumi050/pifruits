@@ -7,3 +7,5 @@
 ![Gardening Pi　ビデオ](https://github.com/yumi050/pifruits/blob/master/GardeningPi_1.gif)
 
 ![Graphs(温度、湿度、土壌水分量)](https://github.com/yumi050/pifruits/blob/master/GardeningPi_2.gif)
+
+![Graph(UV) & タイムラプス動画](https://github.com/yumi050/pifruits/blob/master/GardeningPi_3.gif)
