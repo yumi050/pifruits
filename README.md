@@ -35,7 +35,7 @@ IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植�
 
 ![Gardening Pi　ビデオ](https://github.com/yumi050/pifruits/blob/master/GardeningPi_1.gif)
 
-## Movie_2 : Graph画面(温度、湿度、土壌水分量)
+## Movie_2 : Graph画面 （温度、湿度、土壌水分量）
 
 <Graph画面>
 各センサの測定値をおしゃれなグラフで観測できる
@@ -47,7 +47,7 @@ IoT機器を植物のそばに置き、離れた場所からでもiPhoneで植�
 
 ![Graphs(温度、湿度、土壌水分量)](https://github.com/yumi050/pifruits/blob/master/GardeningPi_2.gif)
 
-## Movie_3 : Graph画面(UV) & カメラ画面
+## Movie_3 : Graph画面 （UV） & カメラ画面
 
 <カメラ画面>
 タイムラプス動画で成長記録がみられる
