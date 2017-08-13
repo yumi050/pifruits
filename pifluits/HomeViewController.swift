@@ -50,15 +50,19 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
     var gotUVIndexData = false
     var gotTemperatureData = false
     var gotHumidityData = false
-    
+    var storage:Storage? = nil
+  
     override func viewDidLoad() {
         super.viewDidLoad()
       
       //ストレージ サービスへの参照を取得
-      let storage = Storage.storage()
+      
       //URLを取得し、imageのURLを参照
       if let imageURL = getImageUrl() {
-        let storageRef = storage.reference(forURL: imageURL)
+        //ストレージ サービスへの参照を取得
+        //gs://pifruits-5d32b.appspot.com/images/image.jpg
+        storage = Storage.storage(url:getStorageUrl()!)
+        let storageRef = storage!.reference(forURL: imageURL)
         
         //Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
@@ -296,6 +300,14 @@ class HomeViewController: UIViewController, WeatherDataManagerProtocol {
       return configurations?.object(forKey: "IMAGE_STORAGE_URL") as? String
     }
   
+  private func getStorageUrl() -> String? {
+    guard let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") else {
+      return nil
+    }
+    
+    let configurations = NSDictionary(contentsOfFile: path)
+    return configurations?.object(forKey: "STORAGE_URL") as? String
+  }
   
     /*
      // MARK: - Navigation
