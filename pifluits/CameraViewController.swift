@@ -21,6 +21,7 @@ class CameraViewController: UIViewController {
   //動画再生用
   let avPlayerViewController = AVPlayerViewController()
   var avPlayer: AVPlayer?
+  var storage:Storage? = nil
   
 
     override func viewDidLoad() {
@@ -30,10 +31,11 @@ class CameraViewController: UIViewController {
       NVActivityIndicatorPresenter.sharedInstance.startAnimating(ActivityData())
       
       //ストレージ サービスへの参照を取得
-      let storage = Storage.storage()
+//      let storage = Storage.storage()
       //URLを取得し、imageのURLを参照
       if let imageURL = getImageUrl() {
-        let storageRef = storage.reference(forURL: imageURL)
+        storage = Storage.storage(url:getStorageUrl()!)
+        let storageRef = storage!.reference(forURL: imageURL)
         
         //Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
         storageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) -> Void in
@@ -61,6 +63,7 @@ class CameraViewController: UIViewController {
       
       //Firebase上のdownloadURLをvideoUrlにセットし、movieUrlに渡す
       let videoUrl = getVideoUrl()
+      
       let movieUrl: URL? = URL(string: videoUrl!)
       //movieUrlに値があれば、AVPlayerにurlを渡し、プレイヤーを設定する
       if let url = movieUrl {
@@ -113,6 +116,18 @@ class CameraViewController: UIViewController {
     let configurations = NSDictionary(contentsOfFile: path)
     return configurations?.object(forKey: "VIDEO_STORAGE_URL") as? String
   }
+  
+  private func getStorageUrl() -> String? {
+    guard let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") else {
+      return nil
+    }
+    
+    let configurations = NSDictionary(contentsOfFile: path)
+    return configurations?.object(forKey: "STORAGE_URL") as? String
+  }
+
+  
+  
   
 //  @IBAction func cameraButton(_ sender: Any) {
 //    gradientBackground()

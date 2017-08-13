@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */; };
 		183727981EEBD47B00F3CF58 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183727971EEBD47B00F3CF58 /* FirebaseManager.swift */; };
 		A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		DE0386921F00010E0073EA75 /* KN-blooming_01-pink-02.png in Resources */ = {isa = PBXBuildFile; fileRef = DE0386911F00010E0073EA75 /* KN-blooming_01-pink-02.png */; };
@@ -82,11 +81,12 @@
 		DED9AFE11ECAFFF600601606 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE01ECAFFF600601606 /* ChatViewController.swift */; };
 		DED9AFE31ECB000600601606 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE21ECB000600601606 /* GraphViewController.swift */; };
 		DED9AFE51ECB002800601606 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED9AFE41ECB002800601606 /* CameraViewController.swift */; };
+		DEEE83EF1F40301F00659DE8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEEE83EE1F40301F00659DE8 /* GoogleService-Info.plist */; };
+		DEEE83F11F40443200659DE8 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEEE83F01F40443200659DE8 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		003A963B03621A266672C7E7 /* Pods-pifluits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.debug.xcconfig"; sourceTree = "<group>"; };
-		183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		183727971EEBD47B00F3CF58 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pifluits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C72E6FF53CF18378169418E5 /* Pods-pifluits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pifluits.release.xcconfig"; path = "Pods/Target Support Files/Pods-pifluits/Pods-pifluits.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +164,8 @@
 		DED9AFE01ECAFFF600601606 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DED9AFE21ECB000600601606 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		DED9AFE41ECB002800601606 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		DEEE83EE1F40301F00659DE8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DEEE83F01F40443200659DE8 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEEE83F11F40443200659DE8 /* iAd.framework in Frameworks */,
 				DE0386AB1F00FBA40073EA75 /* AVFoundation.framework in Frameworks */,
 				DE0386AC1F00FBA40073EA75 /* AVKit.framework in Frameworks */,
 				A5F8875FFBE167A7C5E8AABA /* Pods_pifluits.framework in Frameworks */,
@@ -183,6 +186,7 @@
 		02DC3752818033299DCB9EF6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DEEE83F01F40443200659DE8 /* iAd.framework */,
 				DE0386A91F00FBA40073EA75 /* AVFoundation.framework */,
 				DE0386AA1F00FBA40073EA75 /* AVKit.framework */,
 				A361BD711258C304A5FEBD3C /* Pods_pifluits.framework */,
@@ -220,6 +224,7 @@
 		DEB790D91EC7F12F004FE1DA /* pifluits */ = {
 			isa = PBXGroup;
 			children = (
+				DEEE83EE1F40301F00659DE8 /* GoogleService-Info.plist */,
 				DEB790DA1EC7F12F004FE1DA /* AppDelegate.swift */,
 				DEB790DC1EC7F12F004FE1DA /* ViewController.swift */,
 				DEB790F31EC851FB004FE1DA /* LoginViewController.swift */,
@@ -233,7 +238,6 @@
 				DEB790DE1EC7F12F004FE1DA /* Main.storyboard */,
 				DEB790E41EC7F12F004FE1DA /* Assets.xcassets */,
 				DEB790E61EC7F12F004FE1DA /* LaunchScreen.storyboard */,
-				183727951EEBB9B500F3CF58 /* GoogleService-Info.plist */,
 				DEB790E91EC7F12F004FE1DA /* Info.plist */,
 				DEB790E11EC7F12F004FE1DA /* pifluits.xcdatamodeld */,
 				DE248F941ED9585E00F7DB87 /* WeatherViewController.swift */,
@@ -387,6 +391,7 @@
 				DE79BF8F1EF1177700CAA40D /* cloudy-3.png in Resources */,
 				DE0386A41F0013D70073EA75 /* frame1_top2.png in Resources */,
 				DE36250C1EF411D60008D843 /* mercury-thermometer.png in Resources */,
+				DEEE83EF1F40301F00659DE8 /* GoogleService-Info.plist in Resources */,
 				DEB790E51EC7F12F004FE1DA /* Assets.xcassets in Resources */,
 				DE2E48D71EFE99040028A9D1 /* strawberry1.jpg in Resources */,
 				DE2E48E91EFFED180028A9D1 /* sun.png in Resources */,
@@ -408,7 +413,6 @@
 				DE0386A51F0013D70073EA75 /* frame1_top3.png in Resources */,
 				DE0386941F0004BF0073EA75 /* bubble_green.png in Resources */,
 				DE0386921F00010E0073EA75 /* KN-blooming_01-pink-02.png in Resources */,
-				183727961EEBB9B500F3CF58 /* GoogleService-Info.plist in Resources */,
 				DE0386A31F0013D70073EA75 /* frame1_top.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
